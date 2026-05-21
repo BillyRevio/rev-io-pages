@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rev.io Paid Media Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1D3756;
+    --teal: #2399B5;
+    --green: #6EBE4F;
+    --bg: #F0F2F5;
+    --card: #FFFFFF;
+    --meta-blue: #1877F2;
+    --li-blue: #0A66C2;
+    --muted: #64748B;
+    --border: #E2E8F0;
+    --text: #1E293B;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ── Gradient stripe ─────────────────────────── */
+  .top-stripe {
+    height: 4px;
+    background: linear-gradient(90deg, var(--teal), var(--green));
+  }
+
+  /* ── Nav ─────────────────────────────────────── */
+  nav {
+    background: var(--navy);
+    padding: 0 32px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo img { height: 32px; object-fit: contain; }
+  .nav-logo-text { color: #fff; font-weight: 800; font-size: 18px; letter-spacing: -0.3px; }
+
+  .nav-badge {
+    background: rgba(35,153,181,0.25);
+    border: 1px solid rgba(35,153,181,0.5);
+    color: var(--teal);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .nav-right { color: rgba(255,255,255,0.55); font-size: 12px; white-space: nowrap; }
+
+  /* ── Container ───────────────────────────────── */
+  .container { max-width: 1400px; margin: 0 auto; padding: 28px 32px; }
+
+  /* ── Section headers ─────────────────────────── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .section-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Date range buttons ──────────────────────── */
+  .date-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .date-btn {
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: var(--card);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .date-btn.active, .date-btn:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    background: rgba(35,153,181,0.07);
+  }
+
+  /* ── KPI Strip ───────────────────────────────── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .kpi-card {
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    position: relative;
+  }
+
+  .kpi-stripe {
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--green));
+  }
+
+  .kpi-inner { padding: 18px 20px 16px; }
+
+  .kpi-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .kpi-value {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .kpi-sub { font-size: 11px; color: var(--muted); }
+
+  /* ── Platform Breakdown ──────────────────────── */
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .plat-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px 22px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+
+  .plat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .plat-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 900;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .plat-icon.meta { background: var(--meta-blue); }
+  .plat-icon.li   { background: var(--li-blue); }
+  .plat-icon.google { background: #EA4335; }
+
+  .plat-name { font-size: 15px; font-weight: 800; color: var(--navy); }
+  .plat-sub  { font-size: 11px; color: var(--muted); }
+
+  .plat-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .plat-stat-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  .plat-stat-val   { font-size: 18px; font-weight: 800; color: var(--navy); }
+
+  .plat-bar-bg {
+    height: 6px;
+    background: #EEF0F4;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 6px;
+  }
+  .plat-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--green));
+    transition: width 0.5s ease;
+  }
+
+  .plat-share-label {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .no-data-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #F8FAFC;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  /* ── Creative Gallery ────────────────────────── */
+  .gallery-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .filter-chips { display: flex; gap: 6px; }
+
+  .chip {
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: var(--card);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+
+  .chip.active {
+    border-color: var(--teal);
+    background: var(--teal);
+    color: #fff;
+  }
+
+  .chip:hover:not(.active) {
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
+  .sort-select {
+    margin-left: auto;
+    padding: 6px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 12px;
+    color: var(--text);
+    background: var(--card);
+    cursor: pointer;
+    outline: none;
+  }
+
+  .creative-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
+
+  /* ── Creative Card ───────────────────────────── */
+  .cr-card {
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cr-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
+
+  /* Thumbnail */
+  .cr-thumb-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.91;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #EEF0F4;
+  }
+
+  .cr-thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .cr-thumb-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .cr-thumb-placeholder.meta-ph   { background: linear-gradient(135deg, #1877F2, #0c5dc7); }
+  .cr-thumb-placeholder.li-ph     { background: linear-gradient(135deg, #0A66C2, #054a8f); }
+
+  /* Pills overlay */
+  .cr-pills {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.3px;
+  }
+
+  .pill-meta   { background: var(--meta-blue); color: #fff; }
+  .pill-li     { background: var(--li-blue); color: #fff; }
+  .pill-active { background: rgba(110,190,79,0.9); color: #fff; }
+
+  /* Body */
+  .cr-body { padding: 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+
+  .cr-headline {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+  }
+
+  .cr-copy {
+    font-size: 11px;
+    color: var(--muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .cr-cta {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--teal);
+    background: rgba(35,153,181,0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    align-self: flex-start;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Stats row */
+  .cr-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-top: 1px solid var(--border);
+    padding: 10px 14px;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .cr-stat { text-align: center; }
+  .cr-stat-val  { font-size: 12px; font-weight: 700; color: var(--navy); }
+  .cr-stat-label { font-size: 10px; color: var(--muted); }
+
+  /* Campaign tag */
+  .cr-campaign {
+    padding: 0 14px 12px;
+    font-size: 10px;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ── Performance Table ───────────────────────── */
+  .table-wrap {
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  .table-header {
+    padding: 18px 22px 14px;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--navy);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead th {
+    padding: 10px 14px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--muted);
+    text-align: left;
+    background: #FAFBFC;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #F7FBFF; }
+
+  tbody td {
+    padding: 12px 14px;
+    font-size: 12px;
+    color: var(--text);
+    vertical-align: middle;
+  }
+
+  .td-thumb {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .td-thumb img { width: 40px; height: 40px; object-fit: cover; display: block; }
+  .td-thumb-ph  { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; font-weight: 900; border-radius: 6px; }
+  .td-thumb-ph.meta-ph { background: var(--meta-blue); }
+  .td-thumb-ph.li-ph   { background: var(--li-blue); }
+
+  .td-name    { font-weight: 600; color: var(--navy); max-width: 200px; }
+  .td-name small { display: block; font-weight: 400; color: var(--muted); font-size: 11px; }
+
+  .td-platform { font-weight: 700; }
+  .td-platform.meta { color: var(--meta-blue); }
+  .td-platform.li   { color: var(--li-blue); }
+
+  .td-num { text-align: right; font-variant-numeric: tabular-nums; }
+  .td-spend { font-weight: 700; color: var(--navy); }
+
+  /* ── Footer ──────────────────────────────────── */
+  footer {
+    text-align: center;
+    padding: 20px 32px 32px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* ── Ads Manager link on card ──────────────────── */
+  .cr-footer {
+    padding: 0 14px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cr-campaign-tag {
+    font-size: 10px;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 65%;
+  }
+  .cr-open-link {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--teal);
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .cr-open-link:hover { text-decoration: underline; }
+
+  /* ── Lightbox ────────────────────────────────── */
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.82);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+  .lightbox-overlay.open { display: flex; }
+  .lightbox-img {
+    max-width: 90vw;
+    max-height: 88vh;
+    border-radius: 12px;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+    object-fit: contain;
+    cursor: default;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    color: #fff;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    background: rgba(255,255,255,0.12);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.22); }
+  .cr-thumb-wrap img { cursor: zoom-in; }
+
+  /* ── Empty state ─────────────────────────────── */
+  .empty-state {
+    grid-column: 1 / -1;
+    padding: 48px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  /* ── Responsive ──────────────────────────────── */
+  @media (max-width: 1100px) {
+    .creative-grid { grid-template-columns: repeat(3, 1fr); }
+    .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 760px) {
+    .creative-grid { grid-template-columns: repeat(2, 1fr); }
+    .platform-grid { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .container { padding: 16px; }
+  }
+</style>
+<script>window.__ADS_DATA__ = {"generatedAt":"2026-05-21T15:32:26.669Z","dateRange":"YTD 2026","meta":{"accountId":"act_3894120417539671","activeCampaigns":[{"id":"120222561949200460","name":"Lead Generation","status":"ACTIVE","objective":"OUTCOME_LEADS"}],"ads":[{"id":"120230932389480460","name":"Alarm - Ops Software - Ad1 - Copy","campaignId":"120222561949200460","campaignName":"Lead Generation","objective":"OUTCOME_LEADS","thumbnailUrl":"data:image/jpeg;base64,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","headline":"Get your FREE demo today | Rev.io","adCopy":"Running an alarm or security business?\n\nThere’s a better way to manage installs, projects, and field teams — without drowning in admin work.\n\n✅ Strea…","ctaLabel":"LEARN MORE","spend":2063.68,"clicks":372,"impressions":24430,"ctr":1.522718,"cpc":5.547527,"deepLink":"https://adsmanager.facebook.com/adsmanager/manage/ads?act=3894120417539671&selected_ad_ids=120230932389480460"},{"id":"120245382691460460","name":"Clay - Alarm - Easy Way - Ad2","campaignId":"120222561949200460","campaignName":"Lead Generation","objective":"OUTCOME_LEADS","thumbnailUrl":"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/7QCEUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAGgcAigAYkZCTUQwYTAwMGE4MjAxMDAwMGQ0MDEwMDAwNGEwMjAwMDA2YTAyMDAwMDg0MDIwMDAwZmUwMjAwMDBmNDAzMDAwMDBlMDQwMDAwM2UwNDAwMDA1OTA0MDAwMDZlMDUwMDAwAP/bAIQABgcHDQkNDAwMDBENDg0REREQEBERExASERIQExMUExUVExQTFBMXFxcTFBUXGRkXFRccGxwXGxkZGx4bHhsbFgEGBgYLCAsKCwsKDQkLCQ0MDAoKDAwPCwwLDAsPEA4NDg4NDhAODQ0KDQ0ODw4QEA4PEAwODBAPEBAPFxkXFxfB/8IAEQgAQABAAwEiAAIRAQMRAf/EAE0AAAEFAQEAAAAAAAAAAAAAAAABAgMEBQcGEAABAgQCBwcDBAMAAAAAAAABABECITFBEFEDYXGBkaHwEhMgscHR4QQyMxQiQvFSYpL/2gAMAwEAAgADAAAAAfGzN1LdXGNZwY5o1FIQFSfbwdhGPVKAaWdnKkg5sr0qULpBLWi0PeMdzM9pthzB/U0DnDHxPbPp5jI3XLmJoqXFz5lT/9oACAEBAAEFAkYG8cAc9zAotFCB3UCi0Y7PYix0ZaIaWFDTBu9hQ0wUWmIKChke90a77RLSxwnwxUEJK7uJMUxTFMUxUdIIZLTdnRg/UwqCGGOHu4UdHAo6aPCP6qKJHSqH6rSBfrdKv1ukUdNHhEggUV2nX//aAAgBAwABPwFkybCLSGH+JKGmP+JT4QU8EFMAi+Tr/9oACAECAAE/ASV2k+HZddhdnDSV8EdcRtX/2gAIAQEABj8CVuPjHoh93C3BfyfY3pmv5f8APWpOO08rfCoeGIK/JFrl8KcZf+/9di/JFUn7Rdfli4fAX7YpYzX2L8a/bC3hKrhVVVVVfcUVuwfsBfih5eyEXYhmvsHBfaOCK3YDtMdylCN4+UwAbYrcF8I4jZ4LL//aAAgBAQABPyEByyKDvuAfGAIuQTO7dI+SBK5zOewlxNdvNkRTJlHzMM6M2TIuSJ1DSFwCTY05HKCAFwCTTrNl3afuiL3mLtEgAiYqOLqWcD0Mm4Y5SWryJsVuEwbmNdeZeq/tASE0y6CkCwxs7OblytxzU4UgALAFiA4oJONmAIwAg4ugyL88EDzPU8Aq4GxAmpinr+UQ3PH5Wv8AFa/xWt8VrfFC8Ln64YgAtVGCZHblqAW2IH3kCIIg7EDzZB4g7dnshhR3TXdhqBNvkigoACvV1NZr0UQOAAUFqIkibTdhxyo7BHUvKKtZAKMydkTAsA2Biv/aAAwDAQACAAMAAAAQvDIefUTUKBLf+iFY/9oACAEDAAE/EA5P6KOAowkXcUfKV0SQK15y12x+YuqLqy6ovMT83XEmGbWTZvdf/9oACAECAAE/EGP6TNfBB2Db8YLyPB5SfDcL/9oACAEBAAE/EG5wDyclhvKew0nm3AHxUQ1xABM3mN5eQG2eBm5FEmHsL1Qcgpcedy52uijMRr7CjwWwJRZGZJoRDzADlkRxQmqlAJKxZOsAAC2RE6J2xqbkgE1VkGZku9lMwZjUDpS+1LKIC5PnXIOIhsC3gqA72QyOyoGVxN2EyM7jYmYXXMruwOVotZvVgCqTI8sEBTMWPYjsTJV0D3XQPddQ911D3RgLhlPmXl/VHkJmCWvzmg4K19UGcnM+q/AU0tQlVyelMQANrQx1Rw0NF65f1XSF3XwpCL62UuIWEOUtkPWDdfgKS6wHvKodW9GXSOiq5f1T5O0G1J1Rixt6r6MlQ3qUARrMwhGcALo5sov/2Q==","headline":"Get your FREE demo today | Rev.io","adCopy":"Running an alarm or security business?\n\nDiscover the #1 platform business owners trust to streamline ticketing, dispatching & scheduling field techni…","ctaLabel":"LEARN MORE","spend":1312.36,"clicks":169,"impressions":19058,"ctr":0.886767,"cpc":7.765444,"deepLink":"https://adsmanager.facebook.com/adsmanager/manage/ads?act=3894120417539671&selected_ad_ids=120245382691460460"},{"id":"120250099079150460","name":"Alarm - Happy Customers - Ad1 - Copy 2","campaignId":"120222561949200460","campaignName":"Lead Generation","objective":"OUTCOME_LEADS","thumbnailUrl":"data:image/jpeg;base64,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","headline":"Get your FREE demo today | Rev.io","adCopy":"Running an alarm or security business?\n\nThere’s a better way to manage installs, projects, and field teams — without drowning in admin work.\n\n✅ Strea…","ctaLabel":"LEARN MORE","spend":1264.72,"clicks":196,"impressions":22236,"ctr":0.881454,"cpc":6.452653,"deepLink":"https://adsmanager.facebook.com/adsmanager/manage/ads?act=3894120417539671&selected_ad_ids=120250099079150460"},{"id":"120250583456640460","name":"Alarm - Ops Software - Ad1 - Copy","campaignId":"120222561949200460","campaignName":"Lead Generation","objective":"OUTCOME_LEADS","thumbnailUrl":"data:image/jpeg;base64,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","headline":"Get your FREE demo today | Rev.io","adCopy":"Running an alarm or security business?\n\nThere’s a better way to manage installs, projects, and field teams — without drowning in admin work.\n\n✅ Strea…","ctaLabel":"LEARN MORE","spend":414.52,"clicks":67,"impressions":7124,"ctr":0.940483,"cpc":6.186866,"deepLink":"https://adsmanager.facebook.com/adsmanager/manage/ads?act=3894120417539671&selected_ad_ids=120250583456640460"},{"id":"120245270071510460","name":"Clay - Alarm - More Installs Man - Ad2","campaignId":"120222561949200460","campaignName":"Lead Generation","objective":"OUTCOME_LEADS","thumbnailUrl":"data:image/jpeg;base64,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","headline":"Get your FREE demo today | Rev.io","adCopy":"Running an alarm or security business?\n\nDiscover the #1 platform business owners trust to streamline multi-phase projects, dispatch & schedule field …","ctaLabel":"LEARN MORE","spend":317.86,"clicks":39,"impressions":4317,"ctr":0.903405,"cpc":8.150256,"deepLink":"https://adsmanager.facebook.com/adsmanager/manage/ads?act=3894120417539671&selected_ad_ids=120245270071510460"},{"id":"120245382691470460","name":"Clay - Alarm - Software for Growing Security Integrators - Ad 2","campaignId":"120222561949200460","campaignName":"Lead Generation","objective":"OUTCOME_LEADS","thumbnailUrl":"data:image/jpeg;base64,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","headline":"Get your FREE demo today | Rev.io","adCopy":"For many security integrators, tool sprawl isn't just a workflow issue, it's a profitability issue.\nWhen project tools, billing, time tracking, and d…","ctaLabel":"LEARN MORE","spend":214.13,"clicks":32,"impressions":2432,"ctr":1.315789,"cpc":6.691563,"deepLink":"https://adsmanager.facebook.com/adsmanager/manage/ads?act=3894120417539671&selected_ad_ids=120245382691470460"},{"id":"120230932389490460","name":"Alarm - Happy Customers - Ad1 - Copy","campaignId":"120222561949200460","campaignName":"Lead Generation","objective":"OUTCOME_LEADS","thumbnailUrl":"data:image/jpeg;base64,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","headline":"Get your FREE demo today | Rev.io","adCopy":"Running an alarm or security business?\n\nThere’s a better way to manage installs, projects, and field teams — without drowning in admin work.\n\n✅ Strea…","ctaLabel":"LEARN MORE","spend":108,"clicks":14,"impressions":338,"ctr":4.142012,"cpc":7.714286,"deepLink":"https://adsmanager.facebook.com/adsmanager/manage/ads?act=3894120417539671&selected_ad_ids=120230932389490460"},{"id":"120250583456630460","name":"Alarm - Happy Customers - Ad1 - Copy","campaignId":"120222561949200460","campaignName":"Lead Generation","objective":"OUTCOME_LEADS","thumbnailUrl":"data:image/jpeg;base64,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","headline":"Get your FREE demo today | Rev.io","adCopy":"Running an alarm or security business?\n\nThere’s a better way to manage installs, projects, and field teams — without drowning in admin work.\n\n✅ Strea…","ctaLabel":"LEARN MORE","spend":45.24,"clicks":12,"impressions":573,"ctr":2.094241,"cpc":3.77,"deepLink":"https://adsmanager.facebook.com/adsmanager/manage/ads?act=3894120417539671&selected_ad_ids=120250583456630460"}],"totals":{"spend":5740.51,"clicks":901,"impressions":80508,"ctr":1.119,"cpc":6.37}},"linkedin":{"accountId":"514207537","activeCampaigns":[{"name":"Retargeting - General MSPs - Static Image - Lead Gen Form","id":583233164,"objectiveType":"LEAD_GENERATION","status":"ACTIVE"},{"name":"General MSP - Static Image + Thought Leader Ad - Small+ Medium - Engagement Objective","id":697300484,"objectiveType":"ENGAGEMENT","status":"ACTIVE"},{"name":"Small  + Medium MSPs - Static Image - Lead Gen Form","id":698100614,"objectiveType":"LEAD_GENERATION","status":"ACTIVE"},{"name":"Small  + Medium MSPs - Static Image - Lead Gen Form","id":698300534,"objectiveType":"LEAD_GENERATION","status":"ACTIVE"},{"name":"General MSP - Document Ad - Small + Medium - Website Conversion","id":698712454,"objectiveType":"WEBSITE_CONVERSION","status":"ACTIVE"},{"name":"General MSP - Video - Small + Medium - Video Views","id":699200514,"objectiveType":"VIDEO_VIEW","status":"ACTIVE"}],"creatives":[],"totals":{"spend":0,"clicks":0,"impressions":0,"ctr":0,"cpc":0}}};</script>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<nav>
+  <div class="nav-logo">
+    <img src="../assets/logo-revio-color.png" alt="Rev.io" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-text" style="display:none">Rev.io</span>
+  </div>
+  <span class="nav-badge">Paid Media Dashboard</span>
+  <span class="nav-right" id="nav-timestamp">—</span>
+</nav>
+
+<div class="container">
+
+  <!-- Date Range -->
+  <div class="date-bar">
+    <button class="date-btn active" onclick="setDateRange('ytd', this)">YTD 2026</button>
+    <button class="date-btn" onclick="setDateRange('30d', this)">Last 30D</button>
+    <button class="date-btn" onclick="setDateRange('90d', this)">Last 90D</button>
+  </div>
+
+  <!-- KPI Strip -->
+  <div class="kpi-grid" id="kpi-grid">
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Total Spend</div><div class="kpi-value" id="kpi-spend">—</div><div class="kpi-sub">YTD 2026</div></div></div>
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Impressions</div><div class="kpi-value" id="kpi-impr">—</div><div class="kpi-sub">YTD 2026</div></div></div>
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Clicks</div><div class="kpi-value" id="kpi-clicks">—</div><div class="kpi-sub">YTD 2026</div></div></div>
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Avg CTR</div><div class="kpi-value" id="kpi-ctr">—</div><div class="kpi-sub">All active ads</div></div></div>
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Avg CPC</div><div class="kpi-value" id="kpi-cpc">—</div><div class="kpi-sub">All active ads</div></div></div>
+  </div>
+
+  <!-- Platform Breakdown -->
+  <div class="section-header">
+    <div class="section-title">Platform Breakdown</div>
+  </div>
+  <div class="platform-grid" id="platform-grid">
+    <!-- injected -->
+  </div>
+
+  <!-- Creative Gallery -->
+  <div class="section-header">
+    <div class="section-title">Active Ad Creatives</div>
+    <div class="gallery-controls">
+      <div class="filter-chips">
+        <button class="chip active" onclick="filterCreatives('all', this)">All</button>
+        <button class="chip" onclick="filterCreatives('meta', this)">Meta</button>
+        <button class="chip" onclick="filterCreatives('linkedin', this)">LinkedIn</button>
+      </div>
+      <select class="sort-select" id="sort-select" onchange="renderCreatives()">
+        <option value="spend">Spend ↓</option>
+        <option value="ctr">CTR ↓</option>
+        <option value="clicks">Clicks ↓</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="creative-grid" id="creative-grid">
+    <!-- injected -->
+  </div>
+
+  <!-- Performance Table -->
+  <div class="table-wrap">
+    <div class="table-header">Top Active Ads by Spend</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:48px"></th>
+          <th>Ad Name</th>
+          <th>Platform</th>
+          <th>Campaign</th>
+          <th class="td-num">Spend</th>
+          <th class="td-num">Impressions</th>
+          <th class="td-num">Clicks</th>
+          <th class="td-num">CTR</th>
+          <th class="td-num">CPC</th>
+        </tr>
+      </thead>
+      <tbody id="perf-table-body">
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<footer id="footer-note">Live data via Meta Graph API + LinkedIn Marketing API · Active ads only</footer>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" title="Close">&times;</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="Ad creative enlarged" onclick="event.stopPropagation()">
+</div>
+
+<script>
+// ─── State ────────────────────────────────────────────────────────────────────
+let _data = null;
+let _filter = 'all';
+let _dateRange = 'ytd';
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+async function init() {
+  // Check for injected data first (from render script)
+  if (window.__ADS_DATA__) {
+    _data = window.__ADS_DATA__;
+  } else {
+    try {
+      const r = await fetch('./paid-ads-data.json');
+      _data = await r.json();
+    } catch (e) {
+      console.warn('Could not load paid-ads-data.json, using placeholder data');
+      _data = getPlaceholderData();
+    }
+  }
+  render();
+}
+
+function render() {
+  renderTimestamp();
+  renderKPIs();
+  renderPlatformCards();
+  renderCreatives();
+  renderTable();
+}
+
+// ─── Timestamp ───────────────────────────────────────────────────────────────
+function renderTimestamp() {
+  const ts = _data.generatedAt ? new Date(_data.generatedAt).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York', timeZoneName: 'short' }) : 'Unknown';
+  document.getElementById('nav-timestamp').textContent = 'Last refreshed: ' + ts;
+  document.getElementById('footer-note').textContent =
+    'Live data via Meta Graph API + LinkedIn Marketing API · Active ads only · Refreshed ' + ts;
+}
+
+// ─── Date range filter ────────────────────────────────────────────────────────
+function setDateRange(range, btn) {
+  _dateRange = range;
+  document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Note: actual date filtering would require per-day breakdowns — for YTD data
+  // we show the stored figures regardless of selected range, with a note for non-YTD.
+  render();
+}
+
+// ─── KPIs ─────────────────────────────────────────────────────────────────────
+function renderKPIs() {
+  const m = _data.meta?.totals   || {};
+  const l = _data.linkedin?.totals || {};
+
+  const spend  = (m.spend || 0) + (l.spend || 0);
+  const impr   = (m.impressions || 0) + (l.impressions || 0);
+  const clicks = (m.clicks || 0) + (l.clicks || 0);
+  const ctr    = impr ? (clicks / impr * 100) : 0;
+  const cpc    = clicks ? (spend / clicks) : 0;
+
+  document.getElementById('kpi-spend').textContent  = '$' + fmtMoney(spend);
+  document.getElementById('kpi-impr').textContent   = fmtNum(impr);
+  document.getElementById('kpi-clicks').textContent = fmtNum(clicks);
+  document.getElementById('kpi-ctr').textContent    = ctr.toFixed(2) + '%';
+  document.getElementById('kpi-cpc').textContent    = '$' + cpc.toFixed(2);
+}
+
+// ─── Platform Cards ───────────────────────────────────────────────────────────
+function renderPlatformCards() {
+  const m = _data.meta?.totals    || {};
+  const l = _data.linkedin?.totals || {};
+  const totalSpend = (m.spend || 0) + (l.spend || 0);
+
+  const mSpend = m.spend || 0;
+  const lSpend = l.spend || 0;
+  const mPct   = totalSpend ? (mSpend / totalSpend * 100) : 0;
+  const lPct   = totalSpend ? (lSpend / totalSpend * 100) : 0;
+
+  const mAds = _data.meta?.ads?.length || 0;
+  const lCrs = _data.linkedin?.creatives?.length || 0;
+
+  const grid = document.getElementById('platform-grid');
+  grid.innerHTML = `
+    ${renderPlatCard('meta', 'Meta', 'f', mSpend, m.clicks||0, m.ctr||0, mPct, mAds + ' active ads')}
+    ${renderPlatCard('li',   'LinkedIn', 'in', lSpend, l.clicks||0, l.ctr||0, lPct, lCrs + ' active creatives')}
+    ${renderGoogleCard()}
+  `;
+}
+
+function renderPlatCard(cls, name, icon, spend, clicks, ctr, pct, sub) {
+  const inactive = spend === 0 && clicks === 0;
+  return `
+  <div class="plat-card">
+    <div class="plat-header">
+      <div class="plat-icon ${cls}">${icon.toUpperCase()}</div>
+      <div>
+        <div class="plat-name">${name}</div>
+        <div class="plat-sub">${sub}</div>
+      </div>
+    </div>
+    ${inactive ? `
+      <span class="no-data-badge">⚪ No active campaign data</span>
+    ` : `
+    <div class="plat-stats">
+      <div>
+        <div class="plat-stat-label">Spend</div>
+        <div class="plat-stat-val">$${fmtMoney(spend)}</div>
+      </div>
+      <div>
+        <div class="plat-stat-label">Clicks</div>
+        <div class="plat-stat-val">${fmtNum(clicks)}</div>
+      </div>
+      <div>
+        <div class="plat-stat-label">CTR</div>
+        <div class="plat-stat-val">${(ctr||0).toFixed(2)}%</div>
+      </div>
+      <div>
+        <div class="plat-stat-label">Share of Spend</div>
+        <div class="plat-stat-val">${pct.toFixed(0)}%</div>
+      </div>
+    </div>
+    <div class="plat-bar-bg">
+      <div class="plat-bar-fill" style="width:${pct}%"></div>
+    </div>
+    <div class="plat-share-label">${pct.toFixed(1)}% of total YTD spend</div>
+    `}
+  </div>`;
+}
+
+function renderGoogleCard() {
+  return `
+  <div class="plat-card">
+    <div class="plat-header">
+      <div class="plat-icon google">G</div>
+      <div>
+        <div class="plat-name">Google Ads</div>
+        <div class="plat-sub">Search &amp; Display</div>
+      </div>
+    </div>
+    <span class="no-data-badge">⚪ No active campaigns</span>
+  </div>`;
+}
+
+// ─── Creative Gallery ─────────────────────────────────────────────────────────
+function filterCreatives(f, btn) {
+  _filter = f;
+  document.querySelectorAll('.chip').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCreatives();
+}
+
+function getAllCreatives() {
+  const metaAds = (_data.meta?.ads || []).map(a => ({ ...a, platform: 'meta' }));
+  const liCrs   = (_data.linkedin?.creatives || []).map(c => ({ ...c, platform: 'linkedin' }));
+  return [...metaAds, ...liCrs];
+}
+
+function renderCreatives() {
+  const sortBy = document.getElementById('sort-select').value;
+  let items = getAllCreatives();
+
+  if (_filter === 'meta')     items = items.filter(i => i.platform === 'meta');
+  if (_filter === 'linkedin') items = items.filter(i => i.platform === 'linkedin');
+
+  items.sort((a, b) => (b[sortBy] || 0) - (a[sortBy] || 0));
+
+  const grid = document.getElementById('creative-grid');
+  if (!items.length) {
+    grid.innerHTML = `<div class="empty-state">No active creatives for this filter.</div>`;
+    return;
+  }
+
+  grid.innerHTML = items.map(renderCreativeCard).join('');
+}
+
+function renderCreativeCard(item) {
+  const isMeta = item.platform === 'meta';
+  const pillCls = isMeta ? 'pill-meta' : 'pill-li';
+  const platLabel = isMeta ? 'Meta' : 'LinkedIn';
+
+  const thumb = item.thumbnailUrl
+    ? `<img src="${escHtml(item.thumbnailUrl)}" alt="Ad creative" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+    : '';
+  const phCls = isMeta ? 'meta-ph' : 'li-ph';
+  const phLabel = isMeta ? 'f' : 'in';
+  const phDisplay = item.thumbnailUrl ? 'display:none' : '';
+
+  const headline = item.headline || item.name || 'Ad Creative';
+  const body     = item.adCopy || '';
+  const cta      = item.ctaLabel ? `<span class="cr-cta">${escHtml(item.ctaLabel)}</span>` : '';
+
+  const spend  = item.spend  || 0;
+  const ctr    = item.ctr    || 0;
+  const cpc    = item.cpc    || 0;
+  const clicks = item.clicks || 0;
+
+  return `
+  <div class="cr-card">
+    <div class="cr-thumb-wrap">
+      ${item.thumbnailUrl ? `<img src="${escHtml(item.thumbnailUrl)}" alt="Ad creative" onclick="openLightbox('${escHtml(item.thumbnailUrl)}', event)" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+      <div class="cr-thumb-placeholder ${phCls}" style="${phDisplay}; font-size:24px; font-weight:900">${phLabel.toUpperCase()}</div>
+      <div class="cr-pills">
+        <span class="pill ${pillCls}">${platLabel}</span>
+        <span class="pill pill-active">● Active</span>
+      </div>
+    </div>
+    <div class="cr-body">
+      <div class="cr-headline">${escHtml(headline)}</div>
+      ${body ? `<div class="cr-copy">${escHtml(body)}</div>` : ''}
+      ${cta}
+    </div>
+    <div class="cr-stats">
+      <div class="cr-stat">
+        <div class="cr-stat-val">$${fmtMoney(spend)}</div>
+        <div class="cr-stat-label">Spend</div>
+      </div>
+      <div class="cr-stat">
+        <div class="cr-stat-val">${ctr.toFixed(2)}%</div>
+        <div class="cr-stat-label">CTR</div>
+      </div>
+      <div class="cr-stat">
+        <div class="cr-stat-val">${spend > 0 && clicks > 0 ? '$' + cpc.toFixed(2) : '—'}</div>
+        <div class="cr-stat-label">CPC</div>
+      </div>
+    </div>
+    <div class="cr-footer">
+      <div class="cr-campaign-tag">📁 ${escHtml(item.campaignName || '')}</div>
+      ${item.deepLink ? `<a class="cr-open-link" href="${escHtml(item.deepLink)}" target="_blank" onclick="event.stopPropagation()">Open in Ads Manager ↗</a>` : ''}
+    </div>
+  </div>`;
+}
+
+// ─── Performance Table ────────────────────────────────────────────────────────
+function renderTable() {
+  const items = getAllCreatives().sort((a, b) => (b.spend || 0) - (a.spend || 0));
+  const tbody = document.getElementById('perf-table-body');
+
+  tbody.innerHTML = items.map(item => {
+    const isMeta = item.platform === 'meta';
+    const platCls = isMeta ? 'meta' : 'li';
+    const platLabel = isMeta ? 'Meta' : 'LinkedIn';
+    const spend  = item.spend   || 0;
+    const impr   = item.impressions || 0;
+    const clicks = item.clicks  || 0;
+    const ctr    = item.ctr     || 0;
+    const cpc    = item.cpc     || 0;
+
+    const thumbHtml = item.thumbnailUrl
+      ? `<div class="td-thumb"><img src="${escHtml(item.thumbnailUrl)}" onerror="this.parentNode.innerHTML=getFallbackThumb('${platCls}', '${platCls === 'meta' ? 'F' : 'IN'}')"></div>`
+      : `<div class="td-thumb"><div class="td-thumb-ph ${platCls}-ph">${isMeta ? 'F' : 'IN'}</div></div>`;
+
+    return `<tr onclick="window.open('${escHtml(item.deepLink || '#')}', '_blank')">
+      <td>${thumbHtml}</td>
+      <td class="td-name">${escHtml((item.headline || item.name || '').slice(0, 50))}<small>${escHtml(item.name || '')}</small></td>
+      <td class="td-platform ${platCls}">${platLabel}</td>
+      <td style="font-size:11px;color:var(--muted);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escHtml(item.campaignName || '')}</td>
+      <td class="td-num td-spend">$${fmtMoney(spend)}</td>
+      <td class="td-num">${fmtNum(impr)}</td>
+      <td class="td-num">${fmtNum(clicks)}</td>
+      <td class="td-num">${ctr.toFixed(2)}%</td>
+      <td class="td-num">${spend > 0 && clicks > 0 ? '$' + cpc.toFixed(2) : '—'}</td>
+    </tr>`;
+  }).join('');
+}
+
+function getFallbackThumb(cls, label) {
+  return `<div class="td-thumb-ph ${cls}-ph">${label}</div>`;
+}
+
+// ─── Formatters ───────────────────────────────────────────────────────────────
+function fmtMoney(n) {
+  n = parseFloat(n || 0);
+  if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+  if (n >= 10000)   return (n / 1000).toFixed(0) + 'K';
+  if (n >= 1000)    return (n / 1000).toFixed(1) + 'K';
+  return n.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+}
+
+function fmtNum(n) {
+  n = parseInt(n || 0);
+  if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+  if (n >= 1000)    return (n / 1000).toFixed(0) + 'K';
+  return n.toLocaleString();
+}
+
+// ─── Lightbox ────────────────────────────────────────────────────────────────
+function openLightbox(src, event) {
+  event.stopPropagation();
+  const overlay = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  img.src = src;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.getElementById('lightbox-img').src = '';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+function escHtml(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// ─── Placeholder data (fallback) ──────────────────────────────────────────────
+function getPlaceholderData() {
+  return {
+    generatedAt: new Date().toISOString(),
+    dateRange: 'YTD 2026',
+    meta: {
+      accountId: 'act_3894120417539671',
+      activeCampaigns: [],
+      ads: [
+        { id: 'demo1', name: 'Demo Ad 1', campaignId: 'c1', campaignName: 'Demo Campaign', objective: 'LINK_CLICKS', thumbnailUrl: null, headline: 'Get your FREE demo today | Rev.io', adCopy: 'See how Rev.io can transform your MSP billing and operations.', ctaLabel: 'LEARN MORE', spend: 1234.56, clicks: 342, impressions: 54000, ctr: 0.63, cpc: 3.61, deepLink: '#' },
+        { id: 'demo2', name: 'Demo Ad 2', campaignId: 'c1', campaignName: 'Demo Campaign', objective: 'LINK_CLICKS', thumbnailUrl: null, headline: 'Stop losing revenue on billing', adCopy: 'Rev.io automates your billing so nothing falls through the cracks.', ctaLabel: 'GET DEMO', spend: 876.00, clicks: 210, impressions: 32000, ctr: 0.66, cpc: 4.17, deepLink: '#' },
+      ],
+      totals: { spend: 2110.56, clicks: 552, impressions: 86000, ctr: 0.64, cpc: 3.82 }
+    },
+    linkedin: {
+      accountId: '514207537',
+      activeCampaigns: [],
+      creatives: [],
+      totals: { spend: 0, clicks: 0, impressions: 0, ctr: 0, cpc: 0 }
+    }
+  };
+}
+
+// ─── Boot ─────────────────────────────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>
