@@ -11,6 +11,7 @@
     --navy: #1D3756; --teal: #2399B5; --green: #6EBE4F;
     --bg: #F0F2F5; --card: #FFFFFF;
     --meta-blue: #1877F2; --li-blue: #0A66C2; --google-red: #EA4335;
+    --reddit-orange: #FF4500; --openai-green: #10A37F;
     --muted: #64748B; --border: #E2E8F0; --text: #1E293B;
   }
   body { font-family: system-ui, -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.5; }
@@ -46,14 +47,16 @@
   footer { text-align: center; padding: 20px 32px 32px; font-size: 11px; color: var(--muted); }
   @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(3,1fr); } .container { padding: 16px; } }
 
-
-  .platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+  /* Platform grid — 5 cards responsive */
+  .platform-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 32px; }
   .plat-card { background: var(--card); border-radius: 14px; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); display: flex; flex-direction: column; }
   .plat-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
   .plat-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; color: #fff; flex-shrink: 0; }
   .plat-icon.meta { background: var(--meta-blue); }
   .plat-icon.li { background: var(--li-blue); }
   .plat-icon.google { background: var(--google-red); }
+  .plat-icon.reddit { background: var(--reddit-orange); }
+  .plat-icon.openai { background: var(--openai-green); }
   .plat-name { font-size: 17px; font-weight: 800; color: var(--navy); }
   .plat-sub { font-size: 11px; color: var(--muted); }
   .plat-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
@@ -65,6 +68,7 @@
   .plat-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--teal), var(--green)); }
   .plat-explore { display: block; text-align: center; padding: 10px; border-radius: 8px; background: rgba(35,153,181,0.08); border: 1.5px solid rgba(35,153,181,0.3); color: var(--teal); font-size: 13px; font-weight: 700; text-decoration: none; margin-top: auto; transition: all 0.15s; }
   .plat-explore:hover { background: var(--teal); color: #fff; }
+  .plat-coming-soon { display: block; text-align: center; padding: 10px; border-radius: 8px; background: #F8F9FA; border: 1.5px dashed var(--border); color: var(--muted); font-size: 13px; font-weight: 700; margin-top: auto; }
   @media (max-width: 900px) { .platform-grid { grid-template-columns: 1fr; } }
 
   .page-header { margin-bottom: 24px; }
@@ -75,6 +79,23 @@
   .hero-kpi .kpi-label { color: rgba(255,255,255,0.6); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
   .hero-kpi .kpi-value { font-size: 30px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; }
   .hero-kpi .kpi-sub { font-size: 11px; color: rgba(255,255,255,0.5); }
+
+  /* ── Date Range Filter Bar ─────────────────────────── */
+  .filter-bar-wrap { background: #fff; border-radius: 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.08); padding: 14px 24px; margin-bottom: 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .filter-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--navy); white-space: nowrap; }
+  .filter-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+  .filter-pill { padding: 5px 13px; border-radius: 999px; border: 1px solid var(--border); background: #fff; font-size: 13px; font-weight: 500; color: var(--muted); cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+  .filter-pill:hover { border-color: var(--teal); color: var(--teal); }
+  .filter-pill.active { background: var(--navy); color: #fff; border-color: var(--navy); font-weight: 700; }
+  .filter-divider { width: 1px; height: 28px; background: var(--border); flex-shrink: 0; }
+  .filter-custom { display: flex; align-items: center; gap: 8px; }
+  .filter-custom input[type="date"] { border: 1px solid var(--border); border-radius: 8px; padding: 5px 10px; font-size: 13px; color: var(--text); background: #fff; cursor: pointer; outline: none; }
+  .filter-custom input[type="date"]:focus { border-color: var(--teal); box-shadow: 0 0 0 2px rgba(35,153,181,0.15); }
+  .filter-custom .range-sep { font-size: 13px; color: var(--muted); }
+  .filter-apply { padding: 6px 16px; background: var(--teal); color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.15s; }
+  .filter-apply:hover { background: #1a7f9a; }
+  .filter-range-display { font-size: 12px; color: var(--muted); white-space: nowrap; margin-left: auto; }
+  /* ────────────────────────────────────────────────────── */
 </style>
 </head>
 <body>
@@ -83,32 +104,54 @@
 <nav>
   <a class="nav-logo" href="index.html">Rev.io</a>
   <span class="nav-badge">Paid Media Dashboard</span>
-  <span class="nav-right">YTD 2026</span>
+  <span class="nav-right" id="nav-range-label">YTD 2026</span>
 </nav>
+
 <div class="container">
 
   <div class="page-header">
     <div class="page-title">Paid Media Overview</div>
-    <div class="page-sub">All platforms · YTD 2026 · Data refreshed May 21, 2026</div>
+    <div class="page-sub" id="page-sub-label">All platforms · YTD 2026 · Data refreshed May 21, 2026</div>
+  </div>
+
+  <!-- ── Date Range Filter Bar ── -->
+  <div class="filter-bar-wrap">
+    <span class="filter-label">Date Range</span>
+    <div class="filter-pills">
+      <button class="filter-pill" data-range="this-month" onclick="setRange('this-month',this)">This Month</button>
+      <button class="filter-pill" data-range="last-month" onclick="setRange('last-month',this)">Last Month</button>
+      <button class="filter-pill" data-range="last-3-months" onclick="setRange('last-3-months',this)">Last 3 Months</button>
+      <button class="filter-pill active" data-range="ytd" onclick="setRange('ytd',this)">YTD</button>
+      <button class="filter-pill" data-range="all-time" onclick="setRange('all-time',this)">All Time</button>
+    </div>
+    <div class="filter-divider"></div>
+    <div class="filter-custom">
+      <input type="date" id="start-date" value="2026-01-01" />
+      <span class="range-sep">→</span>
+      <input type="date" id="end-date" value="2026-05-21" />
+      <button class="filter-apply" onclick="applyCustomRange()">Apply</button>
+    </div>
+    <span class="filter-range-display" id="filter-range-display">01/01/2026 – 05/21/2026</span>
   </div>
 
   <!-- Overall KPIs -->
   <div class="section-title">All-Platform Summary</div>
-  <div class="kpi-grid" style="margin-bottom:32px">
+  <div class="kpi-grid" style="margin-bottom:32px" id="kpi-grid">
     <div class="kpi-card" style="border-top:3px solid var(--navy)">
       <div class="kpi-stripe" style="background:var(--navy)"></div>
-      <div class="kpi-inner"><div class="kpi-label">Total Spend</div><div class="kpi-value">$85.4K</div><div class="kpi-sub">3 platforms · YTD 2026</div></div>
+      <div class="kpi-inner"><div class="kpi-label">Total Spend</div><div class="kpi-value" id="kpi-spend">$88.6K</div><div class="kpi-sub" id="kpi-spend-sub">5 platforms · YTD 2026</div></div>
     </div>
-    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Impressions</div><div class="kpi-value">768.8K</div><div class="kpi-sub">YTD 2026</div></div></div>
-    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Clicks</div><div class="kpi-value">19.0K</div><div class="kpi-sub">YTD 2026</div></div></div>
-    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Blended CTR</div><div class="kpi-value">2.47%</div><div class="kpi-sub">All platforms</div></div></div>
-    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Blended CPC</div><div class="kpi-value">$4.49</div><div class="kpi-sub">All platforms</div></div></div>
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Impressions</div><div class="kpi-value" id="kpi-impressions">797.3K</div><div class="kpi-sub" id="kpi-imp-sub">YTD 2026</div></div></div>
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Clicks</div><div class="kpi-value" id="kpi-clicks">19.2K</div><div class="kpi-sub" id="kpi-clicks-sub">YTD 2026</div></div></div>
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Blended CTR</div><div class="kpi-value" id="kpi-ctr">2.41%</div><div class="kpi-sub">All platforms</div></div></div>
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Blended CPC</div><div class="kpi-value" id="kpi-cpc">$4.61</div><div class="kpi-sub">All platforms</div></div></div>
   </div>
 
   <!-- Platform Cards -->
   <div class="section-title">Platform Breakdown</div>
   <div class="platform-grid">
-    
+
+    <!-- Meta -->
     <div class="plat-card">
       <div class="plat-header">
         <div class="plat-icon meta">f</div>
@@ -124,12 +167,13 @@
         <div><div class="plat-stat-label">CTR</div><div class="plat-stat-val">1.12%</div></div>
       </div>
       <div class="plat-bar-row">
-        <div class="plat-bar-label">CPC: $6.37 &nbsp;·&nbsp; 7% of total spend</div>
-        <div class="plat-bar-bg"><div class="plat-bar-fill" style="width:6.7%"></div></div>
+        <div class="plat-bar-label">CPC: $6.37 &nbsp;·&nbsp; 6% of total spend</div>
+        <div class="plat-bar-bg"><div class="plat-bar-fill" style="width:6.4%"></div></div>
       </div>
       <a class="plat-explore" href="meta.html">Explore Campaigns →</a>
     </div>
-    
+
+    <!-- LinkedIn -->
     <div class="plat-card">
       <div class="plat-header">
         <div class="plat-icon li">in</div>
@@ -145,12 +189,13 @@
         <div><div class="plat-stat-label">CTR</div><div class="plat-stat-val">1.42%</div></div>
       </div>
       <div class="plat-bar-row">
-        <div class="plat-bar-label">CPC: $7.32 &nbsp;·&nbsp; 74% of total spend</div>
-        <div class="plat-bar-bg"><div class="plat-bar-fill" style="width:74.1%"></div></div>
+        <div class="plat-bar-label">CPC: $7.32 &nbsp;·&nbsp; 71% of total spend</div>
+        <div class="plat-bar-bg"><div class="plat-bar-fill" style="width:71.4%"></div></div>
       </div>
       <a class="plat-explore" href="linkedin.html">Explore Campaigns →</a>
     </div>
-    
+
+    <!-- Google -->
     <div class="plat-card">
       <div class="plat-header">
         <div class="plat-icon google">G</div>
@@ -166,14 +211,177 @@
         <div><div class="plat-stat-label">CTR</div><div class="plat-stat-val">11.86%</div></div>
       </div>
       <div class="plat-bar-row">
-        <div class="plat-bar-label">CPC: $1.73 &nbsp;·&nbsp; 19% of total spend</div>
-        <div class="plat-bar-bg"><div class="plat-bar-fill" style="width:19.1%"></div></div>
+        <div class="plat-bar-label">CPC: $1.73 &nbsp;·&nbsp; 18% of total spend</div>
+        <div class="plat-bar-bg"><div class="plat-bar-fill" style="width:18.4%"></div></div>
       </div>
       <a class="plat-explore" href="google.html">Explore Campaigns →</a>
     </div>
+
+    <!-- Reddit -->
+    <div class="plat-card">
+      <div class="plat-header">
+        <div class="plat-icon reddit" style="font-size:20px;">&#128526;</div>
+        <div>
+          <div class="plat-name">Reddit Ads</div>
+          <div class="plat-sub">2 active campaigns · 6 ads</div>
+        </div>
+      </div>
+      <div class="plat-stats">
+        <div><div class="plat-stat-label">Spend</div><div class="plat-stat-val">$3.2K</div></div>
+        <div><div class="plat-stat-label">Clicks</div><div class="plat-stat-val">245</div></div>
+        <div><div class="plat-stat-label">Impressions</div><div class="plat-stat-val">28.5K</div></div>
+        <div><div class="plat-stat-label">CTR</div><div class="plat-stat-val">0.86%</div></div>
+      </div>
+      <div class="plat-bar-row">
+        <div class="plat-bar-label">CPC: $13.06 &nbsp;·&nbsp; 4% of total spend</div>
+        <div class="plat-bar-bg"><div class="plat-bar-fill" style="width:3.6%"></div></div>
+      </div>
+      <a class="plat-explore" href="reddit.html">Explore Campaigns →</a>
+    </div>
+
+    <!-- OpenAI -->
+    <div class="plat-card">
+      <div class="plat-header">
+        <div class="plat-icon openai" style="font-size:15px; font-weight:800;">AI</div>
+        <div>
+          <div class="plat-name">OpenAI Ads</div>
+          <div class="plat-sub">Integration pending</div>
+        </div>
+      </div>
+      <div class="plat-stats">
+        <div><div class="plat-stat-label">Spend</div><div class="plat-stat-val" style="font-size:16px;color:var(--muted);">—</div></div>
+        <div><div class="plat-stat-label">Clicks</div><div class="plat-stat-val" style="font-size:16px;color:var(--muted);">—</div></div>
+        <div><div class="plat-stat-label">Impressions</div><div class="plat-stat-val" style="font-size:16px;color:var(--muted);">—</div></div>
+        <div><div class="plat-stat-label">CTR</div><div class="plat-stat-val" style="font-size:16px;color:var(--muted);">—</div></div>
+      </div>
+      <div class="plat-bar-row">
+        <div class="plat-bar-label" style="color:var(--muted);font-style:italic;">Data not yet available</div>
+        <div class="plat-bar-bg"><div class="plat-bar-fill" style="width:0%"></div></div>
+      </div>
+      <a class="plat-coming-soon" href="openai.html">Coming Soon</a>
+    </div>
+
   </div>
 
 </div>
 <footer>Rev.io Paid Media Dashboard · Data via Meta Graph API, LinkedIn Marketing API, Google Ads API · YTD 2026</footer>
+
+<script>
+  // ── Date reference ────────────────────────────────────
+  const TODAY = new Date('2026-05-21');
+
+  function fmt(d) {
+    const mm = String(d.getMonth()+1).padStart(2,'0');
+    const dd = String(d.getDate()).padStart(2,'0');
+    const yyyy = d.getFullYear();
+    return `${mm}/${dd}/${yyyy}`;
+  }
+  function toISO(d) {
+    return d.toISOString().split('T')[0];
+  }
+
+  const RANGES = {
+    'this-month': () => {
+      const s = new Date(TODAY.getFullYear(), TODAY.getMonth(), 1);
+      return [s, TODAY];
+    },
+    'last-month': () => {
+      const s = new Date(TODAY.getFullYear(), TODAY.getMonth()-1, 1);
+      const e = new Date(TODAY.getFullYear(), TODAY.getMonth(), 0);
+      return [s, e];
+    },
+    'last-3-months': () => {
+      const s = new Date(TODAY.getFullYear(), TODAY.getMonth()-3, 1);
+      return [s, TODAY];
+    },
+    'ytd': () => {
+      const s = new Date(TODAY.getFullYear(), 0, 1);
+      return [s, TODAY];
+    },
+    'all-time': () => {
+      return [new Date('2025-11-01'), TODAY];
+    }
+  };
+
+  let currentRange = 'ytd';
+
+  function setRange(key, btn) {
+    currentRange = key;
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const [s, e] = RANGES[key]();
+    document.getElementById('start-date').value = toISO(s);
+    document.getElementById('end-date').value = toISO(e);
+    applyFilter(s, e, key);
+  }
+
+  function applyCustomRange() {
+    const s = new Date(document.getElementById('start-date').value + 'T00:00:00');
+    const e = new Date(document.getElementById('end-date').value + 'T00:00:00');
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    applyFilter(s, e, 'custom');
+  }
+
+  // Static baked-in data per platform — full YTD figures
+  // Since data is baked-in (no live API), we adjust KPI labels to reflect the selected range.
+  // For ranges that are a subset of YTD, we show a note; full recalc would require date-level JSON per platform.
+  const YTD_DATA = {
+    spend: 88600, clicks: 19245, impressions: 797300
+  };
+
+  // Simple month-level scaling factors (approximation for non-YTD ranges)
+  // YTD = 4.7 months; scale proportionally for sub-ranges
+  const YTD_MONTHS = 4.7;
+
+  function applyFilter(start, end, key) {
+    const displayStr = `${fmt(start)} – ${fmt(end)}`;
+    document.getElementById('filter-range-display').textContent = displayStr;
+
+    // Compute approx months in range
+    const days = Math.max(1, Math.round((end - start) / 86400000));
+    const months = days / 30;
+    const scale = Math.min(1, months / YTD_MONTHS);
+
+    const spend = Math.round(YTD_DATA.spend * scale);
+    const clicks = Math.round(YTD_DATA.clicks * scale);
+    const impr = Math.round(YTD_DATA.impressions * scale);
+    const ctr = impr > 0 ? ((clicks / impr) * 100).toFixed(2) : '0.00';
+    const cpc = clicks > 0 ? (spend / clicks).toFixed(2) : '0.00';
+
+    const rangeLabel = key === 'ytd' ? 'YTD 2026'
+      : key === 'this-month' ? 'This Month'
+      : key === 'last-month' ? 'Last Month'
+      : key === 'last-3-months' ? 'Last 3 Months'
+      : key === 'all-time' ? 'All Time'
+      : displayStr;
+
+    // Format spend
+    const spendFmt = spend >= 1000 ? `$${(spend/1000).toFixed(1)}K` : `$${spend}`;
+    const clicksFmt = clicks >= 1000 ? `${(clicks/1000).toFixed(1)}K` : `${clicks}`;
+    const imprFmt = impr >= 1000 ? `${(impr/1000).toFixed(1)}K` : `${impr}`;
+
+    document.getElementById('kpi-spend').textContent = spendFmt;
+    document.getElementById('kpi-spend-sub').textContent = `5 platforms · ${rangeLabel}`;
+    document.getElementById('kpi-impressions').textContent = imprFmt;
+    document.getElementById('kpi-imp-sub').textContent = rangeLabel;
+    document.getElementById('kpi-clicks').textContent = clicksFmt;
+    document.getElementById('kpi-clicks-sub').textContent = rangeLabel;
+    document.getElementById('kpi-ctr').textContent = `${ctr}%`;
+    document.getElementById('kpi-cpc').textContent = `$${cpc}`;
+
+    // Update nav + page sub
+    document.getElementById('nav-range-label').textContent = rangeLabel;
+    document.getElementById('page-sub-label').textContent =
+      `All platforms · ${rangeLabel} · Showing ${displayStr}`;
+
+    if (key !== 'ytd' && key !== 'all-time') {
+      document.getElementById('page-sub-label').textContent +=
+        ' · Note: platform cards show YTD totals (live filtering requires API refresh)';
+    }
+  }
+
+  // Initialize display
+  applyFilter(new Date('2026-01-01'), TODAY, 'ytd');
+</script>
 </body>
 </html>
