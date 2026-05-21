@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Ads · Rev.io Paid Media</title>
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --navy: #1D3756; --teal: #2399B5; --green: #6EBE4F; --bg: #F0F2F5; --card: #FFFFFF; --google-red: #EA4335; --muted: #64748B; --border: #E2E8F0; --text: #1E293B; }
+  body { font-family: system-ui, -apple-system, Arial, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.5; }
+  .top-stripe { height: 4px; background: linear-gradient(90deg, var(--teal), var(--green)); }
+  nav { background: var(--navy); padding: 0 32px; height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .nav-logo { color: #fff; font-weight: 800; font-size: 18px; text-decoration: none; }
+  .nav-badge { background: rgba(35,153,181,0.25); border: 1px solid rgba(35,153,181,0.5); color: var(--teal); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+  .nav-right { color: rgba(255,255,255,0.55); font-size: 12px; }
+  .container { max-width: 1400px; margin: 0 auto; padding: 28px 32px; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--teal); font-size: 13px; font-weight: 700; text-decoration: none; margin-bottom: 20px; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 28px; }
+  .kpi-card { background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+  .kpi-stripe { height: 3px; background: linear-gradient(90deg, var(--teal), var(--green)); }
+  .kpi-inner { padding: 18px 20px 16px; }
+  .kpi-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 8px; }
+  .kpi-value { font-size: 26px; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+  .kpi-sub { font-size: 11px; color: var(--muted); }
+  .table-wrap { background: var(--card); border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); overflow: hidden; margin-bottom: 32px; }
+  .table-header { padding: 18px 22px 14px; border-bottom: 1px solid var(--border); font-size: 15px; font-weight: 800; color: var(--navy); }
+  table { width: 100%; border-collapse: collapse; }
+  thead th { padding: 10px 14px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); text-align: left; background: #FAFBFC; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #F7FBFF; }
+  tbody td { padding: 12px 14px; font-size: 12px; color: var(--text); vertical-align: middle; }
+  .td-num { text-align: right; font-variant-numeric: tabular-nums; }
+  .td-spend { font-weight: 700; color: var(--navy); }
+  .status-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+  .status-active { background: rgba(110,190,79,0.15); color: #4a9e35; }
+  .status-paused { background: #F1F5F9; color: var(--muted); }
+  footer { text-align: center; padding: 20px 32px 32px; font-size: 11px; color: var(--muted); }
+  @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(3,1fr); } .container { padding: 16px; } }
+
+  .platform-hero { background: linear-gradient(135deg, #EA4335, #c23329); border-radius: 14px; padding: 24px 28px; margin-bottom: 28px; color: #fff; display: flex; align-items: center; gap: 20px; }
+  .platform-hero-icon { width: 56px; height: 56px; background: rgba(255,255,255,0.2); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 900; color: #fff; }
+  .platform-hero-title { font-size: 24px; font-weight: 800; }
+  .platform-hero-sub { font-size: 13px; opacity: 0.75; }
+</style>
+</head>
+<body>
+<div class="top-stripe"></div>
+<nav>
+  <a class="nav-logo" href="index.html">Rev.io</a>
+  <span class="nav-badge">Google Ads</span>
+  <span class="nav-right">YTD 2026</span>
+</nav>
+<div class="container">
+  <a class="back-link" href="index.html">← Back to Overview</a>
+
+  <div class="platform-hero">
+    <div class="platform-hero-icon">G</div>
+    <div>
+      <div class="platform-hero-title">Google Ads</div>
+      <div class="platform-hero-sub">Search &amp; Smart Campaigns · YTD 2026</div>
+    </div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Total Spend</div><div class="kpi-value">$16.3K</div><div class="kpi-sub">YTD 2026</div></div></div>
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Impressions</div><div class="kpi-value">79.8K</div><div class="kpi-sub">YTD 2026</div></div></div>
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Clicks</div><div class="kpi-value">9.5K</div><div class="kpi-sub">YTD 2026</div></div></div>
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Avg CTR</div><div class="kpi-value">11.86%</div><div class="kpi-sub">All ad groups</div></div></div>
+    <div class="kpi-card"><div class="kpi-stripe"></div><div class="kpi-inner"><div class="kpi-label">Avg CPC</div><div class="kpi-value">$1.73</div><div class="kpi-sub">All ad groups</div></div></div>
+  </div>
+
+  <div class="table-wrap">
+    <div class="table-header">Campaign Performance</div>
+    <table>
+      <thead><tr>
+        <th>Campaign</th><th>Status</th><th>Type</th><th>Daily Budget</th>
+        <th class="td-num">Spend</th><th class="td-num">Impressions</th>
+        <th class="td-num">Clicks</th><th class="td-num">CTR</th><th class="td-num">CPC</th>
+      </tr></thead>
+      <tbody><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Competitor 2026</strong></td>
+      <td><span class="status-badge status-active">ENABLED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$110.00/day</td>
+      <td class="td-num td-spend">$9,124.46</td>
+      <td class="td-num">55,966</td>
+      <td class="td-num">6,965</td>
+      <td class="td-num">12.45%</td>
+      <td class="td-num">$1.31</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Brand-Rev.io-1</strong></td>
+      <td><span class="status-badge status-active">ENABLED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$70.00/day</td>
+      <td class="td-num td-spend">$7,212.39</td>
+      <td class="td-num">23,803</td>
+      <td class="td-num">2,497</td>
+      <td class="td-num">10.49%</td>
+      <td class="td-num">$2.89</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">ATT Fusion</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$150.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Brand-Rev.io (paused)</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SMART</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$14.14/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Broadsoft Connections</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$150.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Industry General</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$50.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Rev.io Billing 2025</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$25.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Rev.io PSA 2025</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$25.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Competitor-Datagate</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$55.19/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Competitor-Onebill</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$55.82/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Competitor Logisense</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$50.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Rev.io Odin 2025</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$50.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Alarm Company Software 2025</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$50.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Billing</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$17.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Brand-Tigerpaw-PSA-1</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$50.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">MSP</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$100.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">QTC Headlien Test May</strong></td>
+      <td><span class="status-badge status-active">ENABLED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$150.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Quote-to-Cash</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$150.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Quote-to-Cash, Awareness #2</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$150.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Rev. Leakage Telecome Billing Headline</strong></td>
+      <td><span class="status-badge status-active">ENABLED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$50.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Revenue Leakage</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$50.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Revenue Leakage, Awareness #2</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$49.90/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Telecom Billing Headline</strong></td>
+      <td><span class="status-badge status-active">ENABLED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$150.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Telecom Billing-1</strong></td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td style="font-size:11px;color:var(--muted)">SEARCH</td>
+      <td class="td-num" style="font-size:11px;color:var(--muted)">$50.00/day</td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.00%</td>
+      <td class="td-num">$0.00</td>
+    </tr></tbody>
+    </table>
+  </div>
+
+  <div class="table-wrap">
+    <div class="table-header">Ad Group Performance</div>
+    <table>
+      <thead><tr>
+        <th>Ad Group</th><th>Campaign</th><th>Status</th>
+        <th class="td-num">Spend</th><th class="td-num">Impressions</th>
+        <th class="td-num">Clicks</th><th class="td-num">CTR</th><th class="td-num">CPC</th>
+      </tr></thead>
+      <tbody><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Rev.io Branded</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Brand-Rev.io-1</td>
+      <td><span class="status-badge status-active">ENABLED</span></td>
+      <td class="td-num td-spend">$7,212.39</td>
+      <td class="td-num">23,803</td>
+      <td class="td-num">2,497</td>
+      <td class="td-num">10.5%</td>
+      <td class="td-num">$2.89</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Datagate</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Competitor 2026</td>
+      <td><span class="status-badge status-active">ENABLED</span></td>
+      <td class="td-num td-spend">$4,864.38</td>
+      <td class="td-num">16,422</td>
+      <td class="td-num">3,892</td>
+      <td class="td-num">23.7%</td>
+      <td class="td-num">$1.25</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">RMM Competitors</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Competitor 2026</td>
+      <td><span class="status-badge status-active">ENABLED</span></td>
+      <td class="td-num td-spend">$1,628.69</td>
+      <td class="td-num">22,552</td>
+      <td class="td-num">1,079</td>
+      <td class="td-num">4.8%</td>
+      <td class="td-num">$1.51</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Competitor General</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Competitor 2026</td>
+      <td><span class="status-badge status-active">ENABLED</span></td>
+      <td class="td-num td-spend">$1,082.65</td>
+      <td class="td-num">9,059</td>
+      <td class="td-num">256</td>
+      <td class="td-num">2.8%</td>
+      <td class="td-num">$4.23</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Onebill</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Competitor 2026</td>
+      <td><span class="status-badge status-active">ENABLED</span></td>
+      <td class="td-num td-spend">$966.44</td>
+      <td class="td-num">4,017</td>
+      <td class="td-num">1,323</td>
+      <td class="td-num">32.9%</td>
+      <td class="td-num">$0.73</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Billing Competitors</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Competitor 2026</td>
+      <td><span class="status-badge status-active">ENABLED</span></td>
+      <td class="td-num td-spend">$533.34</td>
+      <td class="td-num">2,813</td>
+      <td class="td-num">390</td>
+      <td class="td-num">13.9%</td>
+      <td class="td-num">$1.37</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">HaloPSA</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Competitor 2026</td>
+      <td><span class="status-badge status-active">ENABLED</span></td>
+      <td class="td-num td-spend">$45.60</td>
+      <td class="td-num">824</td>
+      <td class="td-num">24</td>
+      <td class="td-num">2.9%</td>
+      <td class="td-num">$1.90</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">ConnectWise PSA</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Competitor 2026</td>
+      <td><span class="status-badge status-active">ENABLED</span></td>
+      <td class="td-num td-spend">$3.36</td>
+      <td class="td-num">279</td>
+      <td class="td-num">1</td>
+      <td class="td-num">0.4%</td>
+      <td class="td-num">$3.36</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Test Ads</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Telecom Billing Headline</td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.0%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Control Ads</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Telecom Billing Headline</td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.0%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Control Group</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Rev. Leakage Telecome Billing Headline</td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.0%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Test Group</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Rev. Leakage Telecome Billing Headline</td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.0%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Competitors</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Brand-Rev.io-1</td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.0%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Test Ads</strong></td>
+      <td style="font-size:11px;color:var(--muted)">QTC Headlien Test May</td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.0%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Control Ads</strong></td>
+      <td style="font-size:11px;color:var(--muted)">QTC Headlien Test May</td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.0%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Competitor General #2</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Competitor 2026</td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.0%</td>
+      <td class="td-num">$0.00</td>
+    </tr><tr>
+      <td><strong style="color:var(--navy);font-size:12px">Logisense Alternative for Usage-Based Billing | Rev.io</strong></td>
+      <td style="font-size:11px;color:var(--muted)">Competitor 2026</td>
+      <td><span class="status-badge status-paused">PAUSED</span></td>
+      <td class="td-num td-spend">$0.00</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0</td>
+      <td class="td-num">0.0%</td>
+      <td class="td-num">$0.00</td>
+    </tr></tbody>
+    </table>
+  </div>
+
+</div>
+<footer>Google Ads API · Customer ID: 988-595-3623 · Data refreshed May 21, 2026</footer>
+</body>
+</html>
