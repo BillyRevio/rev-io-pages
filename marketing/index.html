@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>2026 Marketing Pacing — Rev.io</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">function revioSync(btn){try{if(btn){btn.disabled=true;btn.textContent='Syncing…';}var u=new URL(window.location.href);u.searchParams.set('v',Date.now().toString());window.location.replace(u.toString());}catch(e){window.location.reload();}}</script>
 <style>
 :root{--bg:#0a0c12;--surface:#13161f;--surface2:#1a1e2d;--border:#252a3d;--text:#e8eaf6;--muted:#7b82a8;--accent:#6c63ff;--green:#00d4aa;--yellow:#ffd166;--red:#ef476f;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -75,7 +75,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .ahead{color:var(--green);}.behind{color:var(--red);}.neutral{color:var(--muted);}
 footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);color:var(--muted);font-size:11px;}
 @media(max-width:900px){.qtr-row{grid-template-columns:1fr 1fr;}.hero-stats{grid-template-columns:1fr 1fr;}.section{padding:18px 18px;}.header{padding:18px 18px 14px;}}
-</style>
+.sync-btn{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;cursor:pointer}.sync-btn:hover{background:rgba(255,255,255,.16)}.sync-btn[disabled]{opacity:.65;cursor:wait}</style>
 </head>
 <body>
 <div class="header">
