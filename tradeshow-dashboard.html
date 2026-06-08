@@ -21,4 +21,4 @@
     badge.textContent=(up?'↑ +':'↓ ')+Math.abs(diff>=10?Math.round(diff):diff).toLocaleString('en-US')+' vs last';
     valEl.after(badge);
   });
-})();function revioSync(btn){try{if(btn){btn.disabled=true;btn.textContent='Syncing…';}var u=new URL(window.location.href);u.searchParams.set('v',Date.now().toString());window.location.replace(u.toString());}catch(e){window.location.reload();}}</script></body></html>
+})();function revioSync(btn){try{if(btn){btn.disabled=true;btn.textContent='Syncing…';}var u=new URL(window.location.href);u.searchParams.set('v',Date.now().toString());window.location.replace(u.toString());}catch(e){window.location.reload();}}</script><script>function revioSync(btn){try{if(btn){btn.disabled=true;btn.textContent='Syncing…';}var u=new URL(window.location.href);u.searchParams.set('v',Date.now().toString());window.location.replace(u.toString());}catch(e){window.location.reload();}}</script></body></html>
