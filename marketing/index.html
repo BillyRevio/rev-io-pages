@@ -75,7 +75,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .ahead{color:var(--green);}.behind{color:var(--red);}.neutral{color:var(--muted);}
 footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);color:var(--muted);font-size:11px;}
 @media(max-width:900px){.qtr-row{grid-template-columns:1fr 1fr;}.hero-stats{grid-template-columns:1fr 1fr;}.section{padding:18px 18px;}.header{padding:18px 18px 14px;}}
-</style>
+.sync-btn{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;cursor:pointer}.sync-btn:hover{background:rgba(255,255,255,.16)}.sync-btn[disabled]{opacity:.65;cursor:wait}</style>
 </head>
 <body>
 <div class="header">
@@ -83,7 +83,7 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
     <div class="title-block">
       <h1>2026 <span>Marketing Pacing</span></h1>
       <p>Marketing-sourced MRR &amp; Opps vs. target · YTD &amp; quarterly · Rev.io Grow Team</p>
-    </div>
+    </div><div><button class="sync-btn" onclick="revioSync(this)" title="Refresh this dashboard with a cache-busting reload">⟳ Sync</button></div>
     <div class="as-of">📅 Day 159/365 · <strong>Refreshed Jun 8, 2026, 4:11 PM EDT</strong></div>
   </div>
 </div>
@@ -1198,5 +1198,5 @@ buildQtrSnaps();
 buildProdCards();
 buildAnnualTable();
 </script>
-</body>
+<script>function revioSync(btn){try{if(btn){btn.disabled=true;btn.textContent='Syncing…';}var u=new URL(window.location.href);u.searchParams.set('v',Date.now().toString());window.location.replace(u.toString());}catch(e){window.location.reload();}}</script></body>
 </html>
