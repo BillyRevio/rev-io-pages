@@ -84,7 +84,7 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
       <h1>2026 <span>Marketing Pacing</span></h1>
       <p>Marketing-sourced MRR &amp; Opps vs. target · YTD &amp; quarterly · Rev.io Grow Team</p>
     </div>
-    <div class="as-of">📅 Day 167/365 · <strong>Refreshed Jun 16, 2026, 4:12 PM EDT</strong></div>
+    <div class="as-of">📅 Day 167/365 · <strong>Refreshed Jun 16, 2026, 4:17 PM EDT</strong></div>
   </div>
 </div>
 
@@ -128,10 +128,10 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
       <div class="legend-item"><div class="legend-dot" style="background:#ff6b6b"></div>Cyber Protect</div>
     </div>
     <div class="chart-summary">
-      <div class="cs-item">Target in view: <span id="mrr-csBudget">—</span></div>
+      <div class="cs-item">Target / pace: <span id="mrr-csBudget">—</span></div>
       <div class="cs-item">Actual in view: <span id="mrr-csActual">—</span></div>
       <div class="cs-item">Attainment vs. pace: <span id="mrr-csAtt">—</span></div>
-      <div class="cs-item">Gap: <span id="mrr-csGap">—</span></div>
+      <div class="cs-item">Pace gap: <span id="mrr-csGap">—</span></div>
     </div>
   </div>
 </div>
@@ -162,12 +162,15 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
     <div class="legend">
       <div class="legend-item"><div class="legend-dot" style="background:#6c63ff"></div>Combined Actual</div>
       <div class="legend-item"><div class="legend-dash" style="border-color:#ffffff33"></div>Combined Target</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#00d4aa"></div>Billing</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#6c63ff"></div>PSA</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ff6b6b"></div>Cyber Protect</div>
     </div>
     <div class="chart-summary">
-      <div class="cs-item">Target in view: <span id="opp-csBudget">—</span></div>
+      <div class="cs-item">Target / pace: <span id="opp-csBudget">—</span></div>
       <div class="cs-item">Actual in view: <span id="opp-csActual">—</span></div>
       <div class="cs-item">Attainment vs. pace: <span id="opp-csAtt">—</span></div>
-      <div class="cs-item">Gap: <span id="opp-csGap">—</span></div>
+      <div class="cs-item">Pace gap: <span id="opp-csGap">—</span></div>
     </div>
   </div>
 </div>
@@ -198,12 +201,15 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
     <div class="legend">
       <div class="legend-item"><div class="legend-dot" style="background:#00d4aa"></div>Combined Actual</div>
       <div class="legend-item"><div class="legend-dash" style="border-color:#ffffff33"></div>Combined Target</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#00d4aa"></div>Billing</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#6c63ff"></div>PSA</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ff6b6b"></div>Cyber Protect</div>
     </div>
     <div class="chart-summary">
-      <div class="cs-item">Target in view: <span id="lead-csBudget">—</span></div>
+      <div class="cs-item">Target / pace: <span id="lead-csBudget">—</span></div>
       <div class="cs-item">Actual in view: <span id="lead-csActual">—</span></div>
       <div class="cs-item">Attainment vs. pace: <span id="lead-csAtt">—</span></div>
-      <div class="cs-item">Gap: <span id="lead-csGap">—</span></div>
+      <div class="cs-item">Pace gap: <span id="lead-csGap">—</span></div>
     </div>
   </div>
 </div>
@@ -399,7 +405,7 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
     <div style="font-size:10px;color:var(--muted);margin-top:8px">One row per forecast email/snapshot. Change compares Total MRR forecast to the previous weekly snapshot.</div>
   </div>
 </div>
-<footer>⚡ RevItUp · Salesforce live data · Last refresh: Jun 16, 2026, 4:12 PM EDT</footer>
+<footer>⚡ RevItUp · Salesforce live data · Last refresh: Jun 16, 2026, 4:17 PM EDT</footer>
 
 <script>
 Chart.defaults.color='#7b82a8';
@@ -545,7 +551,7 @@ function mrrUpdateStats(si,ei){
   }
   const att=bPace>0?Math.round(aAct/bPace*100):0;
   const gap=Math.round(Math.max(0,bPace-aAct));
-  document.getElementById('mrr-csBudget').textContent='$'+Math.round(bTot).toLocaleString();
+  document.getElementById('mrr-csBudget').textContent='$'+Math.round(bTot).toLocaleString()+' target · $'+Math.round(bPace).toLocaleString()+' pace';
   document.getElementById('mrr-csActual').textContent='$'+Math.round(aAct).toLocaleString();
   document.getElementById('mrr-csAtt').textContent=att+'%';
   document.getElementById('mrr-csGap').textContent='$'+gap.toLocaleString()+' behind';
@@ -652,7 +658,7 @@ function oppUpdateStats(si,ei){
   }
   const att=bPace>0?Math.round(aAct/bPace*100):0;
   const gap=Math.round(Math.max(0,bPace-aAct));
-  document.getElementById('opp-csBudget').textContent=Math.round(bTot)+' opps';
+  document.getElementById('opp-csBudget').textContent=Math.round(bTot)+' target · '+Math.round(bPace)+' pace';
   document.getElementById('opp-csActual').textContent=Math.round(aAct)+' opps';
   document.getElementById('opp-csAtt').textContent=att+'%';
   document.getElementById('opp-csGap').textContent=gap+' opps behind';
@@ -981,7 +987,7 @@ function leadUpdateStats(si,ei){
   }
   const att=bPace>0?Math.round(aAct/bPace*100):0;
   const gap=Math.round(Math.max(0,bPace-aAct));
-  document.getElementById('lead-csBudget').textContent=Math.round(bTot)+' leads';
+  document.getElementById('lead-csBudget').textContent=Math.round(bTot)+' target · '+Math.round(bPace)+' pace';
   document.getElementById('lead-csActual').textContent=Math.round(aAct)+' leads';
   document.getElementById('lead-csAtt').textContent=att+'%';
   document.getElementById('lead-csGap').textContent=gap+' leads behind';
