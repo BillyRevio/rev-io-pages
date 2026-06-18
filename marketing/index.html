@@ -84,7 +84,7 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
       <h1>2026 <span>Marketing Pacing</span></h1>
       <p>Marketing-sourced MRR &amp; Opps vs. target · YTD &amp; quarterly · Rev.io Grow Team</p>
     </div>
-    <div class="as-of">📅 Day 169/365 · <strong>Refreshed Jun 18, 2026, 11:36 AM EDT</strong></div>
+    <div class="as-of">📅 Day 169/365 · <strong>Refreshed Jun 18, 2026, 11:41 AM EDT</strong></div>
   </div>
 </div>
 
@@ -245,11 +245,11 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
 <!-- CHANNEL BREAKDOWN -->
 <div class="section" style="padding-top:0">
   <div class="section-title" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;" onclick="toggleChannel()">
-    <span>Channel Breakdown — <em>Leads &amp; Opps by Source</em></span>
+    <span>Channel Breakdown — <em>Leads, Opps &amp; Closed Won MRR by Source</em></span>
     <button id="channelToggleBtn" style="background:var(--surface2);border:1px solid var(--border);color:var(--muted);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:600;cursor:pointer;letter-spacing:.5px;">HIDE ▴</button>
   </div>
   <div id="channelSection" style="display:block;margin-top:0;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;">
       <div class="chart-card">
         <h2 style="font-size:14px;">Leads by Marketing Source</h2>
         <div class="chart-sub" id="chLeadsSub">Selected month · Excl. untagged · Marketing-sourced contacts</div>
@@ -266,6 +266,13 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
         <div style="height:36px;margin:10px 0 12px;"></div>
         <div class="chart-wrap" style="height:260px;"><canvas id="chOppsChart"></canvas></div>
         <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;" id="chOppsTotals"></div>
+      </div>
+      <div class="chart-card">
+        <h2 style="font-size:14px;">Closed Won MRR by Marketing Source</h2>
+        <div class="chart-sub" id="chMrrSub">Selected month · Closed Won opps · Amount &gt; 0</div>
+        <div style="height:36px;margin:10px 0 12px;"></div>
+        <div class="chart-wrap" style="height:260px;"><canvas id="chMrrChart"></canvas></div>
+        <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;" id="chMrrTotals"></div>
       </div>
     </div>
   </div>
@@ -331,7 +338,7 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
           </tr>
         </thead>
         <tbody style="font-size:12px">
-<tr style="border-top:1px solid var(--border);"><td style="font-weight:600;white-space:nowrap;padding:9px 10px">Pax8 Beyond 26</td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#ff6b6b">63</span><br><span style="font-size:10px;color:#475569">/ 0 target</span></td><td style="text-align:right;padding:9px 10px">58</td><td style="text-align:right;padding:9px 10px">19</td><td style="text-align:right;padding:9px 10px;font-weight:600;color:#ff6b6b">0%</td><td style="text-align:right;padding:9px 10px">$12,050</td><td style="text-align:right;padding:9px 10px;color:#2399b5;font-weight:600">$12,050<span style="color:#7b82a8;font-size:10px"> (13)</span></td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#6ebe4f">$1,000</span><span style="color:#7b82a8;font-size:10px"> (1)</span><br><span style="font-size:10px;color:#475569">/ $0 target</span></td><td style="text-align:right;padding:9px 10px;color:#ff6b6b">$5,000<span style="color:#7b82a8;font-size:10px"> (5)</span></td></tr>
+<tr style="border-top:1px solid var(--border);"><td style="font-weight:600;white-space:nowrap;padding:9px 10px">Pax8 Beyond 26</td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#ff6b6b">63</span><br><span style="font-size:10px;color:#475569">/ 0 target</span></td><td style="text-align:right;padding:9px 10px">58</td><td style="text-align:right;padding:9px 10px">19</td><td style="text-align:right;padding:9px 10px;font-weight:600;color:#ff6b6b">0%</td><td style="text-align:right;padding:9px 10px">$11,050</td><td style="text-align:right;padding:9px 10px;color:#2399b5;font-weight:600">$11,050<span style="color:#7b82a8;font-size:10px"> (12)</span></td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#6ebe4f">$1,000</span><span style="color:#7b82a8;font-size:10px"> (1)</span><br><span style="font-size:10px;color:#475569">/ $0 target</span></td><td style="text-align:right;padding:9px 10px;color:#ff6b6b">$6,000<span style="color:#7b82a8;font-size:10px"> (6)</span></td></tr>
 <tr style="border-top:1px solid var(--border);"><td style="font-weight:600;white-space:nowrap;padding:9px 10px">Channel Partners 26</td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#ff6b6b">27</span><br><span style="font-size:10px;color:#475569">/ 80 target</span></td><td style="text-align:right;padding:9px 10px">18</td><td style="text-align:right;padding:9px 10px">15</td><td style="text-align:right;padding:9px 10px;font-weight:600;color:#ff6b6b">34%</td><td style="text-align:right;padding:9px 10px">$5,106</td><td style="text-align:right;padding:9px 10px;color:#2399b5;font-weight:600">$5,106<span style="color:#7b82a8;font-size:10px"> (5)</span></td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#6ebe4f">$6,655</span><span style="color:#7b82a8;font-size:10px"> (4)</span><br><span style="font-size:10px;color:#475569">/ $9,323 target</span></td><td style="text-align:right;padding:9px 10px;color:#ff6b6b">$4,995<span style="color:#7b82a8;font-size:10px"> (6)</span></td></tr>
 <tr style="border-top:1px solid var(--border);"><td style="font-weight:600;white-space:nowrap;padding:9px 10px">ISC West 26</td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#f59e0b">58</span><br><span style="font-size:10px;color:#475569">/ 85 target</span></td><td style="text-align:right;padding:9px 10px">52</td><td style="text-align:right;padding:9px 10px">34</td><td style="text-align:right;padding:9px 10px;font-weight:600;color:#f59e0b">68%</td><td style="text-align:right;padding:9px 10px">$3,175</td><td style="text-align:right;padding:9px 10px;color:#2399b5;font-weight:600">$3,175<span style="color:#7b82a8;font-size:10px"> (2)</span></td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#6ebe4f">$5,341</span><span style="color:#7b82a8;font-size:10px"> (6)</span><br><span style="font-size:10px;color:#475569">/ $9,905 target</span></td><td style="text-align:right;padding:9px 10px;color:#ff6b6b">$25,805<span style="color:#7b82a8;font-size:10px"> (26)</span></td></tr>
 <tr style="border-top:1px solid var(--border);"><td style="font-weight:600;white-space:nowrap;padding:9px 10px">SkySwitch Vectors 26</td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#f59e0b">18</span><br><span style="font-size:10px;color:#475569">/ 30 target</span></td><td style="text-align:right;padding:9px 10px">17</td><td style="text-align:right;padding:9px 10px">13</td><td style="text-align:right;padding:9px 10px;font-weight:600;color:#f59e0b">60%</td><td style="text-align:right;padding:9px 10px">$4,650</td><td style="text-align:right;padding:9px 10px;color:#2399b5;font-weight:600">$4,650<span style="color:#7b82a8;font-size:10px"> (5)</span></td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#6ebe4f">$50</span><span style="color:#7b82a8;font-size:10px"> (1)</span><br><span style="font-size:10px;color:#475569">/ $3,496 target</span></td><td style="text-align:right;padding:9px 10px;color:#ff6b6b">$5,275<span style="color:#7b82a8;font-size:10px"> (7)</span></td></tr>
@@ -361,7 +368,7 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
 <tr style="border-top:1px solid var(--border);"><td style="font-weight:600;white-space:nowrap;padding:9px 10px">AIN 25</td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#ff6b6b">0</span><br><span style="font-size:10px;color:#475569">/ 0 target</span></td><td style="text-align:right;padding:9px 10px">0</td><td style="text-align:right;padding:9px 10px">4</td><td style="text-align:right;padding:9px 10px;font-weight:600;color:#ff6b6b">0%</td><td style="text-align:right;padding:9px 10px">$0</td><td style="text-align:right;padding:9px 10px;color:#2399b5;font-weight:600">$0<span style="color:#7b82a8;font-size:10px"> (0)</span></td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#6ebe4f">—</span><span style="color:#7b82a8;font-size:10px"></span><br><span style="font-size:10px;color:#475569">/ $0 target</span></td><td style="text-align:right;padding:9px 10px;color:#ff6b6b">$4,685<span style="color:#7b82a8;font-size:10px"> (4)</span></td></tr>
 <tr style="border-top:1px solid var(--border);"><td style="font-weight:600;white-space:nowrap;padding:9px 10px">IT Expo 25</td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#ff6b6b">0</span><br><span style="font-size:10px;color:#475569">/ 0 target</span></td><td style="text-align:right;padding:9px 10px">0</td><td style="text-align:right;padding:9px 10px">1</td><td style="text-align:right;padding:9px 10px;font-weight:600;color:#ff6b6b">0%</td><td style="text-align:right;padding:9px 10px">$0</td><td style="text-align:right;padding:9px 10px;color:#2399b5;font-weight:600">$0<span style="color:#7b82a8;font-size:10px"> (0)</span></td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#6ebe4f">—</span><span style="color:#7b82a8;font-size:10px"></span><br><span style="font-size:10px;color:#475569">/ $0 target</span></td><td style="text-align:right;padding:9px 10px;color:#ff6b6b">$3,700<span style="color:#7b82a8;font-size:10px"> (1)</span></td></tr>
 <tr style="border-top:1px solid var(--border);"><td style="font-weight:600;white-space:nowrap;padding:9px 10px">CVx Expo 24</td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#ff6b6b">0</span><br><span style="font-size:10px;color:#475569">/ 0 target</span></td><td style="text-align:right;padding:9px 10px">0</td><td style="text-align:right;padding:9px 10px">1</td><td style="text-align:right;padding:9px 10px;font-weight:600;color:#ff6b6b">0%</td><td style="text-align:right;padding:9px 10px">$0</td><td style="text-align:right;padding:9px 10px;color:#2399b5;font-weight:600">$0<span style="color:#7b82a8;font-size:10px"> (0)</span></td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#6ebe4f">—</span><span style="color:#7b82a8;font-size:10px"></span><br><span style="font-size:10px;color:#475569">/ $0 target</span></td><td style="text-align:right;padding:9px 10px;color:#ff6b6b">$880<span style="color:#7b82a8;font-size:10px"> (1)</span></td></tr>
-<tr style="border-top:2px solid var(--border);font-weight:700"><td style="font-weight:600;white-space:nowrap;padding:9px 10px">2026 Total</td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#f59e0b">376</span><br><span style="font-size:10px;color:#475569">/ 499 target</span></td><td style="text-align:right;padding:9px 10px">316</td><td style="text-align:right;padding:9px 10px">199</td><td style="text-align:right;padding:9px 10px;font-weight:600;color:#f59e0b">75%</td><td style="text-align:right;padding:9px 10px">$34,256</td><td style="text-align:right;padding:9px 10px;color:#2399b5;font-weight:600">$34,256<span style="color:#7b82a8;font-size:10px"> (34)</span></td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#6ebe4f">$22,235</span><span style="color:#7b82a8;font-size:10px"> (22)</span><br><span style="font-size:10px;color:#475569">/ $58,149 target</span></td><td style="text-align:right;padding:9px 10px;color:#ff6b6b">$139,320<span style="color:#7b82a8;font-size:10px"> (143)</span></td></tr>
+<tr style="border-top:2px solid var(--border);font-weight:700"><td style="font-weight:600;white-space:nowrap;padding:9px 10px">2026 Total</td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#f59e0b">376</span><br><span style="font-size:10px;color:#475569">/ 499 target</span></td><td style="text-align:right;padding:9px 10px">316</td><td style="text-align:right;padding:9px 10px">199</td><td style="text-align:right;padding:9px 10px;font-weight:600;color:#f59e0b">75%</td><td style="text-align:right;padding:9px 10px">$33,256</td><td style="text-align:right;padding:9px 10px;color:#2399b5;font-weight:600">$33,256<span style="color:#7b82a8;font-size:10px"> (33)</span></td><td style="text-align:right;padding:9px 10px"><span style="font-weight:600;color:#6ebe4f">$22,235</span><span style="color:#7b82a8;font-size:10px"> (22)</span><br><span style="font-size:10px;color:#475569">/ $58,149 target</span></td><td style="text-align:right;padding:9px 10px;color:#ff6b6b">$140,320<span style="color:#7b82a8;font-size:10px"> (144)</span></td></tr>
 </tbody>
       </table>
     </div>
@@ -410,7 +417,7 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
     <div style="font-size:10px;color:var(--muted);margin-top:8px">One row per forecast email/snapshot. Change compares Total MRR forecast to the previous weekly snapshot.</div>
   </div>
 </div>
-<footer>⚡ RevItUp · Salesforce live data · Last refresh: Jun 18, 2026, 11:36 AM EDT</footer>
+<footer>⚡ RevItUp · Salesforce live data · Last refresh: Jun 18, 2026, 11:41 AM EDT</footer>
 
 <script>
 Chart.defaults.color='#7b82a8';
@@ -879,7 +886,7 @@ const chOptions = {
       backgroundColor: '#0d1929', titleColor: '#6EBE4F', titleFont: { size: 13, weight: 'bold' },
       bodyColor: '#E8E8EC', borderColor: '#2399B5', borderWidth: 1, padding: 10,
       callbacks: {
-        label: (item) => `${item.raw} ${item.dataset.label.toLowerCase().includes('opp') ? 'opps' : 'leads'}`,
+        label: (item) => item.dataset.label.toLowerCase().includes('mrr') ? '$'+Math.round(item.raw||0).toLocaleString() : `${item.raw} ${item.dataset.label.toLowerCase().includes('opp') ? 'opps' : 'leads'}`,
       }
     }
   },
@@ -888,7 +895,7 @@ const chOptions = {
     y: { beginAtZero:true, ticks: { precision: 0, color: '#7b82a8', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.06)' } },
   }
 };
-let chChartsBuilt = false, chSelectedMonth = CH_MONTHS.length - 1, chLeadChart = null, chOppChart = null;
+let chChartsBuilt = false, chSelectedMonth = CH_MONTHS.length - 1, chLeadChart = null, chOppChart = null, chMrrChart = null;
 function buildChMonthBtns() {
   const c = document.getElementById('ch-month-btns');
   if(!c || c.dataset.built) return;
@@ -910,25 +917,31 @@ function buildChPills(containerId, dataObj, metricLabel) {
   const el = document.getElementById(containerId);
   const sorted = Object.entries(dataObj).map(([k,v])=>({k,v:v[chSelectedMonth]||0})).sort((a,b)=>b.v-a.v);
   const total = sorted.reduce((s,x)=>s+x.v,0);
+  const isMoney = metricLabel.toLowerCase().includes('mrr');
+  const fmt = v => isMoney ? '$'+Math.round(v||0).toLocaleString() : v;
   el.innerHTML = '';
   sorted.forEach(({k,v}) => {
-    el.innerHTML += `<div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:11px;"><span style="font-size:16px;font-weight:700;color:#2399B5;display:block;">${v}</span>${k}</div>`;
+    el.innerHTML += `<div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:11px;"><span style="font-size:16px;font-weight:700;color:#2399B5;display:block;">${fmt(v)}</span>${k}</div>`;
   });
-  el.innerHTML += `<div style="background:var(--surface2);border:1px solid var(--border);border-left:2px solid #6EBE4F;border-radius:6px;padding:6px 10px;font-size:11px;"><span style="font-size:16px;font-weight:700;color:#6EBE4F;display:block;">${total}</span>${CH_MONTHS[chSelectedMonth]} ${metricLabel}</div>`;
+  el.innerHTML += `<div style="background:var(--surface2);border:1px solid var(--border);border-left:2px solid #6EBE4F;border-radius:6px;padding:6px 10px;font-size:11px;"><span style="font-size:16px;font-weight:700;color:#6EBE4F;display:block;">${fmt(total)}</span>${CH_MONTHS[chSelectedMonth]} ${metricLabel}</div>`;
 }
 function updateChCharts() {
   updateChMonthBtns();
   const monthLabel = CH_MONTHS[chSelectedMonth];
-  const leadSub=document.getElementById('chLeadsSub'), oppSub=document.getElementById('chOppsSub');
+  const leadSub=document.getElementById('chLeadsSub'), oppSub=document.getElementById('chOppsSub'), mrrSub=document.getElementById('chMrrSub');
   if(leadSub) leadSub.textContent = `${monthLabel} · Excl. untagged · Marketing-sourced contacts`;
   if(oppSub)  oppSub.textContent  = `${monthLabel} · Excl. Sales-sourced · Amount > 0`;
+  if(mrrSub)  mrrSub.textContent  = `${monthLabel} · Closed Won opps · Amount > 0`;
   if (!chChartsBuilt) return;
   buildChPills('chLeadsTotals', chLeadsData, 'Leads');
   buildChPills('chOppsTotals', chOppsData, 'Opps');
+  buildChPills('chMrrTotals', chMrrData, 'MRR Won');
   chLeadChart.data = makeChMonthData(chLeadsData, chSelectedMonth, 'Leads');
   chOppChart.data  = makeChMonthData(chOppsData, chSelectedMonth, 'Opps');
+  chMrrChart.data  = makeChMonthData(chMrrData, chSelectedMonth, 'MRR Won');
   chLeadChart.update('none');
   chOppChart.update('none');
+  chMrrChart.update('none');
 }
 function chSetMonth(mi) {
   chSelectedMonth = Math.max(0, Math.min(CH_MONTHS.length - 1, mi));
@@ -944,6 +957,9 @@ function buildChannelCharts() {
   });
   chOppChart = new Chart(document.getElementById('chOppsChart'), {
     type: 'bar', data: makeChMonthData(chOppsData, chSelectedMonth, 'Opps'), options: chOptions
+  });
+  chMrrChart = new Chart(document.getElementById('chMrrChart'), {
+    type: 'bar', data: makeChMonthData(chMrrData, chSelectedMonth, 'MRR Won'), options: chOptions
   });
   updateChCharts();
 }
