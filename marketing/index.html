@@ -246,9 +246,9 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
 <div class="section" style="padding-top:0">
   <div class="section-title" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;" onclick="toggleChannel()">
     <span>Channel Breakdown — <em>Leads &amp; Opps by Source</em></span>
-    <button id="channelToggleBtn" style="background:var(--surface2);border:1px solid var(--border);color:var(--muted);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:600;cursor:pointer;letter-spacing:.5px;">SHOW ▾</button>
+    <button id="channelToggleBtn" style="background:var(--surface2);border:1px solid var(--border);color:var(--muted);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:600;cursor:pointer;letter-spacing:.5px;">HIDE ▴</button>
   </div>
-  <div id="channelSection" style="display:none;margin-top:0;">
+  <div id="channelSection" style="display:block;margin-top:0;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
       <div class="chart-card">
         <h2 style="font-size:14px;">Leads by Marketing Source</h2>
@@ -877,32 +877,34 @@ const chOptions = {
   }
 };
 let chChartsBuilt = false;
+function buildChannelCharts() {
+  if (chChartsBuilt) return;
+  chChartsBuilt = true;
+  function buildPills(containerId, dataObj) {
+    const el = document.getElementById(containerId);
+    const sorted = Object.entries(dataObj).map(([k,v])=>({k,v:v.reduce((a,b)=>a+b,0)})).sort((a,b)=>b.v-a.v);
+    const total = sorted.reduce((s,x)=>s+x.v,0);
+    sorted.forEach(({k,v}) => {
+      el.innerHTML += `<div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:11px;"><span style="font-size:16px;font-weight:700;color:#2399B5;display:block;">${v}</span>${k}</div>`;
+    });
+    el.innerHTML += `<div style="background:var(--surface2);border:1px solid var(--border);border-left:2px solid #6EBE4F;border-radius:6px;padding:6px 10px;font-size:11px;"><span style="font-size:16px;font-weight:700;color:#6EBE4F;display:block;">${total}</span>Total</div>`;
+  }
+  buildPills('chLeadsTotals', chLeadsData);
+  buildPills('chOppsTotals', chOppsData);
+  new Chart(document.getElementById('chLeadsChart'), {
+    type: 'bar', data: { labels: CH_MONTHS, datasets: makeChDatasets(chLeadsData) }, options: chOptions
+  });
+  new Chart(document.getElementById('chOppsChart'), {
+    type: 'bar', data: { labels: CH_MONTHS, datasets: makeChDatasets(chOppsData) }, options: chOptions
+  });
+}
 function toggleChannel() {
   const sec = document.getElementById('channelSection');
   const btn = document.getElementById('channelToggleBtn');
   const visible = sec.style.display !== 'none';
   sec.style.display = visible ? 'none' : 'block';
   btn.textContent = visible ? 'SHOW ▾' : 'HIDE ▴';
-  if (!visible && !chChartsBuilt) {
-    chChartsBuilt = true;
-    function buildPills(containerId, dataObj) {
-      const el = document.getElementById(containerId);
-      const sorted = Object.entries(dataObj).map(([k,v])=>({k,v:v.reduce((a,b)=>a+b,0)})).sort((a,b)=>b.v-a.v);
-      const total = sorted.reduce((s,x)=>s+x.v,0);
-      sorted.forEach(({k,v}) => {
-        el.innerHTML += `<div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:11px;"><span style="font-size:16px;font-weight:700;color:#2399B5;display:block;">${v}</span>${k}</div>`;
-      });
-      el.innerHTML += `<div style="background:var(--surface2);border:1px solid var(--border);border-left:2px solid #6EBE4F;border-radius:6px;padding:6px 10px;font-size:11px;"><span style="font-size:16px;font-weight:700;color:#6EBE4F;display:block;">${total}</span>Total</div>`;
-    }
-    buildPills('chLeadsTotals', chLeadsData);
-    buildPills('chOppsTotals', chOppsData);
-    new Chart(document.getElementById('chLeadsChart'), {
-      type: 'bar', data: { labels: CH_MONTHS, datasets: makeChDatasets(chLeadsData) }, options: chOptions
-    });
-    new Chart(document.getElementById('chOppsChart'), {
-      type: 'bar', data: { labels: CH_MONTHS, datasets: makeChDatasets(chOppsData) }, options: chOptions
-    });
-  }
+  if (!visible) buildChannelCharts();
 }
 
 // ── Leads Pacing Chart ────────────────────────────────────────────────────
@@ -1182,6 +1184,7 @@ function toggleShows() {
 mrrDraw(0,364);
 oppDraw(0,364);
 leadDraw(0,364);
+buildChannelCharts();
 buildQtrSnaps();
 buildProdCards();
 buildAnnualTable();
