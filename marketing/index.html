@@ -252,18 +252,13 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
       <div class="chart-card">
         <h2 style="font-size:14px;">Leads by Marketing Source</h2>
-        <div class="chart-sub" id="chLeadsSub">Selected month · Excl. untagged · Marketing-sourced contacts</div>
-        <div style="display:flex;gap:6px;margin:10px 0 12px;flex-wrap:wrap;align-items:center;">
-          <span style="font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-right:4px;">Month:</span>
-          <div id="ch-month-btns" style="display:flex;gap:6px;flex-wrap:wrap;"></div>
-        </div>
+        <div class="chart-sub">Month over month · Excl. untagged · Marketing-sourced contacts</div>
         <div class="chart-wrap" style="height:260px;"><canvas id="chLeadsChart"></canvas></div>
         <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;" id="chLeadsTotals"></div>
       </div>
       <div class="chart-card">
         <h2 style="font-size:14px;">Opps by Marketing Source</h2>
-        <div class="chart-sub" id="chOppsSub">Selected month · Excl. Sales-sourced · Amount &gt; 0</div>
-        <div style="height:36px;margin:10px 0 12px;"></div>
+        <div class="chart-sub">Month over month · Excl. Sales-sourced · Amount &gt; 0</div>
         <div class="chart-wrap" style="height:260px;"><canvas id="chOppsChart"></canvas></div>
         <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;" id="chOppsTotals"></div>
       </div>
@@ -855,86 +850,33 @@ const CH_PALETTE = ['#2399B5','#6EBE4F','#E8A838','#9B59B6','#E74C3C','#1ABC9C',
 const chLeadsData = {"Tradeshow":[21,39,58,170,9,79],"Paid Media":[115,58,11,7,29,9],"Website + SEO":[38,29,22,17,31,13],"Email":[7,3,7,1,4,2],"Partner/Referral":[1,1,2,3,1,0],"Rev.io Summit":[0,0,0,0,0,0]};
 const chOppsData  = {"Tradeshow":[38,58,72,92,74,64],"Paid Media":[48,34,18,10,14,10],"Website + SEO":[92,66,50,34,36,26],"Email":[20,14,8,6,8,6],"Partner/Referral":[2,6,4,10,4,0],"Rev.io Summit":[6,2,8,2,0,8]};
 
-function makeChMonthData(obj, mi, metricLabel) {
-  const entries = Object.entries(obj).map(([k,v], i)=>({
-    label:k, value:v[mi]||0, color:CH_PALETTE[i % CH_PALETTE.length]
-  })).sort((a,b)=>b.value-a.value);
-  return {
-    labels: entries.map(x=>x.label),
-    datasets: [{
-      label: `${CH_MONTHS[mi]} ${metricLabel}`,
-      data: entries.map(x=>x.value),
-      backgroundColor: entries.map(x=>x.color),
-      borderRadius: 5,
-      borderSkipped: false,
-    }]
-  };
+function makeChDatasets(obj) {
+  return Object.entries(obj).map(([label, data], i) => ({
+    label, data,
+    backgroundColor: CH_PALETTE[i % CH_PALETTE.length],
+    borderRadius: 3, borderSkipped: false,
+  }));
 }
 const chOptions = {
   responsive: true, maintainAspectRatio: false,
   plugins: {
-    legend: { display: false },
+    legend: { position: 'bottom', labels: { color: '#7b82a8', font: { size: 11 }, padding: 12, boxWidth: 12, boxHeight: 12 } },
     tooltip: {
-      mode: 'nearest', intersect: true,
+      mode: 'index', intersect: false,
       backgroundColor: '#0d1929', titleColor: '#6EBE4F', titleFont: { size: 13, weight: 'bold' },
       bodyColor: '#E8E8EC', borderColor: '#2399B5', borderWidth: 1, padding: 10,
       callbacks: {
-        label: (item) => `${item.raw} ${item.dataset.label.toLowerCase().includes('opp') ? 'opps' : 'leads'}`,
+        title: (items) => { if (!items.length) return ''; const total = items.reduce((s,i)=>s+i.parsed.y,0); return `${items[0].label}  —  Total: ${total}`; },
+        label: (item) => item.parsed.y === 0 ? null : `  ${item.dataset.label}: ${item.parsed.y}`,
       }
     }
   },
   scales: {
-    x: { ticks: { color: '#7b82a8', font: { size: 11 }, maxRotation: 30, minRotation: 0 }, grid: { color: 'rgba(255,255,255,0.04)' } },
-    y: { beginAtZero:true, ticks: { precision: 0, color: '#7b82a8', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.06)' } },
+    x: { stacked: true, ticks: { color: '#7b82a8', font: { size: 12 } }, grid: { color: 'rgba(255,255,255,0.04)' } },
+    y: { stacked: true, ticks: { color: '#7b82a8', font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.06)' } },
   }
 };
-let chChartsBuilt = false, chSelectedMonth = CH_MONTHS.length - 1, chLeadChart = null, chOppChart = null;
-function buildChMonthBtns() {
-  const c = document.getElementById('ch-month-btns');
-  if(!c || c.dataset.built) return;
-  CH_MONTHS.forEach((m, mi)=>{
-    const b=document.createElement('button');
-    b.id='ch-month-'+mi;
-    b.className='fbtn'+(mi===chSelectedMonth?' palla':'');
-    b.style.cssText='font-size:11px;padding:3px 10px;';
-    b.textContent=m.replace('January','Jan').replace('February','Feb').replace('March','Mar').replace('April','Apr').replace('June','Jun');
-    b.onclick=()=>chSetMonth(mi);
-    c.appendChild(b);
-  });
-  c.dataset.built='1';
-}
-function updateChMonthBtns(){
-  CH_MONTHS.forEach((_,mi)=>document.getElementById('ch-month-'+mi)?.classList.toggle('palla', mi===chSelectedMonth));
-}
-function buildChPills(containerId, dataObj, metricLabel) {
-  const el = document.getElementById(containerId);
-  const sorted = Object.entries(dataObj).map(([k,v])=>({k,v:v[chSelectedMonth]||0})).sort((a,b)=>b.v-a.v);
-  const total = sorted.reduce((s,x)=>s+x.v,0);
-  el.innerHTML = '';
-  sorted.forEach(({k,v}) => {
-    el.innerHTML += `<div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:11px;"><span style="font-size:16px;font-weight:700;color:#2399B5;display:block;">${v}</span>${k}</div>`;
-  });
-  el.innerHTML += `<div style="background:var(--surface2);border:1px solid var(--border);border-left:2px solid #6EBE4F;border-radius:6px;padding:6px 10px;font-size:11px;"><span style="font-size:16px;font-weight:700;color:#6EBE4F;display:block;">${total}</span>${CH_MONTHS[chSelectedMonth]} ${metricLabel}</div>`;
-}
-function updateChCharts() {
-  updateChMonthBtns();
-  const monthLabel = CH_MONTHS[chSelectedMonth];
-  const leadSub=document.getElementById('chLeadsSub'), oppSub=document.getElementById('chOppsSub');
-  if(leadSub) leadSub.textContent = `${monthLabel} · Excl. untagged · Marketing-sourced contacts`;
-  if(oppSub)  oppSub.textContent  = `${monthLabel} · Excl. Sales-sourced · Amount > 0`;
-  if (!chChartsBuilt) return;
-  buildChPills('chLeadsTotals', chLeadsData, 'Leads');
-  buildChPills('chOppsTotals', chOppsData, 'Opps');
-  chLeadChart.data = makeChMonthData(chLeadsData, chSelectedMonth, 'Leads');
-  chOppChart.data  = makeChMonthData(chOppsData, chSelectedMonth, 'Opps');
-  chLeadChart.update('none');
-  chOppChart.update('none');
-}
-function chSetMonth(mi) {
-  chSelectedMonth = Math.max(0, Math.min(CH_MONTHS.length - 1, mi));
-  updateChCharts();
-}
-window.chSetMonth = chSetMonth;
+let chChartsBuilt = false;
 function toggleChannel() {
   const sec = document.getElementById('channelSection');
   const btn = document.getElementById('channelToggleBtn');
@@ -943,17 +885,23 @@ function toggleChannel() {
   btn.textContent = visible ? 'SHOW ▾' : 'HIDE ▴';
   if (!visible && !chChartsBuilt) {
     chChartsBuilt = true;
-    buildChMonthBtns();
-    chLeadChart = new Chart(document.getElementById('chLeadsChart'), {
-      type: 'bar', data: makeChMonthData(chLeadsData, chSelectedMonth, 'Leads'), options: chOptions
+    function buildPills(containerId, dataObj) {
+      const el = document.getElementById(containerId);
+      const sorted = Object.entries(dataObj).map(([k,v])=>({k,v:v.reduce((a,b)=>a+b,0)})).sort((a,b)=>b.v-a.v);
+      const total = sorted.reduce((s,x)=>s+x.v,0);
+      sorted.forEach(({k,v}) => {
+        el.innerHTML += `<div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:11px;"><span style="font-size:16px;font-weight:700;color:#2399B5;display:block;">${v}</span>${k}</div>`;
+      });
+      el.innerHTML += `<div style="background:var(--surface2);border:1px solid var(--border);border-left:2px solid #6EBE4F;border-radius:6px;padding:6px 10px;font-size:11px;"><span style="font-size:16px;font-weight:700;color:#6EBE4F;display:block;">${total}</span>Total</div>`;
+    }
+    buildPills('chLeadsTotals', chLeadsData);
+    buildPills('chOppsTotals', chOppsData);
+    new Chart(document.getElementById('chLeadsChart'), {
+      type: 'bar', data: { labels: CH_MONTHS, datasets: makeChDatasets(chLeadsData) }, options: chOptions
     });
-    chOppChart = new Chart(document.getElementById('chOppsChart'), {
-      type: 'bar', data: makeChMonthData(chOppsData, chSelectedMonth, 'Opps'), options: chOptions
+    new Chart(document.getElementById('chOppsChart'), {
+      type: 'bar', data: { labels: CH_MONTHS, datasets: makeChDatasets(chOppsData) }, options: chOptions
     });
-    updateChCharts();
-  } else if (!visible) {
-    buildChMonthBtns();
-    updateChCharts();
   }
 }
 
@@ -1209,7 +1157,6 @@ function toggleShows() {
 
   window.msnapSetMonth = function(mi){
     msnapMonth=mi;
-    if (window.chSetMonth) window.chSetMonth(Math.min(mi, 5));
     activeMonths.forEach(m=>{
       const b=document.getElementById('msnap-m'+m);
       if(b) b.classList.toggle('palla',m===mi);
