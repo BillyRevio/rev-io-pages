@@ -1,130 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rev.io Leadership Offsite | Marketing Positioning + Competitive Plays</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --navy:#1D3756;--teal:#2399B5;--green:#6EBE4F;--platinum:#E8E8EC;--ink:#17263A;--muted:#66758A;--bg:#F4F7FA;--card:#fff;--line:#DCE5EE;--dark:#10253D;--warning:#FCF4D9;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:'Open Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
-    .stripe{height:6px;background:linear-gradient(90deg,var(--teal),var(--green))}
-    nav{position:sticky;top:0;z-index:20;background:rgba(29,55,86,.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.12);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 28px}
-    .brand{font-family:Montserrat,sans-serif;font-weight:800;letter-spacing:.2px;color:#fff;text-decoration:none;font-size:20px}.navlinks{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}.navlinks a{color:rgba(255,255,255,.78);text-decoration:none;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px}.navlinks a:hover{color:#fff}
-    main{max-width:1320px;margin:0 auto;padding:28px 26px 70px}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;margin-bottom:22px}.hero-card{position:relative;overflow:hidden;background:radial-gradient(circle at 15% 10%,rgba(35,153,181,.45),transparent 34%),radial-gradient(circle at 85% 10%,rgba(110,190,79,.23),transparent 34%),linear-gradient(135deg,#1D3756,#0F243C);border-radius:28px;padding:46px;color:#fff;box-shadow:0 24px 60px rgba(29,55,86,.22)}
-    .hero-card:after{content:"";position:absolute;right:-100px;bottom:-120px;width:380px;height:380px;border:42px solid rgba(255,255,255,.05);transform:rotate(35deg);border-radius:48px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#aaf28b;font-weight:800;margin-bottom:14px}.hero h1{font-family:Montserrat,sans-serif;font-size:54px;line-height:1.02;letter-spacing:-1.8px;margin-bottom:18px;max-width:860px}.hero p{font-size:18px;color:rgba(255,255,255,.82);max-width:760px}.callout{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 12px 36px rgba(29,55,86,.08)}.callout h2{font-family:Montserrat,sans-serif;color:var(--navy);font-size:25px;margin-bottom:14px}.quote{padding:20px;border-left:5px solid var(--green);background:#F7FBF4;border-radius:16px;font-size:22px;font-weight:800;color:var(--navy);margin:16px 0}.meta{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}.meta div{background:#F2F6F9;border:1px solid var(--line);border-radius:15px;padding:13px}.meta span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:1.1px;font-weight:900;color:var(--muted)}.meta strong{display:block;color:var(--navy);font-size:18px;margin-top:3px}.section{margin-top:28px;background:var(--card);border:1px solid var(--line);border-radius:26px;box-shadow:0 10px 32px rgba(29,55,86,.06);overflow:hidden}.section-head{padding:28px 30px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:20px}.section h2{font-family:Montserrat,sans-serif;font-size:32px;color:var(--navy);letter-spacing:-.7px}.time{display:inline-flex;align-items:center;border-radius:999px;background:rgba(35,153,181,.1);border:1px solid rgba(35,153,181,.25);color:var(--teal);padding:8px 13px;font-size:12px;font-weight:900;white-space:nowrap}.body{padding:28px 30px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid.two{grid-template-columns:repeat(2,1fr)}.grid.four{grid-template-columns:repeat(4,1fr)}.card{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff}.card.dark{background:linear-gradient(135deg,var(--navy),#10253D);color:#fff;border:0}.card h3{color:var(--navy);font-size:18px;margin-bottom:10px}.card.dark h3{color:#fff}.card p,.card li{color:var(--muted);font-size:14px}.card.dark p,.card.dark li{color:rgba(255,255,255,.78)}ul{padding-left:20px}.pillrow{display:flex;flex-wrap:wrap;gap:9px}.pill{display:inline-flex;border:1px solid rgba(35,153,181,.28);background:rgba(35,153,181,.09);color:var(--navy);border-radius:999px;padding:7px 11px;font-size:12px;font-weight:800}.pill.green{border-color:rgba(110,190,79,.34);background:rgba(110,190,79,.12)}.big-stat{font-size:38px;font-weight:900;color:var(--navy);line-height:1}.label{font-size:11px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:1px;margin-top:6px}.matrix{width:100%;border-collapse:collapse;font-size:14px}.matrix th{text-align:left;background:#F2F6F9;color:var(--navy);font-size:11px;text-transform:uppercase;letter-spacing:.8px;padding:12px;border-bottom:1px solid var(--line)}.matrix td{vertical-align:top;padding:14px 12px;border-bottom:1px solid #edf2f6}.matrix tr:last-child td{border-bottom:0}.check{color:var(--green);font-weight:900}.warn{background:var(--warning);border:1px solid #E9D48A;border-radius:18px;padding:18px;color:#634A05}.slide-list{counter-reset:slides;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.slide{counter-increment:slides;border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff;position:relative;padding-left:62px}.slide:before{content:counter(slides);position:absolute;left:18px;top:18px;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}.slide strong{display:block;color:var(--navy);font-size:16px}.slide span{color:var(--muted);font-size:13px}.ssc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.ssc h3{font-family:Montserrat,sans-serif;color:var(--navy);font-size:24px}.ssc .start{border-top:5px solid var(--green)}.ssc .stop{border-top:5px solid #D44}.ssc .continue{border-top:5px solid var(--teal)}.footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}.print{position:fixed;right:20px;bottom:20px;z-index:30;border:0;border-radius:999px;background:var(--green);color:#0f253d;font-weight:900;padding:13px 18px;box-shadow:0 12px 24px rgba(29,55,86,.18);cursor:pointer}@media(max-width:980px){.hero,.grid,.grid.two,.grid.four,.slide-list,.ssc{grid-template-columns:1fr}.hero h1{font-size:38px}.section-head{display:block}.time{margin-top:12px}.navlinks{display:none}.meta{grid-template-columns:1fr}
-}
-@media print{nav,.print{display:none}.section,.hero-card,.callout{break-inside:avoid;box-shadow:none}body{background:#fff}main{max-width:100%;padding:0}.section{margin:18px 0}.hero{grid-template-columns:1fr}.hero-card{color:#fff}
-}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rev.io Leadership Offsite - Marketing Strategy Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root { --navy:#1D3756; --teal:#2399B5; --green:#6EBE4F; --bg:#F4F7FA; --ink:#17263A; --muted:#637388; --line:#DDE6EF; --card:#ffffff; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:'Open Sans', Arial, sans-serif; background:var(--bg); color:var(--ink); line-height:1.55; }
+.topbar { height:6px; background:linear-gradient(90deg,var(--teal),var(--green)); }
+nav { background:var(--navy); color:#fff; padding:16px 28px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:5; }
+nav a { color:#fff; text-decoration:none; font-weight:800; }
+nav span { color:rgba(255,255,255,.72); font-size:13px; }
+main { max-width:1180px; margin:0 auto; padding:30px 22px 70px; }
+.hero { background:linear-gradient(135deg,#1D3756,#10253D); color:#fff; border-radius:28px; padding:48px; box-shadow:0 18px 48px rgba(29,55,86,.22); }
+.eyebrow { color:#A7EC84; text-transform:uppercase; letter-spacing:2px; font-size:12px; font-weight:800; margin-bottom:12px; }
+h1 { font-family:Montserrat, sans-serif; font-size:52px; line-height:1.03; letter-spacing:-1.5px; margin:0 0 18px; }
+.hero p { max-width:820px; color:rgba(255,255,255,.82); font-size:19px; margin:0; }
+.thesis { margin-top:22px; background:#fff; color:var(--navy); border-left:6px solid var(--green); border-radius:18px; padding:22px; font-size:24px; font-weight:800; }
+.meta { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:18px; }
+.meta div { background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18); border-radius:16px; padding:15px; }
+.meta small { display:block; color:rgba(255,255,255,.65); text-transform:uppercase; letter-spacing:1px; font-weight:800; }
+.meta strong { display:block; color:#fff; font-size:20px; margin-top:3px; }
+section { background:var(--card); border:1px solid var(--line); border-radius:24px; margin-top:24px; overflow:hidden; box-shadow:0 8px 28px rgba(29,55,86,.06); }
+.header { padding:24px 28px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; gap:20px; align-items:flex-start; }
+h2 { font-family:Montserrat, sans-serif; color:var(--navy); font-size:30px; line-height:1.12; margin:0; }
+.time { color:var(--teal); background:rgba(35,153,181,.10); border:1px solid rgba(35,153,181,.25); border-radius:999px; padding:8px 13px; font-size:12px; font-weight:800; white-space:nowrap; }
+.content { padding:26px 28px; }
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.grid.two { grid-template-columns:repeat(2,1fr); }
+.card { border:1px solid var(--line); border-radius:18px; padding:19px; background:#fff; }
+.card.dark { background:var(--navy); color:#fff; border-color:var(--navy); }
+h3 { color:var(--navy); margin:0 0 10px; font-size:18px; }
+.card.dark h3 { color:#fff; }
+p { margin:0 0 10px; }
+ul { margin:0; padding-left:20px; }
+li { margin:5px 0; color:var(--muted); }
+.card.dark li, .card.dark p { color:rgba(255,255,255,.80); }
+.stat { color:var(--navy); font-size:38px; font-weight:900; line-height:1; }
+.label { color:var(--muted); font-size:11px; font-weight:900; text-transform:uppercase; letter-spacing:1px; margin-top:5px; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th { text-align:left; background:#F2F6F9; color:var(--navy); font-size:11px; text-transform:uppercase; letter-spacing:.8px; padding:12px; }
+td { vertical-align:top; padding:14px 12px; border-bottom:1px solid #EDF2F6; }
+.badges { display:flex; flex-wrap:wrap; gap:9px; }
+.badge { border-radius:999px; background:rgba(35,153,181,.10); border:1px solid rgba(35,153,181,.26); color:var(--navy); padding:8px 12px; font-weight:800; font-size:13px; }
+.badge.green { background:rgba(110,190,79,.14); border-color:rgba(110,190,79,.38); }
+.ssc { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.start { border-top:5px solid var(--green); }
+.stop { border-top:5px solid #D94A4A; }
+.continue { border-top:5px solid var(--teal); }
+.note { background:#FFF8DD; border:1px solid #E7D184; border-radius:18px; padding:18px; color:#5B450A; }
+footer { text-align:center; color:var(--muted); font-size:13px; margin-top:24px; }
+.print { position:fixed; right:20px; bottom:20px; border:0; border-radius:999px; padding:13px 18px; font-weight:900; color:#0F253D; background:var(--green); box-shadow:0 12px 28px rgba(29,55,86,.20); cursor:pointer; }
+@media (max-width:900px) { h1 { font-size:36px; } .hero { padding:30px; } .grid, .grid.two, .ssc, .meta { grid-template-columns:1fr; } .header { display:block; } .time { display:inline-block; margin-top:12px; } }
+@media print { nav, .print { display:none; } body { background:#fff; } main { max-width:100%; padding:0; } section, .hero { box-shadow:none; break-inside:avoid; } }
+</style>
 </head>
 <body>
-<div class="stripe"></div>
-<nav>
-  <a class="brand" href="index.html">Rev.io</a>
-  <div class="navlinks">
-    <a href="#positioning">Positioning</a><a href="#competitive">Competitive</a><a href="#content">Content</a><a href="#payments">Payments</a><a href="#priorities">Priorities</a><a href="#proof">Proof</a>
-  </div>
-</nav>
+<div class="topbar"></div>
+<nav><a href="index.html">Rev.io</a><span>Leadership Offsite - Marketing Positioning + Competitive Plays</span></nav>
 <button class="print" onclick="window.print()">Print / PDF</button>
 <main>
-  <section class="hero">
-    <div class="hero-card">
-      <div class="eyebrow">Leadership Offsite · Marketing Strategy</div>
-      <h1>Service operations and revenue management for modern MSPs.</h1>
-      <p>Positioning, competitive plays, campaign priorities, and proof assets to move Rev.io beyond “PSA” or “billing” and into the platform category it can credibly own.</p>
+  <div class="hero">
+    <div class="eyebrow">Working deck - June 30, 2026</div>
+    <h1>Service operations and revenue management for modern MSPs.</h1>
+    <p>A leadership offsite deck for positioning Rev.io beyond PSA and billing, prioritizing competitive displacement, content gaps, payments, and proof assets.</p>
+    <div class="thesis">Bill for anything. Manage everything. Service, accelerated.</div>
+    <div class="meta">
+      <div><small>Target ICP</small><strong>$3M-$12M MSPs</strong></div>
+      <div><small>Company Size</small><strong>10+ employees</strong></div>
+      <div><small>Pricing Direction</small><strong>$575-$1K/mo min</strong></div>
+      <div><small>Session Length</small><strong>~2 hours</strong></div>
     </div>
-    <aside class="callout">
-      <h2>Core thesis</h2>
-      <p>Rev.io should still capture PSA, telecom billing, payments, and quote-to-cash demand — but the company story should be bigger.</p>
-      <div class="quote">Bill for anything. Manage everything. Service, accelerated.</div>
-      <div class="meta">
-        <div><span>ICP</span><strong>$3M–$12M MSPs</strong></div>
-        <div><span>Company Size</span><strong>10+ employees</strong></div>
-        <div><span>Pricing Direction</span><strong>$575–$1K/mo min</strong></div>
-        <div><span>Deck Length</span><strong>~2 hours</strong></div>
-      </div>
-    </aside>
-  </section>
+  </div>
 
-  <section class="section" id="agenda">
-    <div class="section-head"><h2>Executive agenda</h2><span class="time">~120 min</span></div>
-    <div class="body slide-list">
-      <div class="slide"><strong>Market signal + pipeline reality</strong><span>Where conversion is working, where spend is leaking, and what Salesforce needs to validate.</span></div>
-      <div class="slide"><strong>Positioning architecture</strong><span>New category, messaging hierarchy, ICP, pricing justification, and differentiation.</span></div>
-      <div class="slide"><strong>Competitive displacement</strong><span>ConnectWise, HaloPSA, SuperOps, Kaseya, OneBill, Datagate, and QuickBooks payments.</span></div>
-      <div class="slide"><strong>Content + switching friction</strong><span>SEO, alternative pages, migration guides, objection content, and proof gaps.</span></div>
-      <div class="slide"><strong>Payments growth wedge</strong><span>Move payment collection out of QuickBooks and into Rev.io.</span></div>
-      <div class="slide"><strong>Campaign priorities + decisions</strong><span>Start / stop / continue, proof assets, and leadership choices.</span></div>
+  <section>
+    <div class="header"><h2>Executive agenda</h2><span class="time">120 min</span></div>
+    <div class="content grid two">
+      <div class="card"><h3>1. Market signal + pipeline reality</h3><p>Where conversion is working, where spend is leaking, and what Salesforce needs to validate.</p></div>
+      <div class="card"><h3>2. Positioning architecture</h3><p>New category, messaging hierarchy, ICP, pricing justification, and differentiation.</p></div>
+      <div class="card"><h3>3. Competitive displacement</h3><p>ConnectWise, HaloPSA, SuperOps, Kaseya, OneBill, Datagate, and QuickBooks payments.</p></div>
+      <div class="card"><h3>4. Content + switching friction</h3><p>SEO, alternative pages, migration guides, objection content, and proof gaps.</p></div>
+      <div class="card"><h3>5. Payments growth wedge</h3><p>Move payment collection out of QuickBooks and into Rev.io.</p></div>
+      <div class="card"><h3>6. Campaign priorities + decisions</h3><p>Start / stop / continue, proof assets, and leadership choices.</p></div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="section-head"><h2>Current performance signals to anchor the discussion</h2><span class="time">15 min</span></div>
-    <div class="body grid four">
-      <div class="card"><div class="big-stat">855</div><div class="label">YTD marketing leads</div><p>Marketing pacing dashboard, refreshed Jun 30, 2026.</p></div>
-      <div class="card"><div class="big-stat">504</div><div class="label">YTD opportunities</div><p>Enough volume to see source and segment patterns.</p></div>
-      <div class="card"><div class="big-stat">$60K</div><div class="label">YTD actual MRR</div><p>Against $138K target — focus must shift to quality and conversion.</p></div>
-      <div class="card"><div class="big-stat">24.1%</div><div class="label">SEO win-rate signal</div><p>Prior PSA analysis showed SEO as one of the highest-intent sources.</p></div>
+  <section>
+    <div class="header"><h2>Current performance signals</h2><span class="time">15 min</span></div>
+    <div class="content grid">
+      <div class="card"><div class="stat">855</div><div class="label">YTD marketing leads</div><p>Marketing pacing dashboard, refreshed Jun 30.</p></div>
+      <div class="card"><div class="stat">504</div><div class="label">YTD opportunities</div><p>Enough volume to see source and segment patterns.</p></div>
+      <div class="card"><div class="stat">$60K</div><div class="label">YTD actual MRR</div><p>Against $138K target, requiring better quality and conversion.</p></div>
+      <div class="card"><div class="stat">28.0%</div><div class="label">Summit win-rate signal</div><p>Prior PSA analysis showed events/Summit as a top converter.</p></div>
+      <div class="card"><div class="stat">24.1%</div><div class="label">SEO win-rate signal</div><p>High-intent organic traffic remains a priority.</p></div>
+      <div class="card"><div class="stat">4.3x</div><div class="label">Billing cross-sell strength</div><p>Existing billing customers are a major expansion opportunity.</p></div>
     </div>
   </section>
 
-  <section class="section" id="positioning">
-    <div class="section-head"><h2>Positioning: the advantage to exploit</h2><span class="time">25 min</span></div>
-    <div class="body">
+  <section>
+    <div class="header"><h2>Positioning: the advantage to exploit</h2><span class="time">25 min</span></div>
+    <div class="content">
       <div class="grid two">
-        <div class="card dark"><h3>Category direction</h3><p><strong>Service operations and revenue management for MSPs.</strong><br><br>Not just PSA. Not just telecom billing. Not another point solution. Rev.io is the back-office platform connecting service delivery to revenue.</p></div>
-        <div class="card"><h3>Primary position</h3><p>One unified platform for complete MSP operations — quote-to-cash, service delivery, billing, payments, and AI-assisted execution.</p><div class="pillrow" style="margin-top:14px"><span class="pill green">Your revenue engine</span><span class="pill">Service, accelerated</span><span class="pill">Quote-to-cash</span></div></div>
+        <div class="card dark"><h3>Category direction</h3><p>Service operations and revenue management for MSPs. Not just PSA. Not just telecom billing. Not another point solution.</p></div>
+        <div class="card"><h3>Primary position</h3><p>One unified platform for complete MSP operations: quote-to-cash, service delivery, billing, payments, and AI-assisted execution.</p></div>
       </div>
       <div class="grid" style="margin-top:16px">
         <div class="card"><h3>Bill for anything</h3><ul><li>Usage-based</li><li>Recurring</li><li>One-time</li><li>AI tokens</li><li>Endpoints and devices</li><li>Backup, EDR, RMM, telecom, projects</li></ul></div>
-        <div class="card"><h3>Differentiate beyond features</h3><ul><li>AI-native, not bolted on</li><li>Native billing + payments</li><li>No expensive core integrations</li><li>Managed onboarding</li><li>No implementation fee / consultants required</li><li>US-based support</li></ul></div>
-        <div class="card"><h3>ICP filter</h3><p>Target MSPs and service providers mature enough to feel the pain of fragmented operations: $3M–$12M revenue, 10+ employees, and ready to invest in platform consolidation.</p></div>
+        <div class="card"><h3>Differentiate beyond features</h3><ul><li>AI-native, not bolted on</li><li>Native billing + payments</li><li>No expensive core integrations</li><li>Managed onboarding</li><li>No implementation fee or consultants required</li><li>US-based support</li></ul></div>
+        <div class="card"><h3>ICP filter</h3><p>Mature MSPs and service providers that feel the pain of fragmented operations: $3M-$12M revenue, 10+ employees, and ready to invest in consolidation.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="competitive">
-    <div class="section-head"><h2>Competitive displacement plays</h2><span class="time">25 min</span></div>
-    <div class="body">
-      <table class="matrix">
-        <thead><tr><th>Play</th><th>Targets</th><th>Message</th><th>Proof needed</th></tr></thead>
-        <tbody>
-          <tr><td><strong>MSP platform switchers</strong></td><td>ConnectWise, HaloPSA, SuperOps, Kaseya / Autotask</td><td>Stop stitching together service delivery, billing, payments, and AI workflows. Use one revenue engine for complete operations.</td><td>Comparison pages, migration guides, customer switch story, ROI calculator.</td></tr>
-          <tr><td><strong>Billing-first / telecom / CSP</strong></td><td>OneBill, Datagate, telecom billing alternatives</td><td>Billing is not just invoicing — it is the operating layer for quote-to-cash, usage, recurring revenue, payments, and service.</td><td>Usage-based examples, telecom workflows, billing-to-PSA expansion proof.</td></tr>
-          <tr><td><strong>Payments displacement</strong></td><td>QuickBooks payment dependency</td><td>If invoices, ledgers, and billing already live in Rev.io, stop sending payment collection through a disconnected middleman.</td><td>Payments savings calculator, QuickBooks migration guide, reconciliation FAQ.</td></tr>
-          <tr><td><strong>RMM/security service management</strong></td><td>NinjaOne, Acronis, N-able ecosystems</td><td>Keep your preferred RMM/security stack. Use Rev.io to manage service workflow and bill everything on one invoice.</td><td>NinjaOne + Acronis + Rev.io workflow, ticket-to-invoice demo.</td></tr>
-        </tbody>
+  <section>
+    <div class="header"><h2>Competitive displacement plays</h2><span class="time">25 min</span></div>
+    <div class="content">
+      <table>
+        <tr><th>Play</th><th>Targets</th><th>Message</th><th>Proof needed</th></tr>
+        <tr><td><strong>MSP platform switchers</strong></td><td>ConnectWise, HaloPSA, SuperOps, Kaseya / Autotask</td><td>Stop stitching together service delivery, billing, payments, and AI workflows. Use one revenue engine.</td><td>Comparison pages, migration guides, customer switch story, ROI calculator.</td></tr>
+        <tr><td><strong>Billing-first / telecom / CSP</strong></td><td>OneBill, Datagate, telecom billing alternatives</td><td>Billing is the operating layer for quote-to-cash, usage, recurring revenue, payments, and service.</td><td>Usage-based examples, telecom workflows, billing-to-PSA expansion proof.</td></tr>
+        <tr><td><strong>Payments displacement</strong></td><td>QuickBooks payment dependency</td><td>If invoices and ledgers live in Rev.io, stop collecting payments through a disconnected middleman.</td><td>Payments savings calculator, QuickBooks migration guide, reconciliation FAQ.</td></tr>
+        <tr><td><strong>RMM/security service management</strong></td><td>NinjaOne, Acronis, N-able ecosystems</td><td>Keep your preferred RMM/security stack. Use Rev.io to manage service workflows and bill everything on one invoice.</td><td>NinjaOne + Acronis + Rev.io workflow, ticket-to-invoice demo.</td></tr>
       </table>
     </div>
   </section>
 
-  <section class="section">
-    <div class="section-head"><h2>RMM/security messaging guardrails</h2><span class="time">10 min</span></div>
-    <div class="body grid two">
-      <div class="card"><h3>Recommended framing</h3><ul><li><span class="check">✓</span> Rev.io is RMM/security agnostic.</li><li><span class="check">✓</span> Rev.io integrates with major platforms.</li><li><span class="check">✓</span> Acronis: cloud backup first, then EDR, then RMM.</li><li><span class="check">✓</span> NinjaOne co-marketing supports RMM + backup/EDR + Rev.io service/billing workflows.</li><li><span class="check">✓</span> One bill for multiple service types.</li></ul></div>
-      <div class="warn"><strong>Avoid over-positioning Rev.io as a security platform.</strong><br><br>The stronger story is that Rev.io helps MSPs operationalize and monetize security/RMM services through service workflows, ticketing, billing, and payments.</div>
+  <section>
+    <div class="header"><h2>RMM/security messaging guardrails</h2><span class="time">10 min</span></div>
+    <div class="content grid two">
+      <div class="card"><h3>Recommended framing</h3><ul><li>Rev.io is RMM/security agnostic.</li><li>Rev.io integrates with major platforms.</li><li>Acronis: cloud backup first, then EDR, then RMM.</li><li>NinjaOne co-marketing supports RMM + backup/EDR + Rev.io workflows.</li><li>One bill for multiple service types.</li></ul></div>
+      <div class="note"><strong>Avoid over-positioning Rev.io as a security platform.</strong><br><br>The stronger story is that Rev.io helps MSPs operationalize and monetize security/RMM services through service workflows, ticketing, billing, and payments.</div>
     </div>
   </section>
 
-  <section class="section" id="content">
-    <div class="section-head"><h2>Content gaps that overcome switching friction</h2><span class="time">20 min</span></div>
-    <div class="body grid">
+  <section>
+    <div class="header"><h2>Content gaps that overcome switching friction</h2><span class="time">20 min</span></div>
+    <div class="content grid">
       <div class="card"><h3>Alternative pages</h3><ul><li>ConnectWise Alternative</li><li>HaloPSA Alternative</li><li>SuperOps Alternative</li><li>Kaseya / Autotask Alternative</li><li>OneBill Alternative</li><li>Datagate Alternative</li></ul></div>
       <div class="card"><h3>Category + keyword pages</h3><ul><li>Service operations software for MSPs</li><li>Revenue management for MSPs</li><li>Quote-to-cash software for MSPs</li><li>PSA with built-in billing</li><li>Telecom billing software</li><li>Usage-based billing software</li><li>MSP payment processing software</li></ul></div>
-      <div class="card"><h3>Friction-removal assets</h3><ul><li>Migration guides by competitor</li><li>Switching cost calculator</li><li>Implementation timeline</li><li>Objection-handling one-sheets</li><li>QuickBooks payments migration guide</li><li>Closed-lost nurture by reason</li></ul></div>
+      <div class="card"><h3>Friction-removal assets</h3><ul><li>Migration guides</li><li>Switching cost calculator</li><li>Implementation timeline</li><li>Objection-handling one-sheets</li><li>QuickBooks payments migration guide</li><li>Closed-lost nurture by reason</li></ul></div>
     </div>
   </section>
 
-  <section class="section" id="payments">
-    <div class="section-head"><h2>Payments as a growth wedge</h2><span class="time">15 min</span></div>
-    <div class="body grid two">
+  <section>
+    <div class="header"><h2>Payments as a growth wedge</h2><span class="time">15 min</span></div>
+    <div class="content grid two">
       <div class="card"><h3>Buyer problem</h3><p>Many customers already have billing, invoices, and ledgers in Rev.io but still sync invoice data to QuickBooks to collect payment. That creates broken connections, extra reconciliation, higher rates, and fear around moving payment workflows.</p></div>
       <div class="card dark"><h3>Strategic message</h3><p>If Rev.io already manages billing and invoices, payments are the logical next step. Remove the middleman, collect through Rev.io, reduce fees, and keep invoice-to-payment workflows connected.</p></div>
       <div class="card"><h3>Campaign angles</h3><ul><li>Stop paying QuickBooks to collect Rev.io invoices</li><li>Billing and payments belong together</li><li>From invoice to payment without the sync headache</li><li>Payments savings assessment</li></ul></div>
@@ -132,53 +155,53 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="section-head"><h2>Brook Lee / community amplification</h2><span class="time">15 min</span></div>
-    <div class="body grid two">
-      <div class="card"><h3>Role in GTM</h3><p>Brook becomes the human face of Rev.io’s practitioner community: education, peer conversations, field insight, and trust-building for mature MSPs evaluating operational change.</p></div>
-      <div class="card"><h3>Message pillars</h3><ul><li>Practical operator education, not vendor noise</li><li>How mature MSPs run service + revenue operations</li><li>Switching confidence and real-world lessons</li><li>Field stories from events, webinars, and customers</li></ul></div>
-      <div class="card"><h3>Channels</h3><p>LinkedIn thought leadership, webinars, recap clips, newsletter/digest, short-form video, partner roundtables, customer quote cards.</p></div>
+  <section>
+    <div class="header"><h2>Brook Lee / community amplification</h2><span class="time">15 min</span></div>
+    <div class="content grid two">
+      <div class="card"><h3>Role in GTM</h3><p>Brook becomes the human face of Rev.io's practitioner community: education, peer conversations, field insight, and trust-building for mature MSPs evaluating operational change.</p></div>
+      <div class="card"><h3>Message pillars</h3><ul><li>Practical operator education</li><li>How mature MSPs run service + revenue operations</li><li>Switching confidence and real-world lessons</li><li>Field stories from events, webinars, and customers</li></ul></div>
+      <div class="card"><h3>Channels</h3><p>LinkedIn, webinars, recap clips, newsletter/digest, short-form video, partner roundtables, customer quote cards.</p></div>
       <div class="card"><h3>Assets needed</h3><p>Bio and POV statement, LinkedIn/banner refresh, 6-post launch sequence, webinar intro template, short video template, community digest format.</p></div>
     </div>
   </section>
 
-  <section class="section" id="priorities">
-    <div class="section-head"><h2>Campaign priorities</h2><span class="time">15 min</span></div>
-    <div class="body grid">
+  <section>
+    <div class="header"><h2>Campaign priorities</h2><span class="time">15 min</span></div>
+    <div class="content grid">
       <div class="card"><h3>1. Platform narrative</h3><p>Lead with service operations + revenue management while preserving PSA, telecom billing, payments, and quote-to-cash keyword capture.</p></div>
       <div class="card"><h3>2. Competitive engine</h3><p>Launch competitor alternative pages, paid campaigns, and sales one-sheets for named displacement targets.</p></div>
       <div class="card"><h3>3. Payments wedge</h3><p>Educate buyers on moving payment collection out of QuickBooks and into Rev.io.</p></div>
       <div class="card"><h3>4. Closed-lost revival</h3><p>Segment by loss reason and competitor; nurture based on timing, missing capabilities, no-show, and incumbent pain.</p></div>
-      <div class="card"><h3>5. Community proof</h3><p>Use Brook/community to create trusted educational surface area and capture buyer objections from the field.</p></div>
+      <div class="card"><h3>5. Community proof</h3><p>Use Brook/community to create trusted educational surface area and capture buyer objections.</p></div>
       <div class="card"><h3>6. Attribution discipline</h3><p>Tighten UTMs and source/sub-source tracking so paid and content decisions connect to Salesforce outcomes.</p></div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="section-head"><h2>Start / Stop / Continue</h2><span class="time">10 min</span></div>
-    <div class="body ssc">
+  <section>
+    <div class="header"><h2>Start / Stop / Continue</h2><span class="time">10 min</span></div>
+    <div class="content ssc">
       <div class="card start"><h3>Start</h3><ul><li>Leading with service ops + revenue management</li><li>Competitor displacement campaigns</li><li>Payments / QuickBooks displacement content</li><li>Migration and proof assets</li><li>Brook/community content engine</li></ul></div>
-      <div class="card stop"><h3>Stop</h3><ul><li>Generic PSA messaging</li><li>Positioning Rev.io as primarily security</li><li>Over-relying on “integration” language</li><li>Paid campaigns without Salesforce readout</li><li>One demo story for every segment</li></ul></div>
+      <div class="card stop"><h3>Stop</h3><ul><li>Generic PSA messaging</li><li>Positioning Rev.io as primarily security</li><li>Over-relying on integration language</li><li>Paid campaigns without Salesforce readout</li><li>One demo story for every segment</li></ul></div>
       <div class="card continue"><h3>Continue</h3><ul><li>SEO and high-intent organic</li><li>PSA + telecom billing keyword capture</li><li>Event/Summit motion</li><li>Webinar education formats</li><li>Billing customer expansion</li></ul></div>
     </div>
   </section>
 
-  <section class="section" id="proof">
-    <div class="section-head"><h2>Proof assets needed</h2><span class="time">10 min</span></div>
-    <div class="body pillrow">
-      <span class="pill green">Competitor comparison one-sheets</span><span class="pill">Migration guides</span><span class="pill">Service ops + revenue management explainer</span><span class="pill">Billing-for-anything explainer</span><span class="pill">Payments savings calculator</span><span class="pill">QuickBooks replacement proof</span><span class="pill">Customer case studies</span><span class="pill">ROI / switching-cost calculator</span><span class="pill">RMM/security ticket-to-invoice workflow</span><span class="pill">Revii / AI workflow demo clips</span><span class="pill">Brook/community launch kit</span>
+  <section>
+    <div class="header"><h2>Proof assets needed</h2><span class="time">10 min</span></div>
+    <div class="content badges">
+      <span class="badge green">Competitor comparison one-sheets</span><span class="badge">Migration guides</span><span class="badge">Service ops + revenue management explainer</span><span class="badge">Billing-for-anything explainer</span><span class="badge">Payments savings calculator</span><span class="badge">QuickBooks replacement proof</span><span class="badge">Customer case studies</span><span class="badge">ROI / switching-cost calculator</span><span class="badge">RMM/security ticket-to-invoice workflow</span><span class="badge">Revii / AI workflow demo clips</span><span class="badge">Brook/community launch kit</span>
     </div>
   </section>
 
-  <section class="section">
-    <div class="section-head"><h2>Leadership decisions</h2><span class="time">5 min</span></div>
-    <div class="body grid two">
-      <div class="card"><h3>Positioning decisions</h3><ul><li>Do we align around service operations + revenue management?</li><li>Which headline phrase leads: revenue engine, service accelerated, unified platform, or another variant?</li><li>How aggressively do we support $575–$1K/month minimum pricing?</li></ul></div>
+  <section>
+    <div class="header"><h2>Leadership decisions</h2><span class="time">5 min</span></div>
+    <div class="content grid two">
+      <div class="card"><h3>Positioning decisions</h3><ul><li>Do we align around service operations + revenue management?</li><li>Which headline phrase leads?</li><li>How aggressively do we support $575-$1K/month minimum pricing?</li></ul></div>
       <div class="card"><h3>Execution decisions</h3><ul><li>Which 3 competitors get priority displacement campaigns?</li><li>What payments / QuickBooks claims can we make?</li><li>What customer proof can we secure in 30 days?</li><li>What role should Brook/community play in demand creation?</li></ul></div>
     </div>
   </section>
 
-  <p class="footer">Prepared for Rev.io leadership offsite · Working draft · Last updated Jun 30, 2026</p>
+  <footer>Prepared for Rev.io leadership offsite - working draft - last updated Jun 30, 2026</footer>
 </main>
 </body>
 </html>
