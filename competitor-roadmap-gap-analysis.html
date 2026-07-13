@@ -1,607 +1,324 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Competitor Feature + Roadmap Gap Analysis</title>
-<style>
-:root{--navy:#06111f;--panel:#0b1728;--line:#24354d;--text:#f7f9fd;--muted:#aab7cf;--teal:#2399B5;--green:#6EBE4F;--platinum:#E8E8EC;--amber:#ffbb4a;}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% 0%,#14324b 0,#07111e 34%,#030914 100%);color:var(--text);font-family:Open Sans,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.62}.wrap{display:grid;grid-template-columns:310px minmax(0,1020px);gap:34px;max-width:1420px;margin:0 auto;padding:32px}.sidebar{position:sticky;top:24px;align-self:start;max-height:calc(100vh - 48px);overflow:auto;background:rgba(11,23,40,.88);border:1px solid var(--line);border-radius:22px;padding:22px}.brand{font-weight:900;letter-spacing:.12em;color:#fff;margin-bottom:8px}.kicker{font-size:12px;color:var(--green);text-transform:uppercase;letter-spacing:.18em;font-weight:800;margin-bottom:18px}.toc a{display:block;text-decoration:none;color:#cbd6e8;padding:7px 0;border-bottom:1px solid rgba(36,53,77,.45);font-size:14px}.toc a:hover{color:#fff}.toc-l2{padding-left:12px!important;color:#9faec9!important}.content{background:linear-gradient(145deg,rgba(16,31,52,.96),rgba(7,17,31,.98));border:1px solid var(--line);border-radius:28px;padding:54px 64px;box-shadow:0 30px 90px rgba(0,0,0,.34)}h1,h2,h3,h4{line-height:1.15;margin:1.25em 0 .45em;color:#fff}h1{font-size:48px;margin-top:0;letter-spacing:-.035em}h2{font-size:34px;border-top:1px solid var(--line);padding-top:34px;margin-top:52px;color:var(--platinum)}h3{font-size:24px;color:#fff}h4{font-size:18px;color:var(--teal);text-transform:uppercase;letter-spacing:.08em}p,li{font-size:18px;color:#d7e0ef}ul,ol{padding-left:24px}li{margin:7px 0}strong{color:#fff}blockquote{border-left:6px solid var(--amber);background:rgba(255,187,74,.09);border-radius:16px;padding:14px 24px;margin:24px 0}blockquote p{font-size:20px;color:#fff;font-weight:700}code{background:rgba(232,232,236,.12);padding:2px 6px;border-radius:6px;color:#fff}a{color:#7ee7f4}hr{border:0;border-top:1px solid var(--line);margin:34px 0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{display:inline-block;border:1px solid rgba(35,153,181,.5);background:rgba(35,153,181,.15);border-radius:999px;color:#fff;text-decoration:none;padding:10px 14px;font-weight:800;font-size:14px}.notice{margin:0 0 28px;padding:14px 18px;border:1px solid rgba(255,187,74,.35);background:rgba(255,187,74,.08);border-radius:16px;color:#fff;font-weight:700}@media(max-width:950px){.wrap{display:block;padding:18px}.sidebar{position:relative;top:0;margin-bottom:18px;max-height:none}.content{padding:34px 24px}h1{font-size:36px}h2{font-size:28px}p,li{font-size:16px}}@media print{.sidebar{display:none}.wrap{display:block;max-width:none;padding:0}.content{border:0;border-radius:0;box-shadow:none}body{background:#fff;color:#111}.content,p,li,h1,h2,h3,h4,strong{color:#111!important}}
-</style>
-</head>
-<body>
-<div class="wrap">
-<aside class="sidebar"><div class="brand">REV.IO</div><div class="kicker">Competitive appendix</div><div class="toc"><a class="toc-l1" href="#competitor-feature-roadmap-gap-analysis">Competitor Feature + Roadmap Gap Analysis</a>
-<a class="toc-l2" href="#1-executive-summary">1. Executive Summary</a>
-<a class="toc-l2" href="#2-rev-io-roadmap-capability-baseline">2. Rev.io Roadmap/Capability Baseline</a>
-<a class="toc-l2" href="#3-competitor-gap-matrix">3. Competitor Gap Matrix</a>
-<a class="toc-l2" href="#4-connectwise-gap-analysis">4. ConnectWise Gap Analysis</a>
-<a class="toc-l2" href="#5-halopsa-gap-analysis">5. HaloPSA Gap Analysis</a>
-<a class="toc-l2" href="#6-autotask-gap-analysis">6. Autotask Gap Analysis</a>
-<a class="toc-l2" href="#7-kaseya-gap-analysis">7. Kaseya Gap Analysis</a>
-<a class="toc-l2" href="#8-superops-gap-analysis">8. SuperOps Gap Analysis</a>
-<a class="toc-l2" href="#9-onebill-billing-specific-gap-analysis">9. OneBill Billing-Specific Gap Analysis</a>
-<a class="toc-l2" href="#10-datagate-billing-specific-gap-analysis">10. Datagate Billing-Specific Gap Analysis</a>
-<a class="toc-l2" href="#11-cross-competitor-feature-themes">11. Cross-Competitor Feature Themes</a>
-<a class="toc-l2" href="#12-recommended-competitive-gap-slide">12. Recommended Competitive Gap Slide</a>
-<a class="toc-l2" href="#13-proof-assets-needed-for-this-section">13. Proof Assets Needed for This Section</a>
-<a class="toc-l2" href="#14-recommended-positioning-language">14. Recommended Positioning Language</a>
-<a class="toc-l2" href="#15-leadership-discussion-questions">15. Leadership Discussion Questions</a>
-<a class="toc-l2" href="#16-recommended-next-step">16. Recommended Next Step</a></div><div class="actions"><a class="btn" href="leadership-offsite-marketing-positioning-competitive-plays-detailed-plan.html">Offsite plan</a><a class="btn" href="leadership-offsite-marketing-strategy.html">High-level deck</a><a class="btn" href="#top" onclick="window.print();return false;">Print / PDF</a></div></aside>
-<main class="content" id="top"><div class="notice">Internal strategy draft: contains roadmap-backed competitive analysis. Validate product-status claims before external reuse.</div><h1 id="competitor-feature-roadmap-gap-analysis">Competitor Feature + Roadmap Gap Analysis</h1>
-<p><strong>Audience:</strong> Leadership offsite / competitive section</p>
-<p><strong>Scope:</strong> ConnectWise, HaloPSA, Autotask, Kaseya, SuperOps, OneBill, Datagate</p>
-<p><strong>Excluded:</strong> QuickBooks payments displacement</p>
-<p><strong>Purpose:</strong> Identify competitor-owned feature/functionality expectations that Rev.io either already supports, has on the roadmap, or should treat as positioning/proof gaps.</p>
-<blockquote>
-<p><strong>Important note:</strong> This is a directional GTM analysis based on public competitor claims plus the current Rev.io roadmap export in the workspace. It should be validated with Product before being used as a definitive product-commitment slide.</p>
-</blockquote>
-<hr>
-<h2 id="1-executive-summary">1. Executive Summary</h2>
-<p>The competitor gap story is not that Rev.io lacks a PSA foundation. Rev.io already covers core PSA + billing capabilities: customer/contact management, tickets/service orders, time tracking, dispatch, quotes, invoices, payments, recurring services, metered usage, product catalog, inventory, purchase orders, customer portal, workflows/automation, analytics, mobile PSA, and AI/Revii capabilities.</p>
-<p>The more useful leadership story is this:</p>
-<blockquote>
-<p><strong>Competitors are strongest where mature MSPs expect operational depth: SLA management, advanced workflow, project profitability, CRM/opportunity management, deep RMM/service-desk integrations, customer portal maturity, procurement/distributor workflows, and advanced billing/revenue lifecycle automation. Rev.io has many of these either available or on the roadmap, but marketing should be careful to separate “available today” from “roadmap-backed competitive response.”</strong></p>
-</blockquote>
-<h3 id="high-level-competitive-implications">High-level competitive implications</h3>
-<ul>
-<li><strong>ConnectWise</strong> wins on perceived breadth: mature PSA, procurement, CRM, project management, billing, distributor integrations, reporting ecosystem, and enterprise workflow depth.</li>
-<li><strong>HaloPSA</strong> wins on modern UI, configurability, ITIL/service desk maturity, customer portal, SLA/workflow sophistication, and broad integrations.</li>
-<li><strong>Autotask</strong> wins on mature contract management, SLA tracking, Datto/Kaseya ecosystem integration, and AI-assisted ticket productivity.</li>
-<li><strong>Kaseya</strong> wins by bundling the broader IT Complete ecosystem: VSA, Datto RMM, IT Glue, security/backup, endpoint management, and workflow automation around PSA/service desk.</li>
-<li><strong>SuperOps</strong> wins on unified PSA + RMM packaging for smaller/mid MSPs, AI-driven alerting/routing, simple UX, service desk, patching, documentation, and policy management.</li>
-<li><strong>OneBill</strong> wins on enterprise billing depth: CPQ, subscriber lifecycle, real-time rating, revenue recognition, revenue assurance, churn prediction, partner/channel settlement, multi-currency, and high-volume usage billing.</li>
-<li><strong>Datagate</strong> wins on telecom billing specificity for MSPs: usage rating, multi-provider/PBX billing, telecom taxes, PSA/accounting integrations, and white-label payment/customer portal.</li>
-</ul>
-<h3 id="recommended-slide-takeaway">Recommended slide takeaway</h3>
-<p>Rev.io should present competitor gaps in three buckets:</p>
-<ol>
-<li><strong>Defend today:</strong> Core PSA + billing capabilities Rev.io already supports.</li>
-<li><strong>Neutralize with roadmap:</strong> Features competitors use to create doubt, but Rev.io has active roadmap coverage.</li>
-<li><strong>Reframe:</strong> Areas where competitors are deeper, but Rev.io can win by tying service delivery, billing, payments, Revii, and onboarding together.</li>
-</ol>
-<hr>
-<h2 id="2-rev-io-roadmap-capability-baseline">2. Rev.io Roadmap/Capability Baseline</h2>
-<h3 id="available-shipped-strengths-to-use-confidently">Available / shipped strengths to use confidently</h3>
-<ul>
-<li>Customer and contact management.</li>
-<li>Basic customer portal: invoices, ticket creation/viewing, payments.</li>
-<li>Tickets/service orders, ticket linking, macros, multiple techs, concurrent timers.</li>
-<li>Time tracking, parts and labor, ticket-to-invoice.</li>
-<li>Scheduling, calendar events, dispatch board.</li>
-<li>Quotes and quote templates.</li>
-<li>Invoices, payments, billing profiles, charges/credits, accounting periods.</li>
-<li>Metered usage and communications billing foundation.</li>
-<li>Tax calculation, tax exemptions, invoice template customization.</li>
-<li>Collections and invoice management automation.</li>
-<li>Recurring service agreements and services tied to contracts.</li>
-<li>Product catalog, packages/bundles, purchase orders.</li>
-<li>Basic, serialized, and average-valuation inventory management.</li>
-<li>Dashboards and analytics/custom reports.</li>
-<li>Workflows/automation foundations.</li>
-<li>Audit logging foundation.</li>
-<li>Slack/Teams, Outlook, Google Calendar, QBO, HubSpot, Acronis Phase 1 integrations.</li>
-<li>Ask Revii, Talk to Revii, billing tools, inventory tools, natural-language database query, token-cost dashboard, Revii deeplinks.</li>
-<li>Mobile PSA foundation, mobile ticketing, customer/contact views, signature capture, photo/video attachments.</li>
-<li>Commerce Hub vendor/storefront foundations.</li>
-</ul>
-<h3 id="roadmap-backed-areas-to-use-carefully">Roadmap-backed areas to use carefully</h3>
-<ul>
-<li>Enhanced customer portal.</li>
-<li>SLA management.</li>
-<li>Global/area search.</li>
-<li>Client knowledge base.</li>
-<li>Sales opportunity management / native CRM capabilities.</li>
-<li>Job costing and project profitability.</li>
-<li>Project billing, milestones, project activity feeds, project summaries.</li>
-<li>Quote profitability and quote workflows.</li>
-<li>Recurring tickets.</li>
-<li>Timesheets / clock-in clock-out.</li>
-<li>Workflow enhancements, templates, dynamic external recipients, automated status changes, AI-driven workflow events.</li>
-<li>RMM integrations: NinjaOne, N-able, Datto RMM, ConnectWise RMM assets, Acronis billing phase.</li>
-<li>Managed assets from integrations.</li>
-<li>Developer portal, APIs, webhooks, quotas/rate limiting, versioning.</li>
-<li>Reseller model / multi-entity support.</li>
-<li>Internationalization/localization/translation.</li>
-<li>Advanced inventory: bin/shelf, stock transfers, min/max, auto purchasing, physical inventory, deployed inventory history.</li>
-<li>Non-voice metered usage, metered usage enhancements, tax provider configuration.</li>
-<li>Accounts payable, expense management, virtual CFO.</li>
-<li>Revii enhancements: ticket summaries, voice duplex, app context, custom fields, enhanced memory, Revii Learn, predictive analytics, AI permissions/governance.</li>
-<li>Bulk import/export, migration orchestration, mapping/validation framework.</li>
-<li>Commerce Hub product storefront, vendor catalog API framework, catalog ingestion, pricing configurator, attribution ledger, partnership analytics.</li>
-</ul>
-<hr>
-<h2 id="3-competitor-gap-matrix">3. Competitor Gap Matrix</h2>
-<h3 id="legend">Legend</h3>
-<ul>
-<li><strong>Rev.io Today:</strong> Available/shipped or effectively usable now.</li>
-<li><strong>Rev.io Roadmap:</strong> Explicitly present in roadmap/export but not something marketing should overclaim as generally available.</li>
-<li><strong>Potential Gap:</strong> Not clearly covered or needs product validation.</li>
-<li><strong>Positioning Move:</strong> How marketing should frame the issue.</li>
-</ul>
-<hr>
-<h2 id="4-connectwise-gap-analysis">4. ConnectWise Gap Analysis</h2>
-<h3 id="public-competitor-strength">Public competitor strength</h3>
-<p>ConnectWise is perceived as the mature incumbent with broad PSA coverage: advanced ticketing, procurement, CRM, project management, billing, distributor integrations, quoting, reporting ecosystem, RMM/remote access/security ecosystem, and AI/Sidekick/RPA-style workflow assistance.</p>
-<h3 id="feature-functionality-gaps-to-analyze">Feature/functionality gaps to analyze</h3>
-<h4 id="1-deep-procurement-distributor-integrations">1. Deep procurement + distributor integrations</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> ConnectWise is known for procurement workflows and distributor integrations, including quoting/procurement relationships with major distributors.</li>
-<li><strong>Rev.io Today:</strong> Product catalog, purchase orders, inventory management, serialized inventory, average valuation, PO enhancements, Commerce Hub vendor/storefront foundations.</li>
-<li><strong>Rev.io Roadmap:</strong> Product Storefront - PSA, Vendor Catalog API Framework, MSP Hub catalog ingestion, Interactive Pricing Configurator, purchase order auto-purchasing, min/max stock, multi-ticket PO creation, inventory APIs.</li>
-<li><strong>Gap level:</strong> Medium.</li>
-<li><strong>Positioning move:</strong> Do not try to claim ConnectWise procurement parity yet. Instead, position Rev.io around <strong>Commerce Hub as the modern procurement direction</strong>: vendor discovery, product catalog ingestion, pricing configurator, and quote-to-cash connection.</li>
-<li><strong>Proof asset needed:</strong> Commerce Hub roadmap explainer + procurement workflow mockup.</li>
-</ul>
-<h4 id="2-crm-sales-opportunity-management">2. CRM / sales opportunity management</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> ConnectWise has mature CRM/opportunity and sales pipeline capabilities.</li>
-<li><strong>Rev.io Today:</strong> Quotes and quote templates; customer/contact management.</li>
-<li><strong>Rev.io Roadmap:</strong> Sales Opportunity Management, Sales Opp custom fields, Sales Opp leads, weighted probability, pipeline list enhancements, Sales Opp APIs.</li>
-<li><strong>Gap level:</strong> Medium-high today; roadmap-covered.</li>
-<li><strong>Positioning move:</strong> Treat native CRM as <strong>roadmap-backed</strong>, not core current differentiation. For now, lead with service operations + quote/billing continuity.</li>
-<li><strong>Proof asset needed:</strong> Sales opportunity roadmap one-slide and quote-to-order path.</li>
-</ul>
-<h4 id="3-advanced-project-management-profitability">3. Advanced project management + profitability</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> ConnectWise has mature project management and profitability/reporting expectations.</li>
-<li><strong>Rev.io Today:</strong> Core project management, project list/work/Gantt views, project integration/visibility, purchase-order visibility, budgeted hours, time rollups.</li>
-<li><strong>Rev.io Roadmap:</strong> Job Costing &amp; Profitability, Project Billing, Project Milestones, Project Activity Feed, Revii Client Updates, Project Management Summaries, Project Hours Over-Budget callout.</li>
-<li><strong>Gap level:</strong> Low-medium depending on depth required.</li>
-<li><strong>Positioning move:</strong> Present this as an active area where Rev.io is moving toward <strong>margin-aware project operations</strong>, not just task tracking.</li>
-<li><strong>Proof asset needed:</strong> Project profitability + project billing workflow demo.</li>
-</ul>
-<h4 id="4-advanced-workflow-rpa-ai-assistance">4. Advanced workflow/RPA/AI assistance</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> ConnectWise Sidekick/AI and RPA narrative around ticket triage, search, classification, sentiment, and automation.</li>
-<li><strong>Rev.io Today:</strong> Ask Revii, Talk to Revii, database query, billing/inventory tools, Revii deeplinks, workflows/automation foundation.</li>
-<li><strong>Rev.io Roadmap:</strong> Revii Ticket Summaries, Revii Voice Duplex, Revii on mobile app, Revii page context, Ask Revii custom fields, Revii Learn, AI-driven events for workflows, predictive analytics, AI permissions.</li>
-<li><strong>Gap level:</strong> Low-medium; strong story if demonstrated.</li>
-<li><strong>Positioning move:</strong> Reframe from “AI add-on” to <strong>voice-first digital workforce embedded in service and billing workflows</strong>.</li>
-<li><strong>Proof asset needed:</strong> Revii demo reel: ticket summary, voice update, customer/ticket deeplink, billing query.</li>
-</ul>
-<h4 id="5-reporting-brightgauge-style-dashboards">5. Reporting / BrightGauge-style dashboards</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> Mature reporting ecosystem and BrightGauge association.</li>
-<li><strong>Rev.io Today:</strong> Dashboards, Revio Analytics core reports, custom reports, financial data visibility.</li>
-<li><strong>Rev.io Roadmap:</strong> Product EDW and dashboards, Blueprint Enterprise Data Warehouse, mobile dashboards, Analytics Hub multitenancy, predictive analytics.</li>
-<li><strong>Gap level:</strong> Medium.</li>
-<li><strong>Positioning move:</strong> Emphasize configurable operational and financial visibility; avoid claiming full BrightGauge ecosystem parity.</li>
-<li><strong>Proof asset needed:</strong> Analytics dashboard screenshots and KPI examples by role.</li>
-</ul>
-<h3 id="connectwise-offsite-takeaway">ConnectWise offsite takeaway</h3>
-<p>ConnectWise’s advantage is breadth and maturity. Rev.io’s counter is not “we have every button.” It is: <strong>Rev.io connects the economic layer better — service delivery, billing, payments, Revii, onboarding, and Commerce Hub direction in one modern platform.</strong></p>
-<hr>
-<h2 id="5-halopsa-gap-analysis">5. HaloPSA Gap Analysis</h2>
-<h3 id="public-competitor-strength">Public competitor strength</h3>
-<p>HaloPSA is viewed as modern, configurable, and strong for MSPs that want flexible workflows, service desk depth, customer portal, reporting, integrations, and a cleaner experience than legacy incumbents.</p>
-<h3 id="feature-functionality-gaps-to-analyze">Feature/functionality gaps to analyze</h3>
-<h4 id="1-configurability-and-custom-workflows">1. Configurability and custom workflows</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> HaloPSA is often chosen for deep customization and configurability.</li>
-<li><strong>Rev.io Today:</strong> Custom fields for accounts, tickets, assets, inventory; workflows/automation foundation; role-based permissions in progress.</li>
-<li><strong>Rev.io Roadmap:</strong> Custom fields multi-layout support, workflow enhancements, templates, dynamic external recipients, automated status changes, AI-driven workflow events, global/area search.</li>
-<li><strong>Gap level:</strong> Medium.</li>
-<li><strong>Positioning move:</strong> Emphasize Rev.io’s roadmap toward configurable workflows, but make the bigger point that Rev.io combines customization with billing/payments depth.</li>
-<li><strong>Proof asset needed:</strong> Workflow builder / custom field / automation walkthrough.</li>
-</ul>
-<h4 id="2-customer-portal-maturity">2. Customer portal maturity</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> Strong customer portal expectations: tickets, approvals, invoices, communication, branding, knowledge.</li>
-<li><strong>Rev.io Today:</strong> Basic customer portal with invoices, tickets, payments; customer portal contacts.</li>
-<li><strong>Rev.io Roadmap:</strong> Enhanced Customer Portal, Bill Center parity, branding, announcements, home screen updates, document management, client knowledge base, user impersonation/view-as-role.</li>
-<li><strong>Gap level:</strong> Medium; roadmap-covered.</li>
-<li><strong>Positioning move:</strong> Make portal maturity part of the “switching confidence” roadmap discussion, not the lead differentiator today.</li>
-<li><strong>Proof asset needed:</strong> Enhanced portal mockup/roadmap slide.</li>
-</ul>
-<h4 id="3-itil-service-desk-depth-slas-recurring-tickets-approvals-runbooks">3. ITIL/service desk depth: SLAs, recurring tickets, approvals, runbooks</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> HaloPSA competes strongly around service desk process maturity.</li>
-<li><strong>Rev.io Today:</strong> Tickets, time tracking, macros, multiple techs, concurrent timers, workflows, dispatch, mobile ticketing.</li>
-<li><strong>Rev.io Roadmap:</strong> SLA Management, Recurring Tickets, Ticket Workflow, Ticketing Enhancements, Timesheets, workflows, client knowledge base.</li>
-<li><strong>Gap level:</strong> Medium-high today for ITIL-depth buyers; roadmap-covered.</li>
-<li><strong>Positioning move:</strong> Avoid overclaiming SLA maturity until delivered. Counter with Rev.io’s combined service + billing + payments story.</li>
-<li><strong>Proof asset needed:</strong> SLA/recurring-ticket roadmap proof and service desk workflow demo.</li>
-</ul>
-<h4 id="4-reporting-and-advanced-dashboards">4. Reporting and advanced dashboards</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> Advanced reporting/custom dashboards are important in HaloPSA evaluations.</li>
-<li><strong>Rev.io Today:</strong> Dashboards, core reports, custom reports, financial data visibility.</li>
-<li><strong>Rev.io Roadmap:</strong> EDW, mobile dashboards, predictive analytics, Revii query enhancements.</li>
-<li><strong>Gap level:</strong> Low-medium.</li>
-<li><strong>Positioning move:</strong> Frame analytics as operational + financial, not just ticket reporting.</li>
-<li><strong>Proof asset needed:</strong> “Service-to-revenue dashboard” sample.</li>
-</ul>
-<h3 id="halopsa-offsite-takeaway">HaloPSA offsite takeaway</h3>
-<p>HaloPSA is a strong modern PSA competitor. Rev.io should counter with: <strong>HaloPSA is PSA-first; Rev.io is service operations + revenue management, with billing/payments and AI-native workflows as the wedge.</strong></p>
-<hr>
-<h2 id="6-autotask-gap-analysis">6. Autotask Gap Analysis</h2>
-<h3 id="public-competitor-strength">Public competitor strength</h3>
-<p>Autotask is a mature PSA with strong contract management, usage-based billing, SLA tracking, Datto RMM integration, Teams integration, modern client portal updates, and Cooper Copilot for ticket summaries/writing/resolution documentation.</p>
-<h3 id="feature-functionality-gaps-to-analyze">Feature/functionality gaps to analyze</h3>
-<h4 id="1-contract-agreement-management-depth">1. Contract/agreement management depth</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> Autotask has mature contract management and multi-contract update capabilities.</li>
-<li><strong>Rev.io Today:</strong> Recurring Service Agreements, editable services tied to contracts, billing services, flexible recurring service billing models dev complete, services/contracts reconciliation in progress.</li>
-<li><strong>Rev.io Roadmap:</strong> Contracts/Agreements Revamp, Agreement List/View/Time Entry Rates/Overage Templates/Ticket Log, prepaid support hour billing, additional contract billing types.</li>
-<li><strong>Gap level:</strong> Medium; roadmap-covered.</li>
-<li><strong>Positioning move:</strong> Use roadmap to neutralize contract-depth objections. Lead with Rev.io’s billing foundation and service-to-revenue continuity.</li>
-<li><strong>Proof asset needed:</strong> Agreements roadmap and recurring services workflow.</li>
-</ul>
-<h4 id="2-sla-tracking-and-ticket-priority-management">2. SLA tracking and ticket priority management</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> Mature SLA tracking, impact/urgency matrix, escalation workflows.</li>
-<li><strong>Rev.io Today:</strong> Ticketing, workflows, dispatch, macros.</li>
-<li><strong>Rev.io Roadmap:</strong> SLA Management, default ticket type, ticket workflow, recurring tickets, automated status changes.</li>
-<li><strong>Gap level:</strong> Medium-high today; roadmap-covered.</li>
-<li><strong>Positioning move:</strong> Treat as a known roadmap neutralizer, not a current lead claim.</li>
-<li><strong>Proof asset needed:</strong> SLA management roadmap screenshot/demo when ready.</li>
-</ul>
-<h4 id="3-datto-kaseya-ecosystem-integration">3. Datto/Kaseya ecosystem integration</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> Datto RMM + Autotask integration is a core advantage.</li>
-<li><strong>Rev.io Today:</strong> Acronis Phase 1, QBO/HubSpot/Teams/Outlook integrations; Datto RMM alerts-ticketing now available per July roadmap update; ConnectWise RMM assets available/near-term.</li>
-<li><strong>Rev.io Roadmap:</strong> NinjaOne, N-able, managed assets from integrations, Acronis billing phase, deeper RMM integrations.</li>
-<li><strong>Gap level:</strong> Medium.</li>
-<li><strong>Positioning move:</strong> Rev.io should not claim to replace the RMM ecosystem. Position as <strong>RMM/security agnostic service monetization layer</strong>.</li>
-<li><strong>Proof asset needed:</strong> RMM alert → ticket → service/billing workflow.</li>
-</ul>
-<h4 id="4-ai-assisted-ticket-productivity">4. AI-assisted ticket productivity</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> Cooper Copilot: smart ticket summaries, writing assistance, resolution summary.</li>
-<li><strong>Rev.io Today:</strong> Revii AI, Talk to Revii, Reviize, query/billing/inventory tools.</li>
-<li><strong>Rev.io Roadmap:</strong> Revii ticket summaries, Revii voice duplex, mobile Revii, Revii client updates, customer/project summaries.</li>
-<li><strong>Gap level:</strong> Low-medium.</li>
-<li><strong>Positioning move:</strong> Rev.io can credibly reframe around voice-powered technician workflows and billing/service context.</li>
-<li><strong>Proof asset needed:</strong> AI ticket productivity comparison demo.</li>
-</ul>
-<h3 id="autotask-offsite-takeaway">Autotask offsite takeaway</h3>
-<p>Autotask is strongest where buyers already live inside Kaseya/Datto. Rev.io should counter by positioning as <strong>less ecosystem lock-in and more revenue operations leverage</strong>, especially for MSPs that need billing, payments, and AI-native workflow in one platform.</p>
-<hr>
-<h2 id="7-kaseya-gap-analysis">7. Kaseya Gap Analysis</h2>
-<h3 id="public-competitor-strength">Public competitor strength</h3>
-<p>Kaseya’s strength is not a single PSA feature. It is ecosystem gravity: VSA, Datto RMM, IT Glue, backup, security, endpoint management, knowledge/configuration management, and bundled IT Complete workflows.</p>
-<h3 id="feature-functionality-gaps-to-analyze">Feature/functionality gaps to analyze</h3>
-<h4 id="1-unified-rmm-psa-documentation-ecosystem">1. Unified RMM + PSA + documentation ecosystem</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> VSA/Vorex/Autotask + IT Glue + Datto can create a broad operational suite.</li>
-<li><strong>Rev.io Today:</strong> PSA core, Acronis Phase 1, IT Glue Phase 1 on hold, Teams/Outlook, QBO, HubSpot, RMM-related movement.</li>
-<li><strong>Rev.io Roadmap:</strong> NinjaOne, N-able, Datto RMM, ConnectWise RMM assets, managed assets from integrations, client knowledge base.</li>
-<li><strong>Gap level:</strong> Medium-high if buyer wants one vendor for every IT ops tool.</li>
-<li><strong>Positioning move:</strong> Do not fight Kaseya as “we are also an IT Complete suite.” Fight with <strong>openness, service monetization, and billing/payments control</strong>.</li>
-<li><strong>Proof asset needed:</strong> Integration ecosystem map and “one bill for services across tools” workflow.</li>
-</ul>
-<h4 id="2-knowledge-configuration-management">2. Knowledge/configuration management</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> IT Glue is a major ecosystem strength.</li>
-<li><strong>Rev.io Today:</strong> Asset management, customer assets, mobile customer/contact/ticket context.</li>
-<li><strong>Rev.io Roadmap:</strong> Client Knowledge Base, IT Glue Phase 1, managed assets integrations, asset history, deployed inventory history.</li>
-<li><strong>Gap level:</strong> Medium.</li>
-<li><strong>Positioning move:</strong> Treat documentation as integration/roadmap, not primary Rev.io claim.</li>
-<li><strong>Proof asset needed:</strong> IT Glue + Rev.io workflow and client knowledge base roadmap.</li>
-</ul>
-<h4 id="3-security-backup-ecosystem">3. Security/backup ecosystem</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> Datto backup/security/RMM and Kaseya security stack.</li>
-<li><strong>Rev.io Today:</strong> Cyber Protect/Acronis positioning, Acronis integration, security/RMM service billing story.</li>
-<li><strong>Rev.io Roadmap:</strong> Acronis billing phase, deeper RMM integrations.</li>
-<li><strong>Gap level:</strong> Medium if buyer expects native full security suite.</li>
-<li><strong>Positioning move:</strong> Explicitly guardrail: Rev.io is not primarily a security platform. Rev.io operationalizes and monetizes security services.</li>
-<li><strong>Proof asset needed:</strong> Acronis/NinjaOne/Rev.io one-bill workflow.</li>
-</ul>
-<h3 id="kaseya-offsite-takeaway">Kaseya offsite takeaway</h3>
-<p>Kaseya sells ecosystem consolidation. Rev.io should sell <strong>operational and revenue control without closed-ecosystem lock-in</strong>.</p>
-<hr>
-<h2 id="8-superops-gap-analysis">8. SuperOps Gap Analysis</h2>
-<h3 id="public-competitor-strength">Public competitor strength</h3>
-<p>SuperOps markets a unified PSA + RMM experience with modern UI. Public feature claims include service desk, time tracking, recurring to-dos, templates, ticket bottleneck views, customizable home screen, SLAs/escalations, CSAT, contracts/invoicing, product catalog, automation, runbooks/approvals, project management, reporting, policy management, patch management, alert management, asset management, IT documentation, system tray icons, and security controls.</p>
-<h3 id="feature-functionality-gaps-to-analyze">Feature/functionality gaps to analyze</h3>
-<h4 id="1-native-psa-rmm-bundle">1. Native PSA + RMM bundle</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> SuperOps includes PSA + RMM in one package.</li>
-<li><strong>Rev.io Today:</strong> PSA + billing + payments, Acronis integration, RMM/security monetization story.</li>
-<li><strong>Rev.io Roadmap:</strong> NinjaOne, N-able, Datto RMM, ConnectWise RMM assets, managed assets, Acronis billing.</li>
-<li><strong>Gap level:</strong> Medium if buyer wants native RMM bundled.</li>
-<li><strong>Positioning move:</strong> Rev.io should not compete as bundled RMM. Position as <strong>billing-first service operations platform that works with the RMM stack MSPs already choose</strong>.</li>
-<li><strong>Proof asset needed:</strong> RMM-agnostic workflow map.</li>
-</ul>
-<h4 id="2-patch-policy-alert-management">2. Patch/policy/alert management</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> SuperOps includes patch, policy, alert management, and endpoint asset context.</li>
-<li><strong>Rev.io Today:</strong> Integrations and service workflows; not a native RMM replacement.</li>
-<li><strong>Rev.io Roadmap:</strong> Deeper RMM integrations and managed assets.</li>
-<li><strong>Gap level:</strong> High if evaluated as RMM; low if evaluated as PSA/billing.</li>
-<li><strong>Positioning move:</strong> Reframe out of RMM feature checklist and into ticket-to-invoice/service monetization.</li>
-<li><strong>Proof asset needed:</strong> “Alert becomes ticket becomes invoice” workflow.</li>
-</ul>
-<h4 id="3-slas-escalations-csat-runbooks">3. SLAs/escalations/CSAT/runbooks</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> SLAs, escalations, CSAT surveys, runbooks/approvals.</li>
-<li><strong>Rev.io Today:</strong> Ticketing, workflows, macros, customer portal, dispatch.</li>
-<li><strong>Rev.io Roadmap:</strong> SLA Management, Workflow Enhancements, Client Knowledge Base, recurring tickets, ticket workflow, CSAT needs product validation.</li>
-<li><strong>Gap level:</strong> Medium.</li>
-<li><strong>Positioning move:</strong> Be careful on ITIL/process maturity until SLA/workflow enhancements are in market.</li>
-<li><strong>Proof asset needed:</strong> Service desk maturity roadmap.</li>
-</ul>
-<h4 id="4-it-documentation">4. IT documentation</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> IT documentation included.</li>
-<li><strong>Rev.io Today:</strong> Assets/customer records; IT Glue Phase 1 on hold.</li>
-<li><strong>Rev.io Roadmap:</strong> Client Knowledge Base, managed assets, IT Glue integration.</li>
-<li><strong>Gap level:</strong> Medium.</li>
-<li><strong>Positioning move:</strong> Do not lead here. Use partner/integration roadmap.</li>
-<li><strong>Proof asset needed:</strong> Documentation/asset strategy note.</li>
-</ul>
-<h3 id="superops-offsite-takeaway">SuperOps offsite takeaway</h3>
-<p>SuperOps wins smaller/mid MSPs with bundled PSA/RMM simplicity. Rev.io should target more mature operators who care less about “one simple tool” and more about <strong>service monetization, complex billing, payments, and revenue operations leverage</strong>.</p>
-<hr>
-<h2 id="9-onebill-billing-specific-gap-analysis">9. OneBill Billing-Specific Gap Analysis</h2>
-<h3 id="public-competitor-strength">Public competitor strength</h3>
-<p>OneBill is a billing/revenue lifecycle platform. Public claims include CPQ, subscription lifecycle management, no-code workflow automation, real-time usage rating/mediation, tax integrations, invoicing, collections, accounts receivable, revenue recognition, revenue assurance/anomaly detection, churn prediction, partner commissions/settlements, portals, APIs, multi-currency, and high-volume transactions.</p>
-<h3 id="feature-functionality-gaps-to-analyze">Feature/functionality gaps to analyze</h3>
-<h4 id="1-cpq-contract-to-billing-flow">1. CPQ + contract-to-billing flow</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> CPQ360 with product configuration, pricing, promotions, quoting, contract execution, eSign.</li>
-<li><strong>Rev.io Today:</strong> Quotes, quote templates, calculated taxes on quotes, product catalog, recurring services, packages.</li>
-<li><strong>Rev.io Roadmap:</strong> Quoting and Signature Capture, Native Product Catalog for Quotes, Quote Workflows, Quote Profitability, Quote to Order, automated quote workflow improvements, service activation timing.</li>
-<li><strong>Gap level:</strong> Medium.</li>
-<li><strong>Positioning move:</strong> Rev.io should connect quoting to service activation and billing; avoid claiming full CPQ360-style breadth today.</li>
-<li><strong>Proof asset needed:</strong> Quote-to-order-to-billing roadmap/demo.</li>
-</ul>
-<h4 id="2-real-time-usage-rating-mediation-at-enterprise-scale">2. Real-time usage rating / mediation at enterprise scale</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> Real-time rating, event groups, charge groups, 43M+ usage-based transactions daily claim.</li>
-<li><strong>Rev.io Today:</strong> Metered usage, communications billing foundation, rate decks, FTP sites, customer overrides, usage billing.</li>
-<li><strong>Rev.io Roadmap:</strong> Non-voice metered usage, metered usage enhancements, number management/DIDs, transaction quick entry.</li>
-<li><strong>Gap level:</strong> Low-medium for telecom/MSP use cases; higher for enterprise-scale cross-industry billing.</li>
-<li><strong>Positioning move:</strong> Rev.io should lead with telecom-grade billing for MSP/CSP use cases, not generic enterprise revenue automation.</li>
-<li><strong>Proof asset needed:</strong> Usage-rating examples by telecom/UCaaS/MSP service.</li>
-</ul>
-<h4 id="3-revenue-recognition-asc-606-ifrs-15">3. Revenue recognition / ASC 606 / IFRS 15</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> RevRec360, deferred revenue, compliance, revenue run automation.</li>
-<li><strong>Rev.io Today:</strong> Billing, accounting periods, GL codes, reporting, collections.</li>
-<li><strong>Rev.io Roadmap:</strong> Virtual CFO, data as a product, AP/expense management, analytics, but RevRec needs product validation.</li>
-<li><strong>Gap level:</strong> High / needs validation.</li>
-<li><strong>Positioning move:</strong> Do not compete head-to-head on enterprise revrec unless Product confirms capability. Reframe around MSP/service-provider billing operations.</li>
-<li><strong>Proof asset needed:</strong> Product/legal-approved revrec position.</li>
-</ul>
-<h4 id="4-revenue-assurance-anomaly-detection-churn-prediction">4. Revenue assurance / anomaly detection / churn prediction</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> RevAssure360, Churn360, AI/ML revenue leakage detection and churn prediction.</li>
-<li><strong>Rev.io Today:</strong> Dashboards, analytics, Ask Revii query system, financial visibility.</li>
-<li><strong>Rev.io Roadmap:</strong> Predictive analytics with Revii, customer summaries, virtual CFO, data as a product.</li>
-<li><strong>Gap level:</strong> Medium-high today; roadmap-adjacent.</li>
-<li><strong>Positioning move:</strong> Treat as future analytics/AI opportunity, not current billing claim.</li>
-<li><strong>Proof asset needed:</strong> Revenue leakage dashboard concept.</li>
-</ul>
-<h4 id="5-partner-channel-settlements-and-commissions">5. Partner/channel settlements and commissions</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> Channel360 for partner commissions and settlements; 1,300+ partners/carriers billed claim.</li>
-<li><strong>Rev.io Today:</strong> Agents &amp; Commissions is not started; Commerce Hub vendor foundations available.</li>
-<li><strong>Rev.io Roadmap:</strong> Agents &amp; Commissions, Commerce Hub attribution ledger, referral-attributed deep links, partnership analytics dashboard.</li>
-<li><strong>Gap level:</strong> Medium-high; roadmap-covered.</li>
-<li><strong>Positioning move:</strong> Strong future story with Commerce Hub, but do not claim current parity with OneBill partner settlements.</li>
-<li><strong>Proof asset needed:</strong> Commerce Hub revenue-share/partner attribution roadmap.</li>
-</ul>
-<h4 id="6-multi-currency-internationalization">6. Multi-currency / internationalization</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> Enterprise billing across 20+ currencies claim.</li>
-<li><strong>Rev.io Today:</strong> Needs validation.</li>
-<li><strong>Rev.io Roadmap:</strong> Internationalization/globalization/localization/translation.</li>
-<li><strong>Gap level:</strong> High until validated.</li>
-<li><strong>Positioning move:</strong> Keep ICP focused on markets Rev.io can support confidently.</li>
-<li><strong>Proof asset needed:</strong> Internationalization readiness statement.</li>
-</ul>
-<h3 id="onebill-offsite-takeaway">OneBill offsite takeaway</h3>
-<p>OneBill is strongest as an enterprise billing/revenue lifecycle platform. Rev.io should not fight every revrec/revenue-assurance module. Rev.io should win where billing must connect to <strong>MSP service operations, PSA workflows, payments, and customer work execution</strong>.</p>
-<hr>
-<h2 id="10-datagate-billing-specific-gap-analysis">10. Datagate Billing-Specific Gap Analysis</h2>
-<h3 id="public-competitor-strength">Public competitor strength</h3>
-<p>Datagate is a telecom billing platform built for MSPs and telecom providers. Public claims include usage-based VoIP rating, toll/toll-free/international/long-distance billing, multi-provider/PBX support, PSA/accounting/tax integrations, telecom tax engines, payment processing, and white-label customer portal.</p>
-<h3 id="feature-functionality-gaps-to-analyze">Feature/functionality gaps to analyze</h3>
-<h4 id="1-telecom-specific-usage-rating">1. Telecom-specific usage rating</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> VoIP toll, toll-free, international, long-distance usage rating.</li>
-<li><strong>Rev.io Today:</strong> Metered usage, communications billing foundation, rate decks, FTP sites, customer overrides.</li>
-<li><strong>Rev.io Roadmap:</strong> Number Management/DIDs, non-voice metered usage, metered usage enhancements.</li>
-<li><strong>Gap level:</strong> Low for core telecom billing; validate edge cases.</li>
-<li><strong>Positioning move:</strong> Rev.io can compete confidently here because telecom billing is core heritage.</li>
-<li><strong>Proof asset needed:</strong> VoIP/UCaaS rating workflow one-sheeter.</li>
-</ul>
-<h4 id="2-multi-provider-pbx-billing">2. Multi-provider / PBX billing</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> Combine billing for multiple providers in one platform.</li>
-<li><strong>Rev.io Today:</strong> Communications billing foundation and metered usage; integrations need validation by provider.</li>
-<li><strong>Rev.io Roadmap:</strong> Number management, additional usage/rating enhancements, vendor catalog/API direction.</li>
-<li><strong>Gap level:</strong> Medium depending on provider coverage.</li>
-<li><strong>Positioning move:</strong> Use “telecom-grade billing + PSA + payments” as the differentiator, but validate provider/PBX support before naming specifics.</li>
-<li><strong>Proof asset needed:</strong> Supported provider/PBX matrix.</li>
-</ul>
-<h4 id="3-telecom-tax-engines">3. Telecom tax engines</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> CCH SureTax, CSI, Avalara AvaTax for Communications.</li>
-<li><strong>Rev.io Today:</strong> Tax calculation, tax exemptions.</li>
-<li><strong>Rev.io Roadmap:</strong> Tax provider configuration.</li>
-<li><strong>Gap level:</strong> Medium; needs Product validation for telecom tax engine coverage.</li>
-<li><strong>Positioning move:</strong> Do not overclaim tax engine parity; say Rev.io supports telecom billing/tax workflows where validated.</li>
-<li><strong>Proof asset needed:</strong> Tax integration/compliance matrix.</li>
-</ul>
-<h4 id="4-psa-accounting-integrations">4. PSA/accounting integrations</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> ConnectWise Manage, Autotask, QuickBooks, Xero integrations.</li>
-<li><strong>Rev.io Today:</strong> QBO, HubSpot, Outlook/Teams, Slack/Teams, Acronis; ConnectWise legacy billing connector updates; API/developer portal in progress.</li>
-<li><strong>Rev.io Roadmap:</strong> Developer Portal, webhooks, API versioning, inventory/PO/assets APIs, additional integrations.</li>
-<li><strong>Gap level:</strong> Medium.</li>
-<li><strong>Positioning move:</strong> Rev.io should not position as “billing add-on to someone else’s PSA” for this audience. Instead: <strong>why keep PSA and billing separate if Rev.io connects both?</strong></li>
-<li><strong>Proof asset needed:</strong> Rev.io vs Datagate workflow: billing-only add-on vs service + billing platform.</li>
-</ul>
-<h4 id="5-white-label-payment-customer-portal">5. White-label payment/customer portal</h4>
-<ul>
-<li><strong>Competitor claim/strength:</strong> White-label end-customer portal with Stripe, Authorize.net, IPPay.</li>
-<li><strong>Rev.io Today:</strong> Customer portal with invoice, ticket, payment capabilities; payments; compliant surcharging; Paya payment data compliance.</li>
-<li><strong>Rev.io Roadmap:</strong> Enhanced Customer Portal, customer-level invoice automation options, TRX payments reporting.</li>
-<li><strong>Gap level:</strong> Low-medium.</li>
-<li><strong>Positioning move:</strong> Rev.io can argue portal + payments + service workflows are better connected than billing-only portals.</li>
-<li><strong>Proof asset needed:</strong> Customer portal/payment workflow screenshots.</li>
-</ul>
-<h3 id="datagate-offsite-takeaway">Datagate offsite takeaway</h3>
-<p>Datagate is a focused telecom billing add-on. Rev.io’s counter is stronger than against OneBill: <strong>Rev.io can combine telecom billing depth with PSA/service operations, payments, dispatch, tickets, customer portal, and Revii.</strong></p>
-<hr>
-<h2 id="11-cross-competitor-feature-themes">11. Cross-Competitor Feature Themes</h2>
-<h3 id="theme-a-sla-management-and-service-desk-maturity">Theme A: SLA management and service desk maturity</h3>
-<ul>
-<li><strong>Competitors:</strong> HaloPSA, Autotask, SuperOps, ConnectWise.</li>
-<li><strong>Rev.io status:</strong> SLA Management roadmap; ticketing/workflows available; recurring tickets in progress; ticket workflow roadmap.</li>
-<li><strong>Marketing stance:</strong> Do not lead with SLA parity until shipped. Use as roadmap-backed neutralizer.</li>
-<li><strong>Asset needed:</strong> Service desk maturity roadmap.</li>
-</ul>
-<h3 id="theme-b-crm-opportunity-management">Theme B: CRM / opportunity management</h3>
-<ul>
-<li><strong>Competitors:</strong> ConnectWise, Autotask, OneBill CPQ/subscriber lifecycle.</li>
-<li><strong>Rev.io status:</strong> Sales Opportunity Management roadmap; quotes available.</li>
-<li><strong>Marketing stance:</strong> Keep current positioning around quote-to-cash, not full CRM parity.</li>
-<li><strong>Asset needed:</strong> Sales opp / quote-to-order roadmap slide.</li>
-</ul>
-<h3 id="theme-c-project-profitability-and-billing">Theme C: Project profitability and billing</h3>
-<ul>
-<li><strong>Competitors:</strong> ConnectWise, HaloPSA, Autotask.</li>
-<li><strong>Rev.io status:</strong> Core project management available; project billing, milestones, activity feeds, profitability roadmap.</li>
-<li><strong>Marketing stance:</strong> Strong near-term story: project management connected to billing and margin.</li>
-<li><strong>Asset needed:</strong> Project billing/profitability demo.</li>
-</ul>
-<h3 id="theme-d-rmm-security-ecosystem">Theme D: RMM/security ecosystem</h3>
-<ul>
-<li><strong>Competitors:</strong> Kaseya, SuperOps, ConnectWise, Autotask.</li>
-<li><strong>Rev.io status:</strong> RMM/security integrations, Acronis, NinjaOne, N-able, Datto RMM, ConnectWise RMM assets.</li>
-<li><strong>Marketing stance:</strong> Rev.io is RMM/security-agnostic; win on service workflow and billing, not native RMM replacement.</li>
-<li><strong>Asset needed:</strong> RMM/security → ticket → invoice workflow.</li>
-</ul>
-<h3 id="theme-e-procurement-catalog-vendor-marketplace">Theme E: Procurement / catalog / vendor marketplace</h3>
-<ul>
-<li><strong>Competitors:</strong> ConnectWise, Kaseya/QuoteWerks ecosystem, OneBill CPQ.</li>
-<li><strong>Rev.io status:</strong> Product catalog, POs, inventory, Commerce Hub foundations; storefront/catalog ingestion/pricing configurator roadmap.</li>
-<li><strong>Marketing stance:</strong> Commerce Hub is a strategic differentiator, but avoid overclaiming procurement parity until product storefront/catalog workflows mature.</li>
-<li><strong>Asset needed:</strong> Commerce Hub future-state visual.</li>
-</ul>
-<h3 id="theme-f-advanced-billing-revenue-lifecycle">Theme F: Advanced billing / revenue lifecycle</h3>
-<ul>
-<li><strong>Competitors:</strong> OneBill, Datagate, Autotask.</li>
-<li><strong>Rev.io status:</strong> Strong telecom/MSP billing foundation; metered usage; communications billing; payments; collections; invoice automation; non-voice metered usage and tax provider config roadmap.</li>
-<li><strong>Marketing stance:</strong> Win on billing connected to service operations, not every enterprise revrec module.</li>
-<li><strong>Asset needed:</strong> Billing capability matrix by use case.</li>
-</ul>
-<h3 id="theme-g-ai-assistant-technician-productivity">Theme G: AI assistant / technician productivity</h3>
-<ul>
-<li><strong>Competitors:</strong> ConnectWise Sidekick, Autotask Cooper Copilot, SuperOps AI alerting/routing.</li>
-<li><strong>Rev.io status:</strong> Strong Revii foundation and roadmap.</li>
-<li><strong>Marketing stance:</strong> Lead with voice-powered, workflow-embedded AI that helps techs and operators get work done.</li>
-<li><strong>Asset needed:</strong> Revii workflow demo clips.</li>
-</ul>
-<hr>
-<h2 id="12-recommended-competitive-gap-slide">12. Recommended Competitive Gap Slide</h2>
-<h3 id="slide-title">Slide title</h3>
-<p><strong>Competitor Feature Gaps: What We Defend, Neutralize, and Reframe</strong></p>
-<h3 id="slide-layout">Slide layout</h3>
-<h4 id="defend-today">Defend today</h4>
-<ul>
-<li>Core PSA: tickets, dispatch, time, quotes, projects, inventory, POs.</li>
-<li>Billing: invoices, metered usage, communications billing, payments, tax, collections.</li>
-<li>Analytics: dashboards, reports, custom reports.</li>
-<li>Mobile PSA: tickets, timers, signatures, media attachments.</li>
-<li>Revii: AI assistant, voice, billing/inventory tools, query system.</li>
-</ul>
-<h4 id="neutralize-with-roadmap">Neutralize with roadmap</h4>
-<ul>
-<li>SLA management.</li>
-<li>Enhanced customer portal.</li>
-<li>Sales opportunity/CRM.</li>
-<li>Project billing/profitability.</li>
-<li>Recurring tickets and timesheets.</li>
-<li>RMM integrations and managed assets.</li>
-<li>Developer portal/API/webhooks.</li>
-<li>Commerce Hub procurement/catalog.</li>
-<li>Advanced billing enhancements.</li>
-</ul>
-<h4 id="reframe">Reframe</h4>
-<ul>
-<li>Against ConnectWise/Kaseya: fewer closed-ecosystem tradeoffs; better service-to-revenue story.</li>
-<li>Against HaloPSA/SuperOps: not just modern PSA; service operations + revenue management.</li>
-<li>Against Autotask: less ecosystem lock-in; stronger billing/payments/AI narrative.</li>
-<li>Against OneBill: not enterprise billing alone; billing connected to MSP operations.</li>
-<li>Against Datagate: not billing add-on; telecom billing + PSA + payments in one platform.</li>
-</ul>
-<hr>
-<h2 id="13-proof-assets-needed-for-this-section">13. Proof Assets Needed for This Section</h2>
-<h3 id="product-roadmap-proof">Product/roadmap proof</h3>
-<ul>
-<li>Roadmap-safe feature matrix with “Available / In Dev / Roadmap / Validate” status.</li>
-<li>SLA management roadmap screenshot or PRD summary.</li>
-<li>Enhanced portal mockup.</li>
-<li>Project billing/profitability demo.</li>
-<li>Sales opportunity management roadmap preview.</li>
-<li>RMM integration map.</li>
-<li>Commerce Hub future-state mockup.</li>
-<li>Billing capability matrix.</li>
-</ul>
-<h3 id="competitive-proof">Competitive proof</h3>
-<ul>
-<li>Rev.io vs ConnectWise feature comparison.</li>
-<li>Rev.io vs HaloPSA feature comparison.</li>
-<li>Rev.io vs Autotask/Kaseya feature comparison.</li>
-<li>Rev.io vs SuperOps feature comparison.</li>
-<li>Rev.io vs OneBill billing comparison.</li>
-<li>Rev.io vs Datagate telecom billing comparison.</li>
-</ul>
-<h3 id="sales-enablement-proof">Sales enablement proof</h3>
-<ul>
-<li>“What to say when they ask about SLA management.”</li>
-<li>“What to say when they ask about CRM/opportunity management.”</li>
-<li>“What to say when they ask about RMM.”</li>
-<li>“What to say when they ask about enterprise billing/revrec.”</li>
-<li>“What to say when they ask about migration risk.”</li>
-</ul>
-<hr>
-<h2 id="14-recommended-positioning-language">14. Recommended Positioning Language</h2>
-<h3 id="against-psa-competitors">Against PSA competitors</h3>
-<blockquote>
-<p>Most PSA tools help you manage tickets. Rev.io helps you connect the work to the money: service delivery, billing, payments, customer operations, and AI-assisted execution in one operating layer.</p>
-</blockquote>
-<h3 id="against-legacy-incumbents">Against legacy incumbents</h3>
-<blockquote>
-<p>If your current PSA requires a second system, third-party consultants, and disconnected billing/payment workflows to run the business, the platform is creating the operational drag it was supposed to remove.</p>
-</blockquote>
-<h3 id="against-modern-psa-competitors">Against modern PSA competitors</h3>
-<blockquote>
-<p>A modern UI is useful. A modern revenue engine is better. Rev.io gives MSPs the operational layer to manage work and monetize every service without stitching PSA, billing, and payments together after the fact.</p>
-</blockquote>
-<h3 id="against-billing-only-competitors">Against billing-only competitors</h3>
-<blockquote>
-<p>Billing does not stop at the invoice. For MSPs and service providers, billing needs to connect to the ticket, the contract, the technician, the project, the customer, and the payment. That is where Rev.io is different.</p>
-</blockquote>
-<h3 id="against-rmm-bundled-competitors">Against RMM-bundled competitors</h3>
-<blockquote>
-<p>Rev.io does not force MSPs into one RMM/security stack. It helps them operationalize and monetize the services they deliver across the tools they already use.</p>
-</blockquote>
-<hr>
-<h2 id="15-leadership-discussion-questions">15. Leadership Discussion Questions</h2>
-<ol>
-<li>Which roadmap-backed features are approved for competitive conversation, and which should remain internal only?</li>
-<li>Do we want public competitor pages to show roadmap-backed gaps, or keep roadmap responses in sales enablement only?</li>
-<li>Which competitor gaps are most common in active deals: SLA, CRM, project management, RMM integration, portal, billing, or reporting?</li>
-<li>Which roadmap items need proof assets before marketing can safely use them?</li>
-<li>Which competitors should get the most detailed feature matrix first?</li>
-<li>What claims need legal/product approval before being used externally?</li>
-</ol>
-<hr>
-<h2 id="16-recommended-next-step">16. Recommended Next Step</h2>
-<p>Turn this into two artifacts:</p>
-<ol>
-<li><strong>Leadership deck appendix:</strong> high-level feature gap themes and roadmap neutralizers.</li>
-<li><strong>Internal sales enablement matrix:</strong> detailed competitor-by-competitor feature status with approved talk tracks.</li>
-</ol>
-<p>Do <strong>not</strong> publish the full roadmap-backed matrix externally without Product approval.</p>
-</main>
-</div>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Competitor Feature + Roadmap Gap Analysis Deck</title><style>
+:root{--bg:#06111f;--panel:#0b1728;--panel2:#101f34;--line:#263a56;--text:#f7f9fd;--muted:#aab7cf;--teal:#2399B5;--green:#6EBE4F;--plat:#E8E8EC;--amber:#ffbb4a;--red:#ff5b6a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 0%,#173a57 0,#07111e 36%,#030914 100%);color:var(--text);font-family:Open Sans,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.45}.topbar{position:sticky;top:0;z-index:10;background:rgba(6,17,31,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(35,153,181,.35);padding:12px 24px;display:flex;gap:16px;align-items:center;justify-content:space-between}.brand{font-weight:900;letter-spacing:.14em;color:#fff;white-space:nowrap}.nav{display:flex;gap:8px;overflow:auto;padding-bottom:2px}.nav a{color:#c8d3e8;text-decoration:none;border:1px solid rgba(139,158,190,.24);border-radius:999px;padding:7px 11px;background:rgba(16,31,52,.72);font-size:12px;font-weight:800;white-space:nowrap}.nav a:hover{color:#fff;border-color:rgba(35,153,181,.7)}.deck{max-width:1500px;margin:0 auto;padding:32px 30px 80px}.slide{position:relative;min-height:820px;margin:0 auto 42px;padding:62px 62px 54px;background:linear-gradient(145deg,rgba(16,31,52,.96),rgba(7,17,31,.98));border:1px solid var(--line);border-radius:30px;box-shadow:0 28px 80px rgba(0,0,0,.36),inset 0 0 0 1px rgba(255,255,255,.025);overflow:hidden;scroll-margin-top:78px}.slide:before{content:"";position:absolute;left:0;top:0;right:0;height:6px;background:linear-gradient(90deg,var(--teal),var(--green))}.slide:after{content:"";position:absolute;right:-140px;top:-170px;width:430px;height:430px;border-radius:50%;background:radial-gradient(circle,rgba(35,153,181,.14),transparent 70%);pointer-events:none}.slide-num{position:absolute;right:38px;top:30px;font-size:78px;line-height:1;font-weight:900;color:rgba(170,183,207,.16);letter-spacing:-.06em}.eyebrow{display:flex;align-items:center;gap:14px;color:var(--green);font-weight:900;text-transform:uppercase;letter-spacing:.18em;font-size:14px;margin-bottom:22px}.eyebrow:before{content:"";display:block;width:34px;height:2px;background:var(--green)}h1{font-size:54px;line-height:1.06;letter-spacing:-.04em;margin:0 110px 20px 0;color:#fff;max-width:1100px}.subtitle{font-size:24px;line-height:1.38;color:#cbd6e8;max-width:1120px;margin:0 0 34px}.hero-quote{font-size:32px;line-height:1.25;font-weight:850;color:#fff;background:rgba(110,190,79,.09);border:1px solid rgba(110,190,79,.35);border-left:7px solid var(--green);border-radius:20px;padding:26px 30px;max-width:1120px;margin:30px 0}.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.chips span{border:1px solid rgba(35,153,181,.5);border-radius:999px;padding:9px 14px;background:rgba(35,153,181,.12);color:#fff;font-weight:800;font-size:14px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}.cards.dense{grid-template-columns:repeat(4,1fr)}.card,.mini,.lane{background:linear-gradient(145deg,rgba(18,35,58,.96),rgba(13,27,47,.96));border:1px solid var(--line);border-radius:20px;padding:24px}.card h3,.mini h3,.lane h3{font-size:17px;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin:0 0 12px;font-weight:900}.card p,.mini p,.lane p{font-size:20px;color:#d7e0ef;margin:0 0 10px}.muted{color:var(--muted)!important;font-size:17px!important}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}.mini p{font-size:16px}.mini strong{color:#fff;font-size:18px}.lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}.num{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(110,190,79,.14);color:var(--green);font-weight:950;font-size:18px;margin-bottom:16px}.table{overflow:auto;border:1px solid var(--line);border-radius:18px;background:#101d31;margin-top:26px}table{width:100%;border-collapse:collapse}th{font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:#9fb0ca;text-align:left;padding:15px 18px;border-bottom:1px solid var(--line);white-space:nowrap}td{font-size:18px;color:#d7e0ef;padding:16px 18px;border-bottom:1px solid rgba(36,53,77,.72);vertical-align:top}.rowhead{font-weight:900;color:#fff}.bullets{display:grid;grid-template-columns:repeat(2,1fr);gap:15px 24px;padding:0;margin:28px 0 0;list-style:none}.bullets li{font-size:20px;color:#d7e0ef;background:rgba(18,35,58,.84);border:1px solid var(--line);border-radius:16px;padding:18px 20px}.bullets li:before{content:"✓";color:var(--green);font-weight:900;margin-right:10px}.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}blockquote{margin:0;border-left:6px solid var(--green);background:rgba(110,190,79,.08);border-radius:18px;padding:24px;font-size:24px;line-height:1.35;font-weight:800;color:#fff}.print{position:fixed;right:22px;bottom:22px;z-index:20;border:1px solid rgba(35,153,181,.5);background:#10233a;color:#fff;border-radius:999px;padding:12px 16px;font-weight:900;cursor:pointer}@media(max-width:1100px){.topbar{display:block}.brand{margin-bottom:10px}.slide{min-height:auto;padding:44px 26px}.slide-num{font-size:48px;right:24px}.eyebrow{font-size:12px}h1{font-size:38px;margin-right:60px}.subtitle{font-size:19px}.cards,.cards.dense,.grid,.lanes,.bullets,.quotes{grid-template-columns:1fr}.card p,.lane p{font-size:17px}.deck{padding:20px 14px 70px}}@media print{.topbar,.print{display:none}.deck{padding:0;max-width:none}.slide{break-inside:avoid;min-height:100vh;margin:0;border-radius:0;box-shadow:none}}
+</style></head><body><div class="topbar"><div class="brand">REV.IO</div><nav class="nav"><a href="#s1">01 Competitor Feature + Roadmap Gap Analysis</a><a href="#s2">02 The gap story is not PSA coverage. It is mature-operator confidence.</a><a href="#s3">03 Use a three-lane competitive model</a><a href="#s4">04 What each competitor wants buyers to believe</a><a href="#s5">05 Capabilities we can defend today</a><a href="#s6">06 Where roadmap directly answers competitor doubt</a><a href="#s7">07 Seven feature themes will drive most competitive objections</a><a href="#s8">08 ConnectWise wins on breadth. Rev.io wins by connecting work to revenue.</a><a href="#s9">09 ConnectWise gaps to defend or neutralize</a><a href="#s10">10 HaloPSA wins on modern PSA configurability. Rev.io should widen the conversation.</a><a href="#s11">11 Where HaloPSA creates doubt</a><a href="#s12">12 Autotask wins inside Kaseya/Datto. Rev.io should sell less lock-in and more revenue leverage.</a><a href="#s13">13 Kaseya sells IT Complete. Rev.io should not fight that battle on Kaseya’s terms.</a><a href="#s14">14 SuperOps wins simple PSA + RMM packaging. Rev.io should target more mature monetization pain.</a><a href="#s15">15 Billing competitors are not PSA competitors. Reframe around connected operations.</a><a href="#s16">16 OneBill is deepest where finance wants enterprise revenue automation</a><a href="#s17">17 Datagate is a focused telecom billing add-on. Rev.io can tell a broader story.</a><a href="#s18">18 Recommended competitor battle posture</a><a href="#s19">19 What we need before scaling competitive campaigns</a><a href="#s20">20 Recommended language for the competitor section</a><a href="#s21">21 Decisions needed before this becomes external messaging</a><a href="#s22">22 Turn the analysis into action</a><a href="#s23">23 The leadership takeaway</a></nav></div><button class="print" onclick="window.print()">Print / PDF</button><main class="deck"><section class="slide" id="s1">
+  <div class="slide-num">01</div>
+  <div class="eyebrow">Competitive appendix</div>
+  <h1>Competitor Feature + Roadmap Gap Analysis</h1>
+  <p class="subtitle">How Rev.io should defend, neutralize, and reframe competitive feature gaps across PSA, MSP ops, and billing competitors.</p>
+  <div class="hero-quote">The goal is not to claim every button. The goal is to show where Rev.io wins today, where roadmap neutralizes objections, and where we reframe the category.</div>
+  <div class="chips"><span>Leadership offsite</span><span>Roadmap-backed analysis</span><span>Internal strategy draft</span></div>
+  
+  
+  
+  
+  
+  
+</section>
+<section class="slide" id="s2">
+  <div class="slide-num">02</div>
+  <div class="eyebrow">Executive thesis</div>
+  <h1>The gap story is not PSA coverage. It is mature-operator confidence.</h1>
+  <p class="subtitle">Rev.io already covers core PSA + billing foundations. The competitive question is whether mature MSPs believe Rev.io can match operational depth while giving them a stronger revenue engine.</p>
+  
+  
+  <div class="cards "><div class="card"><h3>Defend today</h3><p>Tickets, dispatch, quotes, invoices, payments, recurring services, metered usage, inventory, customer portal, dashboards, workflows, mobile, Revii.</p></div><div class="card"><h3>Neutralize with roadmap</h3><p>SLA management, enhanced portal, CRM/opportunity management, project profitability, RMM integrations, developer portal, Commerce Hub.</p></div><div class="card"><h3>Reframe</h3><p>Competitors sell PSA, RMM, or billing slices. Rev.io should sell service operations + revenue management in one operating layer.</p></div></div>
+  
+  
+  
+  
+  
+</section>
+<section class="slide" id="s3">
+  <div class="slide-num">03</div>
+  <div class="eyebrow">Recommended framing</div>
+  <h1>Use a three-lane competitive model</h1>
+  <p class="subtitle">This keeps leadership aligned and prevents marketing from either under-selling shipped capabilities or over-claiming roadmap items.</p>
+  
+  
+  
+  
+  <div class="lanes"><div class="lane"><div class="num">01</div><h3>Defend</h3><p>Capabilities Rev.io can safely claim now. Use these in public pages, decks, ads, and sales talk tracks.</p></div><div class="lane"><div class="num">02</div><h3>Neutralize</h3><p>Roadmap-backed objections. Use carefully in leadership/offline sales enablement until Product approves public claims.</p></div><div class="lane"><div class="num">03</div><h3>Reframe</h3><p>Areas where competitors may be deeper feature-by-feature, but Rev.io has the stronger business outcome story.</p></div></div>
+  
+  
+  
+</section>
+<section class="slide" id="s4">
+  <div class="slide-num">04</div>
+  <div class="eyebrow">Competitive landscape</div>
+  <h1>What each competitor wants buyers to believe</h1>
+  <p class="subtitle">The displacement strategy changes by competitor because each one creates a different kind of doubt.</p>
+  
+  
+  
+  <div class="grid"><div class="mini"><h3>ConnectWise</h3><p><strong>Breadth + incumbent maturity</strong></p><p>Procurement, CRM, project depth, distributor ecosystem, reporting.</p></div><div class="mini"><h3>HaloPSA</h3><p><strong>Modern configurable PSA</strong></p><p>Flexible workflows, portal, ITIL/service desk maturity, integrations.</p></div><div class="mini"><h3>Autotask</h3><p><strong>Mature PSA inside Kaseya/Datto</strong></p><p>Contracts, SLAs, Datto RMM, Cooper Copilot, ecosystem inertia.</p></div><div class="mini"><h3>Kaseya</h3><p><strong>IT Complete gravity</strong></p><p>VSA, Datto, IT Glue, backup/security, endpoint management.</p></div><div class="mini"><h3>SuperOps</h3><p><strong>Simple PSA + RMM bundle</strong></p><p>Modern UI, RMM, patching, alerting, service desk, documentation.</p></div><div class="mini"><h3>OneBill</h3><p><strong>Enterprise revenue lifecycle</strong></p><p>CPQ, rating, revrec, assurance, churn, channel settlements.</p></div><div class="mini"><h3>Datagate</h3><p><strong>Telecom billing add-on</strong></p><p>VoIP usage rating, tax engines, PSA/accounting integrations.</p></div></div>
+  
+  
+  
+  
+</section>
+<section class="slide" id="s5">
+  <div class="slide-num">05</div>
+  <div class="eyebrow">Rev.io baseline</div>
+  <h1>Capabilities we can defend today</h1>
+  <p class="subtitle">These are the “do not apologize” areas in competitive conversations.</p>
+  
+  
+  
+  
+  
+  
+  <ul class="bullets"><li>Core PSA: customers, contacts, tickets/service orders, time tracking, dispatch, scheduling, quotes, projects, inventory, purchase orders.</li><li>Billing + payments: invoices, charges/credits, billing profiles, accounting periods, recurring services, metered usage, communications billing, tax, collections.</li><li>Experience + intelligence: customer portal, dashboards, custom reports, mobile PSA, workflows/automation, audit logging, Ask Revii, Talk to Revii.</li><li>Integrations: QBO, HubSpot, Teams/Outlook, Google Calendar, Acronis Phase 1, and active RMM integration momentum.</li></ul>
+  
+</section>
+<section class="slide" id="s6">
+  <div class="slide-num">06</div>
+  <div class="eyebrow">Roadmap neutralizers</div>
+  <h1>Where roadmap directly answers competitor doubt</h1>
+  <p class="subtitle">These should become internal sales enablement and leadership appendix material before broad public claims.</p>
+  
+  
+  
+  <div class="grid"><div class="mini"><h3>Service desk maturity</h3><p><strong>SLA management, recurring tickets, ticket workflow, timesheets, automated status changes.</strong></p></div><div class="mini"><h3>Portal maturity</h3><p><strong>Enhanced customer portal, Bill Center parity, branding, announcements, document management, view-as-role.</strong></p></div><div class="mini"><h3>CRM + sales ops</h3><p><strong>Sales opportunity management, weighted probability, quote workflows, quote-to-order.</strong></p></div><div class="mini"><h3>Project economics</h3><p><strong>Job costing, project profitability, project billing, milestones, project activity feeds.</strong></p></div><div class="mini"><h3>RMM ecosystem</h3><p><strong>NinjaOne, N-able, Datto RMM, ConnectWise RMM assets, managed assets, Acronis billing.</strong></p></div><div class="mini"><h3>Platform extensibility</h3><p><strong>Developer portal, APIs, webhooks, versioning, quotas/rate limiting.</strong></p></div><div class="mini"><h3>Commerce Hub</h3><p><strong>Product storefront, vendor catalog API, catalog ingestion, pricing configurator, attribution ledger.</strong></p></div><div class="mini"><h3>Advanced billing</h3><p><strong>Non-voice metered usage, number management, tax provider configuration, billing enhancements.</strong></p></div></div>
+  
+  
+  
+  
+</section>
+<section class="slide" id="s7">
+  <div class="slide-num">07</div>
+  <div class="eyebrow">Cross-competitor themes</div>
+  <h1>Seven feature themes will drive most competitive objections</h1>
+  <p class="subtitle">These are the areas sales and marketing need approved talk tracks for.</p>
+  
+  
+  
+  
+  
+  <div class="table"><table><thead><tr><th>Theme</th><th>Competitors</th><th>Rev.io stance</th></tr></thead><tbody><tr><td class="rowhead">SLA + service desk maturity</td><td>HaloPSA, Autotask, SuperOps, ConnectWise</td><td>Roadmap neutralizer; do not overclaim until shipped.</td></tr><tr><td class="rowhead">CRM / opportunity management</td><td>ConnectWise, Autotask, OneBill CPQ</td><td>Quote-to-cash today; native CRM roadmap.</td></tr><tr><td class="rowhead">Project profitability + billing</td><td>ConnectWise, HaloPSA, Autotask</td><td>Strong near-term story around margin-aware project ops.</td></tr><tr><td class="rowhead">RMM/security ecosystem</td><td>Kaseya, SuperOps, ConnectWise, Autotask</td><td>Reframe as RMM-agnostic service monetization.</td></tr><tr><td class="rowhead">Procurement / catalog</td><td>ConnectWise, Kaseya, OneBill CPQ</td><td>Commerce Hub as strategic future state.</td></tr><tr><td class="rowhead">Advanced billing lifecycle</td><td>OneBill, Datagate, Autotask</td><td>Win on MSP/CSP billing connected to service ops.</td></tr><tr><td class="rowhead">AI productivity</td><td>ConnectWise Sidekick, Autotask Cooper, SuperOps AI</td><td>Lead with voice-powered Revii embedded in workflows.</td></tr></tbody></table></div>
+  
+  
+</section>
+<section class="slide" id="s8">
+  <div class="slide-num">08</div>
+  <div class="eyebrow">ConnectWise</div>
+  <h1>ConnectWise wins on breadth. Rev.io wins by connecting work to revenue.</h1>
+  <p class="subtitle">Do not try to win by matching every incumbent feature. Win by showing less operational drag and stronger service-to-money continuity.</p>
+  
+  
+  <div class="cards "><div class="card"><h3>Competitive strength</h3><p>Procurement, CRM, project management, billing, distributor integrations, reporting ecosystem, AI/Sidekick/RPA, mature PSA workflows.</p></div><div class="card"><h3>Rev.io counter</h3><p>Billing + payments + service operations + Revii in one modern operating layer. Commerce Hub gives Rev.io a future procurement story that is more marketplace-native.</p></div><div class="card"><h3>Proof needed</h3><p>Commerce Hub roadmap visual, project profitability demo, Revii workflow reel, analytics dashboard examples, migration/onboarding proof.</p></div></div>
+  
+  
+  
+  
+  
+</section>
+<section class="slide" id="s9">
+  <div class="slide-num">09</div>
+  <div class="eyebrow">ConnectWise gap matrix</div>
+  <h1>ConnectWise gaps to defend or neutralize</h1>
+  <p class="subtitle">Recommended posture by feature family.</p>
+  
+  
+  
+  
+  
+  <div class="table"><table><thead><tr><th>Feature area</th><th>Gap level</th><th>Recommended posture</th></tr></thead><tbody><tr><td class="rowhead">Procurement + distributor integrations</td><td>Medium</td><td>Neutralize with Commerce Hub roadmap; avoid parity claims.</td></tr><tr><td class="rowhead">CRM / sales opportunity management</td><td>Medium-high today</td><td>Roadmap-backed; lead with quote-to-cash continuity.</td></tr><tr><td class="rowhead">Project profitability</td><td>Low-medium</td><td>Show project billing + profitability roadmap/demo.</td></tr><tr><td class="rowhead">AI + workflow automation</td><td>Low-medium</td><td>Reframe around Revii as voice-first digital workforce.</td></tr><tr><td class="rowhead">Reporting / BrightGauge-style dashboards</td><td>Medium</td><td>Defend analytics today; roadmap EDW/mobile dashboards.</td></tr></tbody></table></div>
+  
+  
+</section>
+<section class="slide" id="s10">
+  <div class="slide-num">10</div>
+  <div class="eyebrow">HaloPSA</div>
+  <h1>HaloPSA wins on modern PSA configurability. Rev.io should widen the conversation.</h1>
+  <p class="subtitle">Halo is a strong modern PSA. The Rev.io counter is that a PSA-first story is smaller than service operations + revenue management.</p>
+  
+  
+  <div class="cards "><div class="card"><h3>Competitive strength</h3><p>Modern UI, deep customization, workflow flexibility, service desk maturity, customer portal, advanced reporting, broad integrations.</p></div><div class="card"><h3>Rev.io counter</h3><p>Customization plus billing/payments depth. Rev.io is not just a nicer PSA; it is the operating and revenue layer for mature MSPs.</p></div><div class="card"><h3>Proof needed</h3><p>Workflow builder walkthrough, enhanced portal mockup, SLA roadmap, service-to-revenue dashboard.</p></div></div>
+  
+  
+  
+  
+  
+</section>
+<section class="slide" id="s11">
+  <div class="slide-num">11</div>
+  <div class="eyebrow">HaloPSA gap matrix</div>
+  <h1>Where HaloPSA creates doubt</h1>
+  <p class="subtitle">These are the places buyers may ask for reassurance during evaluation.</p>
+  
+  
+  
+  
+  
+  <div class="table"><table><thead><tr><th>Feature area</th><th>Gap level</th><th>Recommended posture</th></tr></thead><tbody><tr><td class="rowhead">Configurability + custom workflows</td><td>Medium</td><td>Defend custom fields/workflows; neutralize advanced config roadmap.</td></tr><tr><td class="rowhead">Customer portal maturity</td><td>Medium</td><td>Roadmap-backed; show enhanced portal direction.</td></tr><tr><td class="rowhead">ITIL/SLA/runbook depth</td><td>Medium-high today</td><td>Roadmap neutralizer; counter with billing/payments advantage.</td></tr><tr><td class="rowhead">Advanced dashboards</td><td>Low-medium</td><td>Frame analytics around service-to-revenue visibility.</td></tr></tbody></table></div>
+  
+  
+</section>
+<section class="slide" id="s12">
+  <div class="slide-num">12</div>
+  <div class="eyebrow">Autotask</div>
+  <h1>Autotask wins inside Kaseya/Datto. Rev.io should sell less lock-in and more revenue leverage.</h1>
+  <p class="subtitle">Autotask’s strongest competitive moat is ecosystem inertia, not just PSA functionality.</p>
+  
+  
+  <div class="cards "><div class="card"><h3>Competitive strength</h3><p>Contract management, SLA tracking, Datto RMM integration, Teams integration, rebuilt client portal, Cooper Copilot for ticket productivity.</p></div><div class="card"><h3>Rev.io counter</h3><p>Billing foundation, payments, Revii, flexible service workflows, and a story that does not require committing to Kaseya’s full ecosystem.</p></div><div class="card"><h3>Proof needed</h3><p>Agreements roadmap, SLA roadmap, RMM alert-to-invoice workflow, AI ticket productivity demo.</p></div></div>
+  
+  
+  
+  
+  
+</section>
+<section class="slide" id="s13">
+  <div class="slide-num">13</div>
+  <div class="eyebrow">Kaseya</div>
+  <h1>Kaseya sells IT Complete. Rev.io should not fight that battle on Kaseya’s terms.</h1>
+  <p class="subtitle">The winning move is to position Rev.io as open operational and revenue control, not another closed ecosystem.</p>
+  
+  
+  <div class="cards "><div class="card"><h3>Competitive strength</h3><p>VSA, Datto RMM, IT Glue, backup, security, endpoint management, knowledge/configuration management.</p></div><div class="card"><h3>Rev.io counter</h3><p>RMM/security-agnostic service monetization: keep preferred tools, but manage work, billing, payments, and customer operations through Rev.io.</p></div><div class="card"><h3>Proof needed</h3><p>Integration ecosystem map, IT Glue/knowledge roadmap, Acronis/NinjaOne/Rev.io one-bill workflow.</p></div></div>
+  
+  
+  
+  
+  
+</section>
+<section class="slide" id="s14">
+  <div class="slide-num">14</div>
+  <div class="eyebrow">SuperOps</div>
+  <h1>SuperOps wins simple PSA + RMM packaging. Rev.io should target more mature monetization pain.</h1>
+  <p class="subtitle">SuperOps is compelling for teams buying simplicity. Rev.io should target operators that have outgrown basic PSA/RMM packaging and need revenue complexity handled.</p>
+  
+  
+  <div class="cards "><div class="card"><h3>Competitive strength</h3><p>Unified PSA + RMM, patch/policy/alert management, service desk, CSAT, runbooks, documentation, project management, reporting.</p></div><div class="card"><h3>Rev.io counter</h3><p>More mature revenue operations: complex billing, payments, quote-to-cash, service monetization, and Revii.</p></div><div class="card"><h3>Proof needed</h3><p>RMM-agnostic workflow map, service desk maturity roadmap, alert-to-ticket-to-invoice demo.</p></div></div>
+  
+  
+  
+  
+  
+</section>
+<section class="slide" id="s15">
+  <div class="slide-num">15</div>
+  <div class="eyebrow">Billing competitors</div>
+  <h1>Billing competitors are not PSA competitors. Reframe around connected operations.</h1>
+  <p class="subtitle">OneBill and Datagate should be treated differently: they create billing-depth doubt, not PSA-depth doubt.</p>
+  
+  
+  
+  
+  <div class="lanes"><div class="lane"><div class="num">OneBill</div><h3>Enterprise revenue lifecycle</h3><p>Best counter: Rev.io is not generic enterprise billing; Rev.io connects billing to MSP service operations, PSA, payments, and Revii.</p></div><div class="lane"><div class="num">Datagate</div><h3>Telecom billing add-on</h3><p>Best counter: Rev.io combines telecom billing depth with PSA/service operations and payments in one platform.</p></div><div class="lane"><div class="num">Rev.io wedge</div><h3>Billing + service + payment continuity</h3><p>Billing does not stop at the invoice. It should connect to tickets, contracts, technicians, projects, customers, and cash.</p></div></div>
+  
+  
+  
+</section>
+<section class="slide" id="s16">
+  <div class="slide-num">16</div>
+  <div class="eyebrow">OneBill</div>
+  <h1>OneBill is deepest where finance wants enterprise revenue automation</h1>
+  <p class="subtitle">Do not over-compete on RevRec or broad enterprise billing modules unless Product validates. Win the MSP/CSP operating-layer argument.</p>
+  
+  
+  
+  
+  
+  <div class="table"><table><thead><tr><th>Feature area</th><th>Gap level</th><th>Recommended posture</th></tr></thead><tbody><tr><td class="rowhead">CPQ + contract-to-billing</td><td>Medium</td><td>Quote-to-order roadmap; avoid full CPQ360 parity claim.</td></tr><tr><td class="rowhead">Real-time rating / mediation</td><td>Low-medium for MSP/CSP</td><td>Defend telecom-grade billing; validate enterprise scale use cases.</td></tr><tr><td class="rowhead">RevRec / ASC 606 / IFRS 15</td><td>High / validate</td><td>Do not claim parity without Product/legal approval.</td></tr><tr><td class="rowhead">Revenue assurance / churn prediction</td><td>Medium-high today</td><td>Roadmap-adjacent analytics/AI opportunity.</td></tr><tr><td class="rowhead">Partner/channel settlement</td><td>Medium-high</td><td>Commerce Hub + commissions roadmap, not current parity.</td></tr><tr><td class="rowhead">Multi-currency / internationalization</td><td>High / validate</td><td>Keep ICP focused on supported markets.</td></tr></tbody></table></div>
+  
+  
+</section>
+<section class="slide" id="s17">
+  <div class="slide-num">17</div>
+  <div class="eyebrow">Datagate</div>
+  <h1>Datagate is a focused telecom billing add-on. Rev.io can tell a broader story.</h1>
+  <p class="subtitle">Datagate’s strength is telecom billing specificity. Rev.io should counter with telecom billing plus PSA, payments, customer portal, dispatch, tickets, and Revii.</p>
+  
+  
+  
+  
+  
+  <div class="table"><table><thead><tr><th>Feature area</th><th>Gap level</th><th>Recommended posture</th></tr></thead><tbody><tr><td class="rowhead">VoIP usage rating</td><td>Low</td><td>Defend Rev.io telecom heritage and metered usage.</td></tr><tr><td class="rowhead">Multi-provider / PBX billing</td><td>Medium / validate</td><td>Validate provider-specific coverage before naming.</td></tr><tr><td class="rowhead">Telecom tax engines</td><td>Medium / validate</td><td>Use approved tax integration/compliance matrix.</td></tr><tr><td class="rowhead">PSA/accounting integrations</td><td>Medium</td><td>Reframe: why keep billing as an add-on to another PSA?</td></tr><tr><td class="rowhead">White-label portal/payments</td><td>Low-medium</td><td>Show Rev.io portal + payments + service workflow together.</td></tr></tbody></table></div>
+  
+  
+</section>
+<section class="slide" id="s18">
+  <div class="slide-num">18</div>
+  <div class="eyebrow">Battle plan</div>
+  <h1>Recommended competitor battle posture</h1>
+  <p class="subtitle">Where we press, where we reassure, and where we avoid traps.</p>
+  
+  
+  
+  
+  
+  <div class="table"><table><thead><tr><th>Competitor</th><th>Press</th><th>Avoid</th></tr></thead><tbody><tr><td class="rowhead">ConnectWise</td><td>Operational drag, billing/payment disconnect, implementation burden.</td><td>Do not get trapped in exhaustive feature checkbox comparisons.</td></tr><tr><td class="rowhead">HaloPSA</td><td>PSA-first story is smaller than revenue operations.</td><td>Do not dismiss its configurability; respect it.</td></tr><tr><td class="rowhead">Autotask</td><td>Kaseya lock-in, dated UX, ecosystem inertia.</td><td>Do not underplay mature contracts/SLAs.</td></tr><tr><td class="rowhead">Kaseya</td><td>Closed ecosystem vs open revenue layer.</td><td>Do not claim full security/RMM replacement.</td></tr><tr><td class="rowhead">SuperOps</td><td>Simple PSA/RMM is not enough for complex monetization.</td><td>Do not fight native RMM feature-for-feature.</td></tr><tr><td class="rowhead">OneBill</td><td>Billing disconnected from service execution.</td><td>Do not claim enterprise RevRec parity.</td></tr><tr><td class="rowhead">Datagate</td><td>Billing add-on vs operating platform.</td><td>Validate tax/provider/PBX specifics.</td></tr></tbody></table></div>
+  
+  
+</section>
+<section class="slide" id="s19">
+  <div class="slide-num">19</div>
+  <div class="eyebrow">Proof assets</div>
+  <h1>What we need before scaling competitive campaigns</h1>
+  <p class="subtitle">Proof assets turn roadmap and positioning into buyer confidence.</p>
+  
+  
+  
+  <div class="grid"><div class="mini"><h3>Tier 1: campaign-ready</h3><p><strong>Rev.io vs ConnectWise/HaloPSA/Autotask one-sheets, migration guide, implementation timeline, Revii demo reel.</strong></p></div><div class="mini"><h3>Tier 1: product proof</h3><p><strong>Project billing/profitability demo, analytics screenshots, RMM alert-to-invoice workflow, billing capability matrix.</strong></p></div><div class="mini"><h3>Tier 2: roadmap proof</h3><p><strong>SLA roadmap, enhanced portal mockup, sales opportunity/CRM preview, Commerce Hub future-state visual.</strong></p></div><div class="mini"><h3>Tier 2: billing proof</h3><p><strong>VoIP/UCaaS rating workflow, tax/provider matrix, OneBill/Datagate billing comparison, quote-to-order roadmap.</strong></p></div></div>
+  
+  
+  
+  
+</section>
+<section class="slide" id="s20">
+  <div class="slide-num">20</div>
+  <div class="eyebrow">Talk tracks</div>
+  <h1>Recommended language for the competitor section</h1>
+  <p class="subtitle">Use outcome language first. Feature detail should support the story, not become the story.</p>
+  
+  
+  
+  
+  
+  
+  
+  <div class="quotes"><blockquote>Most PSA tools help you manage tickets. Rev.io helps you connect the work to the money: service delivery, billing, payments, customer operations, and AI-assisted execution in one operating layer.</blockquote><blockquote>A modern UI is useful. A modern revenue engine is better.</blockquote><blockquote>Billing does not stop at the invoice. For MSPs, billing needs to connect to the ticket, the contract, the technician, the project, the customer, and the payment.</blockquote><blockquote>Rev.io does not force MSPs into one RMM/security stack. It helps them operationalize and monetize the services they deliver across the tools they already use.</blockquote></div>
+</section>
+<section class="slide" id="s21">
+  <div class="slide-num">21</div>
+  <div class="eyebrow">Leadership decisions</div>
+  <h1>Decisions needed before this becomes external messaging</h1>
+  <p class="subtitle">This deck is useful internally now. Public claims need approval lanes.</p>
+  
+  
+  
+  
+  
+  
+  <ul class="bullets"><li>Which roadmap-backed features are approved for competitive conversation?</li><li>Which competitor pages can mention roadmap direction vs sales-only enablement?</li><li>Which gaps show up most often in active deals: SLA, CRM, projects, RMM, portal, billing, reporting?</li><li>Which proof assets must Product provide before marketing scales paid campaigns?</li><li>What claims need legal/product approval before external use?</li></ul>
+  
+</section>
+<section class="slide" id="s22">
+  <div class="slide-num">22</div>
+  <div class="eyebrow">30 / 60 / 90</div>
+  <h1>Turn the analysis into action</h1>
+  <p class="subtitle">The output should not just be a deck. It should create campaign assets, sales enablement, and proof.</p>
+  
+  
+  
+  
+  <div class="lanes"><div class="lane"><div class="num">30 days</div><h3>Approve talk tracks</h3><p>Finalize feature status language, pick top three competitor one-sheets, define proof asset owners.</p></div><div class="lane"><div class="num">60 days</div><h3>Ship priority assets</h3><p>Build ConnectWise/HaloPSA/Autotask matrices, Revii demo reel, migration guide, project/billing proof.</p></div><div class="lane"><div class="num">90 days</div><h3>Scale campaigns</h3><p>Launch competitor campaigns, add billing competitor pages, measure conversion by competitor and objection theme.</p></div></div>
+  
+  
+  
+</section>
+<section class="slide" id="s23">
+  <div class="slide-num">23</div>
+  <div class="eyebrow">Offsite output</div>
+  <h1>The leadership takeaway</h1>
+  <p class="subtitle">Rev.io does not need to pretend competitors have no strengths. The stronger move is to show the market why their strengths are incomplete.</p>
+  <div class="hero-quote">Competitors can manage pieces of the MSP business. Rev.io should own the story of connecting service operations to revenue management — then prove it with roadmap-backed depth and buyer-safe switching assets.</div>
+  <div class="chips"><span>Defend what ships today</span><span>Neutralize roadmap objections</span><span>Reframe around revenue operations</span></div>
+  
+  
+  
+  
+  
+  
+</section></main></body></html>
