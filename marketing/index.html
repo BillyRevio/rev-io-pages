@@ -453,13 +453,27 @@ footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);co
 window.__websiteSessionsConfig = {"labels":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"datasets":[{"label":"Direct Traffic","data":[6028,6557,6039,10594,4490,4603,4390,4460,3555,0,0,0],"backgroundColor":"#2399b5","borderColor":"#2399b5","borderWidth":1},{"label":"Paid Search","data":[12721,2534,3801,2206,6789,11271,2792,2112,175,0,0,0],"backgroundColor":"#6ebe4f","borderColor":"#6ebe4f","borderWidth":1},{"label":"Paid Social","data":[3395,1561,465,780,2258,2158,2238,10,4,0,0,0],"backgroundColor":"#ffd166","borderColor":"#ffd166","borderWidth":1},{"label":"Organic Search","data":[989,970,904,1422,1212,946,1122,1318,1012,0,0,0],"backgroundColor":"#6c63ff","borderColor":"#6c63ff","borderWidth":1},{"label":"Social Media","data":[232,285,201,755,765,350,178,200,127,0,0,0],"backgroundColor":"#ff6b6b","borderColor":"#ff6b6b","borderWidth":1},{"label":"Email Marketing","data":[217,397,178,344,591,595,433,41,32,0,0,0],"backgroundColor":"#00d4aa","borderColor":"#00d4aa","borderWidth":1},{"label":"Other Campaigns","data":[78,33,90,296,48,525,368,22,17,0,0,0],"backgroundColor":"#94a3b8","borderColor":"#94a3b8","borderWidth":1}],"monthlyTotals":[{"label":"Jan","total":23660},{"label":"Feb","total":12337},{"label":"Mar","total":11678},{"label":"Apr","total":16397},{"label":"May","total":16153},{"label":"Jun","total":20448},{"label":"Jul","total":11521},{"label":"Aug","total":8163},{"label":"Sep","total":4922},{"label":"Oct","total":0},{"label":"Nov","total":0},{"label":"Dec","total":0}]};
 function buildWebsiteSessionsChart(){
   const el=document.getElementById('websiteSessionsChart');
-  if(!el || !window.__websiteSessionsConfig || el.dataset.built) return;
+  if(!el || !window.__websiteSessionsConfig) return;
   if(typeof Chart === 'undefined') { setTimeout(buildWebsiteSessionsChart, 100); return; }
+  
+  // Set explicit canvas dimensions
+  const rect = el.parentElement.getBoundingClientRect();
+  el.width = rect.width;
+  el.height = 360;
+  
+  if(el.dataset.built) return;
   el.dataset.built='1';
   const cfg=window.__websiteSessionsConfig;
-  new Chart(el.getContext('2d'),{type:'bar',data:{labels:cfg.labels,datasets:cfg.datasets},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{color:'#7b82a8',boxWidth:10,font:{size:11}}},tooltip:{mode:'index',intersect:false,callbacks:{label:(ctx)=>ctx.dataset.label+': '+Number(ctx.parsed.y||0).toLocaleString()+' sessions',footer:(items)=>{const i=items?.[0]?.dataIndex ?? 0; const total=cfg.monthlyTotals?.[i]?.total || 0; return 'Monthly total: '+Number(total).toLocaleString()+' sessions';}}}},scales:{x:{stacked:true,ticks:{color:'#7b82a8',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}},y:{stacked:true,beginAtZero:true,ticks:{color:'#7b82a8',font:{size:11},callback:v=>Number(v).toLocaleString()},grid:{color:'rgba(255,255,255,0.06)'}}}}});
+  
+  try {
+    const ctx = el.getContext('2d');
+    new Chart(ctx,{type:'bar',data:{labels:cfg.labels,datasets:cfg.datasets},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{color:'#7b82a8',boxWidth:10,font:{size:11}}},tooltip:{mode:'index',intersect:false,callbacks:{label:(ctx)=>ctx.dataset.label+': '+Number(ctx.parsed.y||0).toLocaleString()+' sessions',footer:(items)=>{const i=items?.[0]?.dataIndex ?? 0; const total=cfg.monthlyTotals?.[i]?.total || 0; return 'Monthly total: '+Number(total).toLocaleString()+' sessions';}}}},scales:{x:{stacked:true,ticks:{color:'#7b82a8',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}},y:{stacked:true,beginAtZero:true,ticks:{color:'#7b82a8',font:{size:11},callback:v=>Number(v).toLocaleString()},grid:{color:'rgba(255,255,255,0.06)'}}}}});
+  } catch(e) {
+    console.error('Chart init error:', e);
+    setTimeout(buildWebsiteSessionsChart, 200);
+  }
 }
-setTimeout(buildWebsiteSessionsChart, 200);
+setTimeout(buildWebsiteSessionsChart, 500);
 </script>
 
 <!-- GA4 ANALYTICS — GOOGLE SEARCH CONSOLE DATA -->
@@ -478,13 +492,27 @@ setTimeout(buildWebsiteSessionsChart, 200);
 window.__ga4SessionsConfig = {"labels":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"datasets":[{"label":"Clicks","data":[1306,1271,1229,1498,1154,1336,1331,1499,1323,0,0,0],"backgroundColor":"#1f77b4","borderColor":"#1f77b4","borderWidth":1},{"label":"Impressions (÷1000)","data":[300.7,321.5,323.8,369.2,355.9,308.1,271.6,287.9,288.1,0,0,0],"backgroundColor":"#2ca02c","borderColor":"#2ca02c","borderWidth":1}],"monthlyTotals":[{"label":"Jan","clicks":1306},{"label":"Feb","clicks":1271},{"label":"Mar","clicks":1229},{"label":"Apr","clicks":1498},{"label":"May","clicks":1154},{"label":"Jun","clicks":1336},{"label":"Jul","clicks":1331},{"label":"Aug","clicks":1499},{"label":"Sep","clicks":1323},{"label":"Oct","clicks":0},{"label":"Nov","clicks":0},{"label":"Dec","clicks":0}]};
 function buildGA4SessionsChart(){
   const el=document.getElementById('ga4SessionsChart');
-  if(!el || !window.__ga4SessionsConfig || el.dataset.built) return;
+  if(!el || !window.__ga4SessionsConfig) return;
   if(typeof Chart === 'undefined') { setTimeout(buildGA4SessionsChart, 100); return; }
+  
+  // Set explicit canvas dimensions
+  const rect = el.parentElement.getBoundingClientRect();
+  el.width = rect.width;
+  el.height = 360;
+  
+  if(el.dataset.built) return;
   el.dataset.built='1';
   const cfg=window.__ga4SessionsConfig;
-  new Chart(el.getContext('2d'),{type:'bar',data:{labels:cfg.labels,datasets:cfg.datasets},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{color:'#7b82a8',boxWidth:10,font:{size:11}}},tooltip:{mode:'index',intersect:false,callbacks:{label:(ctx)=>ctx.dataset.label+': '+Number(ctx.parsed.y||0).toLocaleString(),footer:(items)=>{const i=items?.[0]?.dataIndex ?? 0; return 'Month: '+cfg.monthlyTotals?.[i]?.label || '';}}}},scales:{x:{stacked:false,ticks:{color:'#7b82a8',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}},y:{stacked:false,beginAtZero:true,ticks:{color:'#7b82a8',font:{size:11},callback:v=>Number(v).toLocaleString()},grid:{color:'rgba(255,255,255,0.06)'}}}}});
+  
+  try {
+    const ctx = el.getContext('2d');
+    new Chart(ctx,{type:'bar',data:{labels:cfg.labels,datasets:cfg.datasets},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{color:'#7b82a8',boxWidth:10,font:{size:11}}},tooltip:{mode:'index',intersect:false,callbacks:{label:(ctx)=>ctx.dataset.label+': '+Number(ctx.parsed.y||0).toLocaleString(),footer:(items)=>{const i=items?.[0]?.dataIndex ?? 0; return 'Month: '+cfg.monthlyTotals?.[i]?.label || '';}}}},scales:{x:{stacked:false,ticks:{color:'#7b82a8',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}},y:{stacked:false,beginAtZero:true,ticks:{color:'#7b82a8',font:{size:11},callback:v=>Number(v).toLocaleString()},grid:{color:'rgba(255,255,255,0.06)'}}}}});
+  } catch(e) {
+    console.error('GA4 Chart init error:', e);
+    setTimeout(buildGA4SessionsChart, 200);
+  }
 }
-setTimeout(buildGA4SessionsChart, 250);
+setTimeout(buildGA4SessionsChart, 600);
 </script>
 </body>
 </html>
