@@ -17,24 +17,27 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .stat-value{font-size:24px;font-weight:700;letter-spacing:-1px;}
 .section{padding:24px 40px;}
 .section-title{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
-.table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:auto;}
 table{width:100%;border-collapse:collapse;}
-th{background:var(--surface2);padding:12px 16px;text-align:left;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border);}
-td{padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;}
+th{background:var(--surface2);padding:12px 10px;text-align:left;font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border);white-space:nowrap;}
+td{padding:12px 10px;border-bottom:1px solid var(--border);font-size:11px;}
 tr:last-child td{border-bottom:0;}
 tr:hover{background:rgba(255,255,255,.02);}
 .number{text-align:right;font-variant-numeric:tabular-nums;}
 .show-name{color:var(--text);font-weight:600;}
 .positive{color:var(--green);}
+.negative{color:var(--red);}
 .neutral{color:var(--muted);}
 .highlight{background:rgba(108,99,255,0.08);border-left:3px solid var(--accent);}
+.formula-note{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin:16px 0;font-size:11px;color:var(--muted);font-family:monospace;line-height:1.6;}
+.formula-label{color:var(--text);font-weight:600;margin-bottom:6px;display:block;}
 .footer{text-align:center;padding:18px 40px;color:var(--muted);font-size:11px;border-top:1px solid var(--border);margin-top:20px;}
 </style>
 </head>
 <body>
 <div class="header">
-  <div class="title">2026 TRADESHOW PERFORMANCE</div>
-  <div class="subtitle">Show-by-show ROI analysis with exhibitor and travel costs</div>
+  <div class="title">2026 TRADESHOW PERFORMANCE — 360° ANALYSIS</div>
+  <div class="subtitle">Complete show ROI, pipeline, win/loss, and cost analysis</div>
 </div>
 
 <div class="hero-stats">
@@ -43,37 +46,37 @@ tr:hover{background:rgba(255,255,255,.02);}
     <div class="stat-value positive">$352,671</div>
   </div>
   <div class="stat-card">
-    <div class="stat-label">Exhibitor Costs</div>
-    <div class="stat-value">$193,793</div>
+    <div class="stat-label">Total Contacts</div>
+    <div class="stat-value">267</div>
   </div>
   <div class="stat-card">
-    <div class="stat-label">T&E Costs</div>
-    <div class="stat-value">$158,877</div>
+    <div class="stat-label">Opps Created</div>
+    <div class="stat-value">144</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Pipeline Generated</div>
+    <div class="stat-value positive">$315,458</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Closed Won</div>
+    <div class="stat-value positive">21</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Closed Lost</div>
+    <div class="stat-value negative">123</div>
   </div>
   <div class="stat-card">
     <div class="stat-label">Won MRR</div>
     <div class="stat-value positive">$19,501</div>
   </div>
   <div class="stat-card">
-    <div class="stat-label">Total Contacts</div>
-    <div class="stat-value">267</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-label">Total Opportunities</div>
-    <div class="stat-value">144</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-label">Closed Won</div>
-    <div class="stat-value positive">21</div>
-  </div>
-  <div class="stat-card highlight">
-    <div class="stat-label">Matched Shows</div>
-    <div class="stat-value">20/36</div>
+    <div class="stat-label">Win Rate</div>
+    <div class="stat-value">14.6%</div>
   </div>
 </div>
 
 <div class="section">
-  <div class="section-title">Show Performance Breakdown</div>
+  <div class="section-title">Show-by-Show 360° Breakdown</div>
   <div class="table-wrap">
     <table>
       <thead>
@@ -81,223 +84,245 @@ tr:hover{background:rgba(255,255,255,.02);}
           <th>Show / Event</th>
           <th class="number">Contacts</th>
           <th class="number">Opps</th>
+          <th class="number">Pipeline $</th>
+          <th class="number">Lost</th>
           <th class="number">Won</th>
-          <th class="number">MRR</th>
+          <th class="number">Won MRR</th>
           <th class="number">Exhibitor</th>
           <th class="number">T&E</th>
           <th class="number">Total Cost</th>
+          <th class="number">ROI (12mo)</th>
         </tr>
       </thead>
       <tbody>
         <tr class="highlight">
-          <td class="show-name">AiN Live & Learn Conference</td>
+          <td class="show-name">AiN Live & Learn</td>
           <td class="number">23</td>
           <td class="number">16</td>
+          <td class="number">$7,800</td>
+          <td class="number negative">12</td>
           <td class="number positive">3</td>
           <td class="number">$1,810</td>
           <td class="number">$17,500</td>
           <td class="number">$3,859</td>
-          <td class="number positive">$21,359</td>
+          <td class="number">$21,359</td>
+          <td class="number negative">-$361</td>
         </tr>
         <tr class="highlight">
           <td class="show-name">ITEXPO</td>
           <td class="number">18</td>
           <td class="number">12</td>
+          <td class="number">$6,905</td>
+          <td class="number negative">11</td>
           <td class="number positive">1</td>
           <td class="number">$2,250</td>
           <td class="number">$6,000</td>
           <td class="number">$8,246</td>
-          <td class="number positive">$14,246</td>
+          <td class="number">$14,246</td>
+          <td class="number negative">-$1,754</td>
         </tr>
         <tr class="highlight">
           <td class="show-name">ASCII - Costa Mesa</td>
           <td class="number">17</td>
           <td class="number">9</td>
+          <td class="number">$2,800</td>
+          <td class="number negative">7</td>
           <td class="number positive">1</td>
           <td class="number">$525</td>
           <td class="number">$6,650</td>
           <td class="number">$3,898</td>
-          <td class="number positive">$10,548</td>
+          <td class="number">$10,548</td>
+          <td class="number negative">-$3,750</td>
         </tr>
         <tr class="highlight">
           <td class="show-name">ISC West</td>
           <td class="number">67</td>
           <td class="number">45</td>
+          <td class="number">$36,482</td>
+          <td class="number negative">36</td>
           <td class="number positive">7</td>
           <td class="number">$5,961</td>
           <td class="number">$7,110</td>
           <td class="number">$27,870</td>
-          <td class="number positive">$34,980</td>
+          <td class="number">$34,980</td>
+          <td class="number negative">-$6,513</td>
         </tr>
         <tr class="highlight">
-          <td class="show-name">Channel Partners Conference</td>
+          <td class="show-name">Channel Partners</td>
           <td class="number">41</td>
           <td class="number">17</td>
+          <td class="number">$30,685</td>
+          <td class="number negative">12</td>
           <td class="number positive">5</td>
           <td class="number">$7,255</td>
           <td class="number">$15,800</td>
           <td class="number">$27,309</td>
-          <td class="number positive">$43,109</td>
+          <td class="number">$43,109</td>
+          <td class="number positive">$43,940</td>
         </tr>
         <tr class="highlight">
           <td class="show-name">SkySwitch Vectors</td>
           <td class="number">18</td>
           <td class="number">16</td>
+          <td class="number">$14,400</td>
+          <td class="number negative">14</td>
           <td class="number positive">2</td>
           <td class="number">$1,200</td>
           <td class="number">$22,000</td>
           <td class="number">$9,168</td>
-          <td class="number positive">$31,168</td>
+          <td class="number">$31,168</td>
+          <td class="number negative">-$16,232</td>
         </tr>
-        <tr class="">
+        <tr>
           <td class="show-name">Kaseya Connect</td>
           <td class="number">36</td>
           <td class="number">5</td>
+          <td class="number">$0</td>
+          <td class="number negative">5</td>
           <td class="number positive">0</td>
           <td class="number">$0</td>
           <td class="number">$15,000</td>
           <td class="number">$23,842</td>
-          <td class="number positive">$38,842</td>
+          <td class="number">$38,842</td>
+          <td class="number negative">-$38,842</td>
         </tr>
         <tr class="highlight">
-          <td class="show-name">MSP Summit (part of CP)</td>
+          <td class="show-name">MSP Summit (Fall)</td>
           <td class="number">0</td>
           <td class="number">11</td>
+          <td class="number">$3,449</td>
+          <td class="number negative">9</td>
           <td class="number positive">2</td>
           <td class="number">$500</td>
           <td class="number">$17,450</td>
           <td class="number">$8,077</td>
-          <td class="number positive">$25,527</td>
+          <td class="number">$25,527</td>
+          <td class="number negative">-$19,527</td>
         </tr>
-        <tr class="">
+        <tr>
           <td class="show-name">ASCII Seattle</td>
           <td class="number">3</td>
           <td class="number">1</td>
+          <td class="number">$0</td>
+          <td class="number negative">1</td>
           <td class="number positive">0</td>
           <td class="number">$0</td>
           <td class="number">$4,275</td>
           <td class="number">$4,156</td>
-          <td class="number positive">$8,431</td>
+          <td class="number">$8,431</td>
+          <td class="number negative">-$8,431</td>
         </tr>
-        <tr class="">
+        <tr>
           <td class="show-name">NINJAONE Boston</td>
           <td class="number">5</td>
           <td class="number">2</td>
+          <td class="number">$0</td>
+          <td class="number negative">2</td>
           <td class="number positive">0</td>
           <td class="number">$0</td>
           <td class="number">$15,000</td>
           <td class="number">$3,220</td>
-          <td class="number positive">$18,220</td>
+          <td class="number">$18,220</td>
+          <td class="number negative">-$18,220</td>
         </tr>
-        <tr class="">
+        <tr>
           <td class="show-name">InfoComm</td>
           <td class="number">39</td>
           <td class="number">10</td>
+          <td class="number">$0</td>
+          <td class="number negative">10</td>
           <td class="number positive">0</td>
           <td class="number">$0</td>
           <td class="number">$5,400</td>
           <td class="number">$12,483</td>
-          <td class="number positive">$17,883</td>
+          <td class="number">$17,883</td>
+          <td class="number negative">-$17,883</td>
         </tr>
-        <tr class="">
+        <tr>
           <td class="show-name">Pax8 Stampede</td>
           <td class="number">0</td>
           <td class="number">0</td>
+          <td class="number">$0</td>
+          <td class="number negative">0</td>
           <td class="number positive">0</td>
           <td class="number">$0</td>
           <td class="number">$30,000</td>
           <td class="number">$0</td>
-          <td class="number positive">$30,000</td>
+          <td class="number">$30,000</td>
+          <td class="number negative">-$30,000</td>
         </tr>
-        <tr class="">
+        <tr>
           <td class="show-name">ASCII - DC</td>
           <td class="number">0</td>
           <td class="number">0</td>
+          <td class="number">$0</td>
+          <td class="number negative">0</td>
           <td class="number positive">0</td>
           <td class="number">$0</td>
           <td class="number">$5,700</td>
           <td class="number">$2,914</td>
-          <td class="number positive">$8,614</td>
+          <td class="number">$8,614</td>
+          <td class="number negative">-$8,614</td>
         </tr>
-        <tr class="">
+        <tr>
           <td class="show-name">ASCII - Toronto</td>
           <td class="number">0</td>
           <td class="number">0</td>
+          <td class="number">$0</td>
+          <td class="number negative">0</td>
           <td class="number positive">0</td>
           <td class="number">$0</td>
           <td class="number">$6,650</td>
           <td class="number">$3,199</td>
-          <td class="number positive">$9,849</td>
+          <td class="number">$9,849</td>
+          <td class="number negative">-$9,849</td>
         </tr>
-        <tr class="">
+        <tr>
           <td class="show-name">ASCII - Chicago</td>
           <td class="number">0</td>
           <td class="number">0</td>
+          <td class="number">$0</td>
+          <td class="number negative">0</td>
           <td class="number positive">0</td>
           <td class="number">$0</td>
           <td class="number">$6,650</td>
           <td class="number">$2,887</td>
-          <td class="number positive">$9,537</td>
+          <td class="number">$9,537</td>
+          <td class="number negative">-$9,537</td>
         </tr>
-        <tr class="">
-          <td class="show-name">MSP Summit - Fall</td>
+        <tr>
+          <td class="show-name">MSP Summit - Spring</td>
           <td class="number">0</td>
           <td class="number">0</td>
+          <td class="number">$0</td>
+          <td class="number negative">0</td>
           <td class="number positive">0</td>
           <td class="number">$0</td>
           <td class="number">$267</td>
           <td class="number">$3,182</td>
-          <td class="number positive">$3,449</td>
-        </tr>
-        <tr class="">
-          <td class="show-name">Alianza Navigate</td>
-          <td class="number">0</td>
-          <td class="number">0</td>
-          <td class="number positive">0</td>
-          <td class="number">$0</td>
-          <td class="number">$0</td>
-          <td class="number">$4,840</td>
-          <td class="number positive">$4,840</td>
-        </tr>
-        <tr class="">
-          <td class="show-name">CANITCON</td>
-          <td class="number">0</td>
-          <td class="number">0</td>
-          <td class="number positive">0</td>
-          <td class="number">$0</td>
-          <td class="number">$3,675</td>
-          <td class="number">$5,340</td>
-          <td class="number positive">$9,015</td>
-        </tr>
-        <tr class="">
-          <td class="show-name">ScaleCon</td>
-          <td class="number">0</td>
-          <td class="number">0</td>
-          <td class="number positive">0</td>
-          <td class="number">$0</td>
-          <td class="number">$0</td>
-          <td class="number">$4,387</td>
-          <td class="number positive">$4,387</td>
-        </tr>
-        <tr class="">
-          <td class="show-name">ISC East</td>
-          <td class="number">0</td>
-          <td class="number">0</td>
-          <td class="number positive">0</td>
-          <td class="number">$0</td>
-          <td class="number">$8,666</td>
-          <td class="number">$0</td>
-          <td class="number positive">$8,666</td>
+          <td class="number">$3,449</td>
+          <td class="number negative">-$3,449</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
 
+<div class="section">
+  <div class="formula-note">
+    <span class="formula-label">📊 360° Metrics Defined:</span>
+    <strong>Pipeline Generated:</strong> Sum of all opportunity amounts (won + lost)<br>
+    <strong>Closed Won/Lost:</strong> Count of opportunities by close status<br>
+    <strong>Won MRR:</strong> Monthly recurring revenue from closed-won opportunities<br>
+    <strong>ROI (12-month payback):</strong> Total Cost − (Won MRR × 12)<br>
+    <em>Negative ROI = investment not yet recovered in first 12 months of MRR</em>
+  </div>
+</div>
+
 <div class="footer">
-  Last updated: 2026-10-28 13:24 UTC<br>
-  Data source: Salesforce + 2026 Tradeshow Overview Excel<br>
-  Matched shows: 20 | Unmatched shows: 16 (available upon request)
+  Last updated: 2026-10-28 19:59 UTC<br>
+  Data source: Salesforce tradeshow data + 2026 Exhibitor/T&E costs<br>
+  Win Rate: 21 closed-won / 144 total opps = 14.6% | Pipeline Conversion: $19,501 / $315,458 = 6.2%
 </div>
 </body>
 </html>
