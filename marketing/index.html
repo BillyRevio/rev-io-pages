@@ -458,7 +458,7 @@ function buildWebsiteSessionsChart(){
   const cfg=window.__websiteSessionsConfig;
   new Chart(el,{type:'bar',data:{labels:cfg.labels,datasets:cfg.datasets},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{color:'#7b82a8',boxWidth:10,font:{size:11}}},tooltip:{mode:'index',intersect:false,callbacks:{label:(ctx)=>ctx.dataset.label+': '+Number(ctx.parsed.y||0).toLocaleString()+' sessions',footer:(items)=>{const i=items?.[0]?.dataIndex ?? 0; const total=cfg.monthlyTotals?.[i]?.total || 0; return 'Monthly total: '+Number(total).toLocaleString()+' sessions';}}}},scales:{x:{stacked:true,ticks:{color:'#7b82a8',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}},y:{stacked:true,beginAtZero:true,ticks:{color:'#7b82a8',font:{size:11},callback:v=>Number(v).toLocaleString()},grid:{color:'rgba(255,255,255,0.06)'}}}}});
 }
-if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',buildWebsiteSessionsChart); else buildWebsiteSessionsChart();
+setTimeout(buildWebsiteSessionsChart, 100);
 </script>
 
 <!-- GA4 ANALYTICS — GOOGLE SEARCH CONSOLE DATA -->
@@ -482,7 +482,7 @@ function buildGA4SessionsChart(){
   const cfg=window.__ga4SessionsConfig;
   new Chart(el,{type:'bar',data:{labels:cfg.labels,datasets:cfg.datasets},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{color:'#7b82a8',boxWidth:10,font:{size:11}}},tooltip:{mode:'index',intersect:false,callbacks:{label:(ctx)=>ctx.dataset.label+': '+Number(ctx.parsed.y||0).toLocaleString(),footer:(items)=>{const i=items?.[0]?.dataIndex ?? 0; return 'Month: '+cfg.monthlyTotals?.[i]?.label || '';}}}},scales:{x:{stacked:false,ticks:{color:'#7b82a8',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}},y:{stacked:false,beginAtZero:true,ticks:{color:'#7b82a8',font:{size:11},callback:v=>Number(v).toLocaleString()},grid:{color:'rgba(255,255,255,0.06)'}}}}});
 }
-if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',buildGA4SessionsChart); else buildGA4SessionsChart();
+setTimeout(buildGA4SessionsChart, 150);
 </script>
 </body>
 </html>
