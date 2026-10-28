@@ -461,98 +461,28 @@ function buildWebsiteSessionsChart(){
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',buildWebsiteSessionsChart); else buildWebsiteSessionsChart();
 </script>
 
-<!-- HUBSPOT SECTION ALREADY EXISTS ABOVE -->
-
 <!-- GA4 ANALYTICS — GOOGLE SEARCH CONSOLE DATA -->
 <div class="section">
   <div class="section-title">GA4 Analytics — <em>Google Search Console Data</em></div>
   <div class="chart-card">
-    <h2>Search Console Performance — Monthly Clicks & Impressions</h2>
-    <div class="chart-sub">Filters: This Fiscal Year · grouped monthly · Organic Search Performance</div>
-    
-    <!-- KPI Cards -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px;">
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px;">
-        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;">Total Clicks (YTD)</div>
-        <div style="font-size:18px;font-weight:700;">11,547</div>
-      </div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px;">
-        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;">Total Impressions (YTD)</div>
-        <div style="font-size:18px;font-weight:700;">2,826,659</div>
-      </div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px;">
-        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;">Avg CTR</div>
-        <div style="font-size:18px;font-weight:700;">0.41%</div>
-      </div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px;">
-        <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;">Avg Position</div>
-        <div style="font-size:18px;font-weight:700;">14.3</div>
-      </div>
-      <div style="background:rgba(0,212,170,0.12);border:1px solid #00d4aa;border-radius:10px;padding:12px;">
-        <div style="font-size:10px;color:#00d4aa;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;font-weight:700;">Best Month</div>
-        <div style="font-size:18px;font-weight:700;color:#00d4aa;">Apr (1,498 clicks)</div>
-      </div>
-    </div>
-
-    <!-- Monthly Totals -->
-    <div style="margin-bottom:16px;">
-      <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;">Monthly Performance</div>
-      <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:8px;">
-        <div style="text-align:center;"><div style="font-size:12px;font-weight:700;color:#00d4aa;margin-bottom:2px;">1,306</div><div style="font-size:10px;color:var(--muted);">Jan</div><div style="font-size:9px;color:#7b82a8;">301K</div></div>
-        <div style="text-align:center;"><div style="font-size:12px;font-weight:700;color:#00d4aa;margin-bottom:2px;">1,271</div><div style="font-size:10px;color:var(--muted);">Feb</div><div style="font-size:9px;color:#7b82a8;">321K</div></div>
-        <div style="text-align:center;"><div style="font-size:12px;font-weight:700;color:#00d4aa;margin-bottom:2px;">1,229</div><div style="font-size:10px;color:var(--muted);">Mar</div><div style="font-size:9px;color:#7b82a8;">324K</div></div>
-        <div style="text-align:center;"><div style="font-size:12px;font-weight:700;color:#2ca02c;margin-bottom:2px;">1,498</div><div style="font-size:10px;color:var(--muted);">Apr</div><div style="font-size:9px;color:#7b82a8;">369K</div></div>
-        <div style="text-align:center;"><div style="font-size:12px;font-weight:700;color:#00d4aa;margin-bottom:2px;">1,154</div><div style="font-size:10px;color:var(--muted);">May</div><div style="font-size:9px;color:#7b82a8;">356K</div></div>
-        <div style="text-align:center;"><div style="font-size:12px;font-weight:700;color:#00d4aa;margin-bottom:2px;">1,336</div><div style="font-size:10px;color:var(--muted);">Jun</div><div style="font-size:9px;color:#7b82a8;">308K</div></div>
-        <div style="text-align:center;"><div style="font-size:12px;font-weight:700;color:#00d4aa;margin-bottom:2px;">1,331</div><div style="font-size:10px;color:var(--muted);">Jul</div><div style="font-size:9px;color:#7b82a8;">272K</div></div>
-        <div style="text-align:center;"><div style="font-size:12px;font-weight:700;color:#2ca02c;margin-bottom:2px;">1,499</div><div style="font-size:10px;color:var(--muted);">Aug</div><div style="font-size:9px;color:#7b82a8;">288K</div></div>
-        <div style="text-align:center;"><div style="font-size:12px;font-weight:700;color:#00d4aa;margin-bottom:2px;">1,323</div><div style="font-size:10px;color:var(--muted);">Sep</div><div style="font-size:9px;color:#7b82a8;">288K</div></div>
-        <div style="text-align:center;"><div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:2px;">—</div><div style="font-size:10px;color:var(--muted);">Oct</div></div>
-        <div style="text-align:center;"><div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:2px;">—</div><div style="font-size:10px;color:var(--muted);">Nov</div></div>
-        <div style="text-align:center;"><div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:2px;">—</div><div style="font-size:10px;color:var(--muted);">Dec</div></div>
-      </div>
-    </div>
-
-    <!-- Bar Chart -->
-    <div class="chart-wrap" style="height:280px;margin-bottom:12px;"><canvas id="ga4Chart"></canvas></div>
-
-    <!-- Legend -->
-    <div class="legend">
-      <div class="legend-item"><div class="legend-dot" style="background:#1f77b4;"></div>Clicks</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#2ca02c;"></div>Impressions (÷1000)</div>
-    </div>
+    <h2>Search Console Performance — Monthly</h2>
+    <div class="chart-sub">Filters: This Fiscal Year · grouped monthly · Organic Search Performance · Google Search Console</div>
+    <div style="display:flex;gap:10px;margin:14px 0 16px;flex-wrap:wrap"><div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:11px;border-left:3px solid #1f77b4"><span style="font-size:18px;font-weight:800;color:var(--text);display:block">11,547</span>Total Clicks</div><div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:11px;border-left:3px solid #2ca02c"><span style="font-size:18px;font-weight:800;color:var(--text);display:block">2.8M</span>Impressions</div><div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:11px;border-left:3px solid #ff9999"><span style="font-size:18px;font-weight:800;color:var(--text);display:block">0.41%</span>Avg CTR</div><div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:11px;border-left:3px solid #ffbb78"><span style="font-size:18px;font-weight:800;color:var(--text);display:block">14.3</span>Avg Position</div><div style="background:rgba(31,119,180,0.12);border:1px solid #1f77b4;border-radius:6px;padding:8px 12px;font-size:11px;border-left:3px solid #1f77b4"><span style="font-size:18px;font-weight:800;color:#1f77b4;display:block">1,499</span>Peak Month (Aug)</div></div>
+    <div style="font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin:2px 0 8px">Monthly Totals</div>
+    <div style="display:flex;gap:8px;margin:0 0 16px;flex-wrap:wrap"><div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:11px;min-width:72px;text-align:center"><span style="font-size:16px;font-weight:800;color:#1f77b4;display:block">1,306</span>Jan</div><div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:11px;min-width:72px;text-align:center"><span style="font-size:16px;font-weight:800;color:#1f77b4;display:block">1,271</span>Feb</div><div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:11px;min-width:72px;text-align:center"><span style="font-size:16px;font-weight:800;color:#1f77b4;display:block">1,229</span>Mar</div><div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:11px;min-width:72px;text-align:center"><span style="font-size:16px;font-weight:800;color:#2ca02c;display:block">1,498</span>Apr</div><div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:11px;min-width:72px;text-align:center"><span style="font-size:16px;font-weight:800;color:#1f77b4;display:block">1,154</span>May</div><div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:11px;min-width:72px;text-align:center"><span style="font-size:16px;font-weight:800;color:#1f77b4;display:block">1,336</span>Jun</div><div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:11px;min-width:72px;text-align:center"><span style="font-size:16px;font-weight:800;color:#1f77b4;display:block">1,331</span>Jul</div><div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:11px;min-width:72px;text-align:center"><span style="font-size:16px;font-weight:800;color:#2ca02c;display:block">1,499</span>Aug</div><div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:11px;min-width:72px;text-align:center"><span style="font-size:16px;font-weight:800;color:#1f77b4;display:block">1,323</span>Sep</div><div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:11px;min-width:72px;text-align:center"><span style="font-size:16px;font-weight:800;color:#1f77b4;display:block">0</span>Oct</div><div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:11px;min-width:72px;text-align:center"><span style="font-size:16px;font-weight:800;color:#1f77b4;display:block">0</span>Nov</div><div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:11px;min-width:72px;text-align:center"><span style="font-size:16px;font-weight:800;color:#1f77b4;display:block">0</span>Dec</div></div>
+    <div class="chart-wrap" style="height:360px"><canvas id="ga4SessionsChart"></canvas></div>
   </div>
 </div>
-
 <script>
-// GA4 Chart Init
-const ga4Clicks = [1306, 1271, 1229, 1498, 1154, 1336, 1331, 1499, 1323, 0, 0, 0];
-const ga4Impressions = [300.7, 321.5, 323.8, 369.2, 355.9, 308.1, 271.6, 287.9, 288.1, 0, 0, 0];
-const ga4Months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-new Chart(document.getElementById('ga4Chart').getContext('2d'), {
-  type: 'bar',
-  data: {
-    labels: ga4Months,
-    datasets: [
-      { label: 'Clicks', data: ga4Clicks, backgroundColor: '#1f77b4', yAxisID: 'y' },
-      { label: 'Impressions (÷1000)', data: ga4Impressions, backgroundColor: '#2ca02c', yAxisID: 'y1' }
-    ]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { position: 'bottom', labels: { color: '#7b82a8' } },
-      tooltip: { callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y.toLocaleString() } }
-    },
-    scales: {
-      x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#7b82a8' } },
-      y: { position: 'left', grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#7b82a8', callback: v => v.toLocaleString() } },
-      y1: { position: 'right', grid: { display: false }, ticks: { color: '#2ca02c' } }
-    }
-  }
-});
+window.__ga4SessionsConfig = {"labels":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"datasets":[{"label":"Clicks","data":[1306,1271,1229,1498,1154,1336,1331,1499,1323,0,0,0],"backgroundColor":"#1f77b4","borderColor":"#1f77b4","borderWidth":1},{"label":"Impressions (÷1000)","data":[300.7,321.5,323.8,369.2,355.9,308.1,271.6,287.9,288.1,0,0,0],"backgroundColor":"#2ca02c","borderColor":"#2ca02c","borderWidth":1}],"monthlyTotals":[{"label":"Jan","clicks":1306},{"label":"Feb","clicks":1271},{"label":"Mar","clicks":1229},{"label":"Apr","clicks":1498},{"label":"May","clicks":1154},{"label":"Jun","clicks":1336},{"label":"Jul","clicks":1331},{"label":"Aug","clicks":1499},{"label":"Sep","clicks":1323},{"label":"Oct","clicks":0},{"label":"Nov","clicks":0},{"label":"Dec","clicks":0}]};
+function buildGA4SessionsChart(){
+  const el=document.getElementById('ga4SessionsChart');
+  if(!el || !window.__ga4SessionsConfig || el.dataset.built) return;
+  el.dataset.built='1';
+  const cfg=window.__ga4SessionsConfig;
+  new Chart(el,{type:'bar',data:{labels:cfg.labels,datasets:cfg.datasets},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{color:'#7b82a8',boxWidth:10,font:{size:11}}},tooltip:{mode:'index',intersect:false,callbacks:{label:(ctx)=>ctx.dataset.label+': '+Number(ctx.parsed.y||0).toLocaleString(),footer:(items)=>{const i=items?.[0]?.dataIndex ?? 0; return 'Month: '+cfg.monthlyTotals?.[i]?.label || '';}}}},scales:{x:{stacked:false,ticks:{color:'#7b82a8',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}},y:{stacked:false,beginAtZero:true,ticks:{color:'#7b82a8',font:{size:11},callback:v=>Number(v).toLocaleString()},grid:{color:'rgba(255,255,255,0.06)'}}}}});
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',buildGA4SessionsChart); else buildGA4SessionsChart();
 </script>
 </body>
 </html>
