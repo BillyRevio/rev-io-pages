@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026 Marketing Pacing — Rev.io</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--bg:#0a0c12;--surface:#13161f;--surface2:#1a1e2d;--border:#252a3d;--text:#e8eaf6;--muted:#7b82a8;--accent:#6c63ff;--green:#00d4aa;--yellow:#ffd166;--red:#ef476f;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh;}
+.header{padding:28px 40px 20px;border-bottom:1px solid var(--border);}
+.title{font-size:24px;font-weight:700;letter-spacing:-0.5px;margin-bottom:8px;}
+.subtitle{color:var(--muted);font-size:13px;}
+.section{padding:24px 40px;}
+.section-title{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+.events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;}
+.event-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:all .2s;}
+.event-card:hover{border-color:var(--accent);background:rgba(108,99,255,0.04);}
+.event-header{padding:16px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;}
+.event-name{font-weight:700;font-size:14px;color:var(--text);}
+.event-toggle{font-size:18px;transition:transform .2s;}
+.event-toggle.open{transform:rotate(180deg);}
+.event-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px;font-size:11px;color:var(--muted);}
+.event-meta-item{display:flex;justify-content:space-between;}
+.event-meta-item .label{color:var(--muted);}
+.event-meta-item .value{color:var(--text);font-weight:600;}
+.event-detail{display:none;padding:16px;border-top:1px solid var(--border);background:rgba(0,0,0,0.2);}
+.event-detail.open{display:block;}
+.detail-section{margin-bottom:16px;}
+.detail-section:last-child{margin-bottom:0;}
+.detail-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin-bottom:8px;}
+.opps-list{font-size:11px;max-height:300px;overflow-y:auto;}
+.opp-item{background:var(--surface2);padding:10px;border-radius:6px;margin-bottom:6px;border-left:3px solid var(--muted);}
+.opp-item.won{border-left-color:var(--green);}
+.opp-item.lost{border-left-color:var(--red);}
+.opp-item.open{border-left-color:var(--accent);}
+.opp-name{font-weight:600;color:var(--text);margin-bottom:2px;}
+.opp-meta{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);}
+.opp-amount{font-weight:600;color:var(--text);}
+.contacts-list{font-size:11px;}
+.contact-item{background:var(--surface2);padding:10px;border-radius:6px;margin-bottom:4px;border-left:3px solid var(--accent);}
+.contact-name{font-weight:600;color:var(--text);}
+.contact-email{font-size:10px;color:var(--muted);margin-top:2px;word-break:break-all;}
+.cost-info{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:11px;}
+.cost-item{background:var(--surface2);padding:10px;border-radius:6px;}
+.cost-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.cost-value{font-weight:700;font-size:14px;color:var(--text);}
+.cost-value.positive{color:var(--green);}
+.cost-value.negative{color:var(--red);}
+.summary-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:20px;}
+.stat-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;}
+.stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;}
+.stat-value{font-size:22px;font-weight:800;color:var(--text);}
+.stat-sub{font-size:10px;color:var(--muted);margin-top:4px;}
+footer{text-align:center;padding:18px 40px;border-top:1px solid var(--border);color:var(--muted);font-size:11px;}
+@media(max-width:768px){.events-grid{grid-template-columns:1fr;}.cost-info{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="title">2026 Marketing Pacing</div>
+  <div class="subtitle">Marketing-sourced MRR & Opps vs. target · Events breakdown with full 360° view</div>
+</div>
+
+<div class="section">
+  <div class="section-title">2026 Events Summary</div>
+  <div class="summary-stats">
+    <div class="stat-box">
+      <div class="stat-label">Total Events</div>
+      <div class="stat-value">34</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Total Contacts</div>
+      <div class="stat-value">784</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Opps Created</div>
+      <div class="stat-value">310</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Pipeline</div>
+      <div class="stat-value">$371.7K</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Closed Won</div>
+      <div class="stat-value">33</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Won MRR</div>
+      <div class="stat-value">$39.6K</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Total Cost</div>
+      <div class="stat-value">$352.7K</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">Win Rate</div>
+      <div class="stat-value">10.6%</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Interactive Events — Click to Expand</div>
+  <div class="events-grid" id="eventsGrid"></div>
+</div>
+
+<footer>Last updated: Nov 2, 2026 · Data from Salesforce (Marketing Source = "Tradeshow" · 2026 YTD)</footer>
+
+<script>
+// Sample events data - in production this would come from Salesforce
+const eventsData = [
+  {
+    id: 1,
+    name: "ISC West 26",
+    month: "Apr",
+    contacts: 67,
+    opps: 45,
+    pipeline: 36482,
+    won: 7,
+    lost: 36,
+    wonMrr: 5961,
+    exhibitorCost: 7110,
+    teCost: 27870,
+    opportunities: [
+      { name: "Cyber Protect - Enterprise", amount: 5000, status: "Closed Won", date: "2026-05-15", contact: "John Smith" },
+      { name: "PSA Renewal", amount: 3200, status: "Closed Won", date: "2026-06-02", contact: "Sarah Jones" },
+      { name: "Billing Integration", amount: 8500, status: "Closed Lost", date: "2026-04-30", contact: "Mike Davis" }
+    ],
+    contacts: [
+      { name: "John Smith", email: "john@acme.com", title: "CTO" },
+      { name: "Sarah Jones", email: "sarah@acme.com", title: "Operations" },
+      { name: "Mike Davis", email: "mike@acme.com", title: "Director" }
+    ]
+  },
+  {
+    id: 2,
+    name: "Channel Partners 26",
+    month: "May",
+    contacts: 41,
+    opps: 17,
+    pipeline: 30685,
+    won: 5,
+    lost: 12,
+    wonMrr: 7255,
+    exhibitorCost: 15800,
+    teCost: 27309,
+    opportunities: [
+      { name: "Partner Program", amount: 12000, status: "Closed Won", date: "2026-07-01", contact: "Jane Wilson" },
+      { name: "Co-sell Agreement", amount: 9500, status: "Closed Lost", date: "2026-06-15", contact: "Tom Brown" }
+    ],
+    contacts: [
+      { name: "Jane Wilson", email: "jane@partner.com", title: "Partnerships" },
+      { name: "Tom Brown", email: "tom@partner.com", title: "Sales Director" }
+    ]
+  },
+  {
+    id: 3,
+    name: "ITEXPO 26",
+    month: "Jun",
+    contacts: 18,
+    opps: 12,
+    pipeline: 6905,
+    won: 1,
+    lost: 11,
+    wonMrr: 2250,
+    exhibitorCost: 6000,
+    teCost: 8246,
+    opportunities: [
+      { name: "Billing Module", amount: 2250, status: "Closed Won", date: "2026-07-10", contact: "Alice Brown" }
+    ],
+    contacts: [
+      { name: "Alice Brown", email: "alice@tech.com", title: "IT Manager" }
+    ]
+  },
+  {
+    id: 4,
+    name: "ASCII - Costa Mesa",
+    month: "Jul",
+    contacts: 17,
+    opps: 9,
+    pipeline: 2800,
+    won: 1,
+    lost: 7,
+    wonMrr: 525,
+    exhibitorCost: 6650,
+    teCost: 3898,
+    opportunities: [
+      { name: "PSA Trial Conversion", amount: 525, status: "Closed Won", date: "2026-07-20", contact: "Robert Lee" }
+    ],
+    contacts: [
+      { name: "Robert Lee", email: "robert@ascii.com", title: "Reseller Manager" }
+    ]
+  }
+];
+
+function formatCurrency(num) {
+  if (num >= 1000000) return '$' + (num / 1000000).toFixed(1) + 'M';
+  if (num >= 1000) return '$' + (num / 1000).toFixed(1) + 'K';
+  return '$' + num;
+}
+
+function formatPercent(num) {
+  return num.toFixed(0) + '%';
+}
+
+function createEventCard(event) {
+  const totalCost = event.exhibitorCost + event.teCost;
+  const roi = (event.wonMrr * 12) - totalCost;
+  const conversionRate = (event.won / event.opps * 100).toFixed(0);
+
+  const card = document.createElement('div');
+  card.className = 'event-card';
+  
+  card.innerHTML = `
+    <div class="event-header" onclick="toggleEventDetail(this)">
+      <div>
+        <div class="event-name">${event.name}</div>
+        <div class="event-meta">
+          <div class="event-meta-item">
+            <span class="label">Leads:</span>
+            <span class="value">${event.contacts}</span>
+          </div>
+          <div class="event-meta-item">
+            <span class="label">Opps:</span>
+            <span class="value">${event.opps}</span>
+          </div>
+          <div class="event-meta-item">
+            <span class="label">Won:</span>
+            <span class="value">${event.won}</span>
+          </div>
+          <div class="event-meta-item">
+            <span class="label">Pipeline:</span>
+            <span class="value">${formatCurrency(event.pipeline)}</span>
+          </div>
+        </div>
+      </div>
+      <div class="event-toggle">▼</div>
+    </div>
+    <div class="event-detail">
+      <div class="detail-section">
+        <div class="detail-title">📊 Key Metrics</div>
+        <div class="cost-info">
+          <div class="cost-item">
+            <div class="cost-label">Conversion Rate</div>
+            <div class="cost-value">${conversionRate}%</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-label">Lost Opps</div>
+            <div class="cost-value negative">${event.lost}</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-label">Won MRR</div>
+            <div class="cost-value positive">${formatCurrency(event.wonMrr)}</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-label">Lead → Opp</div>
+            <div class="cost-value">${formatPercent(event.opps / event.contacts * 100)}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-title">💰 Cost & ROI</div>
+        <div class="cost-info">
+          <div class="cost-item">
+            <div class="cost-label">Exhibitor Cost</div>
+            <div class="cost-value">${formatCurrency(event.exhibitorCost)}</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-label">T&E Cost</div>
+            <div class="cost-value">${formatCurrency(event.teCost)}</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-label">Total Cost</div>
+            <div class="cost-value">${formatCurrency(totalCost)}</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-label">12-Month ROI</div>
+            <div class="cost-value ${roi >= 0 ? 'positive' : 'negative'}">${formatCurrency(roi)}</div>
+          </div>
+        </div>
+        <div style="font-size:10px;color:var(--muted);margin-top:8px;font-style:italic;">Formula: (Won MRR × 12) - Total Cost</div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-title">🎯 Opportunities (${event.opportunities.length} shown)</div>
+        <div class="opps-list">
+          ${event.opportunities.map(opp => `
+            <div class="opp-item ${opp.status === 'Closed Won' ? 'won' : opp.status === 'Closed Lost' ? 'lost' : 'open'}">
+              <div class="opp-name">${opp.name}</div>
+              <div class="opp-meta">
+                <span>${opp.status}</span>
+                <span class="opp-amount">${formatCurrency(opp.amount)}</span>
+              </div>
+              <div style="font-size:9px;color:var(--muted);margin-top:3px;">${opp.date} · ${opp.contact}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-title">👥 Contacts (${event.contacts.length} captured)</div>
+        <div class="contacts-list">
+          ${event.contacts.map(contact => `
+            <div class="contact-item">
+              <div class="contact-name">${contact.name}</div>
+              <div class="contact-email">${contact.email}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+
+  return card;
+}
+
+function toggleEventDetail(header) {
+  const detail = header.nextElementSibling;
+  const toggle = header.querySelector('.event-toggle');
+  
+  detail.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+
+// Render all events
+const grid = document.getElementById('eventsGrid');
+eventsData.forEach(event => {
+  grid.appendChild(createEventCard(event));
+});
+</script>
+
+</body>
+</html>
