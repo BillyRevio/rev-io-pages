@@ -498,7 +498,7 @@ const SRC_MRR=[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,50,0,0,0,0,0,0,0,0,0,0
 const MRR_MONTHLY_PRODS=[[1584,1584,7126,5126,5126,7126,4876,4876,7126,4876,3751,9376],[10200,12600,15000,18000,20400,22800,25200,27600,30000,33000,35400,37800],[0,0,2250,2700,3060,3420,3780,4140,4500,4950,5310,5670]];
 const OPP_MONTHLY_PRODS=[[6,6,29,21,21,29,20,20,29,20,15,38],[77,95,107,129,146,104,115,125,136,150,161,172],[0,0,8,9,11,12,13,15,16,17,19,20]];
 const PROD_COLORS=['#00d4aa','#6c63ff','#ff6b6b'];
-const PROD_NAMES=['Billing','PSA','Cyber Protect'];
+const PROD_NAMES=['Billing','New Rev.io','Cyber Protect'];
 const QTR_RANGES=[[0,89],[90,180],[181,272],[273,364]];
 const todayIdx=312;
 const MNAMES=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -779,7 +779,7 @@ function buildProdCards(){
   const [si,ei]=QTR_RANGES[1]; // Q2
   const PROD_INFO=[
     {name:'Billing',color:'#00d4aa',pi:0},
-    {name:'PSA',color:'#6c63ff',pi:1},
+    {name:'New Rev.io',color:'#6c63ff',pi:1},
     {name:'Cyber Protect',color:'#ff6b6b',pi:2},
   ];
   PROD_INFO.forEach(({name,color,pi})=>{
@@ -823,7 +823,7 @@ function buildAnnualTable(){
 
   const PRODS=[
     {name:'Billing',color:'#00d4aa',pi:0,mrrT:MRR_MONTHLY_PRODS[0],oppT:OPP_MONTHLY_PRODS[0]},
-    {name:'PSA',color:'#6c63ff',pi:1,mrrT:MRR_MONTHLY_PRODS[1],oppT:OPP_MONTHLY_PRODS[1]},
+    {name:'New Rev.io',color:'#6c63ff',pi:1,mrrT:MRR_MONTHLY_PRODS[1],oppT:OPP_MONTHLY_PRODS[1]},
     {name:'Cyber Protect',color:'#ff6b6b',pi:2,mrrT:MRR_MONTHLY_PRODS[2],oppT:OPP_MONTHLY_PRODS[2]},
   ];
 
